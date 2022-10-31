@@ -88,7 +88,8 @@
         <!-- /.content-wrapper -->
         </div>
 
-        <jsp:include page="template/footer.jsp"></jsp:include>
+        <jsp:include page="/Templates/footer.jsp"></jsp:include>
+        
         <script>
             $(function () {
 
