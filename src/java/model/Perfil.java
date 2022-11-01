@@ -1,6 +1,5 @@
 package model;
 
-import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -21,6 +20,11 @@ public class Perfil {
     }
 
     public Perfil() {
+    }
+    
+    @Override
+    public String toString() {
+        return "Perfil{" + "idPerfil=" + idPerfil + ", nome=" + nome + ", dataCadastro=" + dataCadastro + '}';
     }
 
 }

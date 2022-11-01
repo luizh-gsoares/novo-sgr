@@ -14,7 +14,7 @@ public class DbConnect {
             String mydatabase = "projetoetb2sem";
             String username = "root";
             String password = "";
-            String driverName = "com.mysql.jdbc.Driver";
+            String driverName = "com.mysql.cj.jdbc.Driver";
             Class.forName(driverName);
             String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
             con = DriverManager.getConnection(url, username, password);
