@@ -6,11 +6,11 @@
 <!--Popper.js -->
 <script src="Resources/js/plugins/popper/umd/popper.min.js" type="text/javascript"></script>
 
-<!-- Bootstrap 4 -->
-<script src="Resources/js/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-
 <!-- AdminLTE App -->
 <script src="Resources/js/adminlte.js"></script>
+
+<!-- Bootstrap 4 -->
+<script src="Resources/js/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- SweetAlert2 -->
 <script src="Resources/js/plugins/sweetalert2/sweetalert2.all.min.js"></script>
