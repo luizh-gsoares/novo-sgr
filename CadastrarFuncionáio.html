@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
+    </script>
+    <style>
+        .container {
+            background-color: #f4f6f9;
+            padding: 10px;
+        }
+        hr{
+            border-color: #343a40;
+        }
+        legend{
+            text-align: center;
+        }
+        button{
+            width: 110px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h4>Ficha Funcional</h4>
+
+    <form class="needs-validation" novalidate action="#" method="get">
+        <div class="container">
+            <legend> Dados Pessoais </legend>
+            <hr>
+            <!-- Campos Dados Pessoais -->
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example1"  required>Nome Completo</label>
+                        <input type="text" id="form6Example1" class="form-control" id="validationCustom01" />
+                    </div>
+                    <div class="invalid-feedback">
+                        Por favor informe o nome
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example2" required> Matricula</label>
+                        <input type="text" id="form6Example2" class="form-control" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Segunda linha -->
+            <div class="row">
+                <div class="col">
+                    <div class="form-outline mb-4">
+                        <label class="form-label">Apelido</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label">Naturalidade</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="form-label">U.F</label>
+                    <div class="form-outline">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terceira linha -->
+            <div class="row">
+                <div class="col">
+                    <div class="form-outline mb-4">
+                        <label class="form-label">Data de Nascimento</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label">Sexo</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label">Estado Civil</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quarta linha -->
+            <div class="row">
+                <div class="col">
+                    <div class="form-outline mb-4">
+                        <label class="form-label">R.G</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label">Data de Expedição</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label">Órgão Expedidor/U.F</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quinta linha  -->
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example1">CPF</label>
+                        <input type="text" id="form6Example1" class="form-control" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example2">Título Eleitoral</label>
+                        <input type="text" id="form6Example2" class="form-control" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example2">Zona</label>
+                        <input type="text" id="form6Example2" class="form-control" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example2">Sessão</label>
+                        <input type="text" id="form6Example2" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <legend>Filiação</legend>
+            <hr>
+            <!-- Primeira linha  -->
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example1">Mãe</label>
+                        <input type="text" id="form6Example1" class="form-control" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example2">Pai</label>
+                        <input type="text" id="form6Example2" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <legend>Localização</legend>
+            <hr>
+            <!-- Primeira linha  -->
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example1">Endereço</label>
+                        <input type="text" id="form6Example1" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example2">Cidade</label>
+                        <input type="text" id="form6Example2" class="form-control" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example2">CEP</label>
+                        <input type="text" id="form6Example2" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example2">Fone Residencial</label>
+                        <input type="text" id="form6Example2" class="form-control" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example2">Telefone Contato</label>
+                        <input type="text" id="form6Example2" class="form-control" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example2">Fone para recado</label>
+                        <input type="text" id="form6Example2" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <legend>Formação Educacional</legend>
+            <hr>
+            <!-- Primeira linha  -->
+            <div class="col mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <label for="Escolaridade">Nível de Escolaridade</label>
+                        <select class="form-select" aria-label="Default select example" placeholder="Escolaridade">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example2">Cursando</label>
+                        <input type="text" id="form6Example2" class="form-control" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example2">Escola/Faculdade</label>
+                        <input type="text" id="form6Example2" class="form-control" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example2">Semestre</label>
+                        <input type="text" id="form6Example2" class="form-control" />
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example2">Cursos Concluidos</label>
+                            <textarea type="text" id="form6Example2" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <legend>Localização</legend>
+            <hr>
+            <!-- Primeira linha  -->
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example1">Cargo/Função</label>
+                        <input type="text" id="form6Example1" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example2">Nível/E.P</label>
+                        <input type="text" id="form6Example2" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example2">Data Adimissão</label>
+                        <input type="text" id="form6Example2" class="form-control" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example2">Regime Contratual</label>
+                        <input type="text" id="form6Example2" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example2">Lotação</label>
+                        <input type="text" id="form6Example2" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example2">Data lotação na CREC</label>
+                        <input type="text" id="form6Example2" class="form-control" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example2">CRE anterior</label>
+                        <input type="text" id="form6Example2" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example2">CRE/Escolas onde já trabalhou</label>
+                        <input type="text" id="form6Example2" class="form-control" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example2">Data de Entrada</label>
+                        <input type="date" id="form6Example2" class="form-control" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example2">Data Saída</label>
+                        <input type="date" id="form6Example2" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">Enviar</button>
+    </div>
+    </form>
+</body>
+
+</html>

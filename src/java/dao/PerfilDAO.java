@@ -9,7 +9,7 @@ import model.Perfil;
 public class PerfilDAO {
 
     public boolean cadastraPerfil(Perfil perfil) {
-        String insertTableSQL = "INSERT INTO perfil" + "(idPerfil, nome, dataCadastro) VALUES" + "(?,?,?) ;";
+        String insertTableSQL = "INSERT INTO empregado" + "(idPerfil, nome, dataCadastro) VALUES" + "(?,?,?) ;";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = DbConnect.getConexao().prepareStatement(insertTableSQL);

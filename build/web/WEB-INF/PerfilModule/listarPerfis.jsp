@@ -25,10 +25,9 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between">
-                                <jsp:include page="cadastrarPerfil.jsp"></jsp:include>
-                                <button type="button" class="btn btn-secondary" data-toggle="modal"
-                                        data-target="#modal-default"> Cadastrar Perfil <i class="fa-solid fa-floppy-disk"></i>
-                                </button>
+                                <a type="button" class="btn btn-secondary" href="cadastrarperfil"
+                                        > Cadastrar Perfil <i class="fa-solid fa-floppy-disk"></i>
+                                </a>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">

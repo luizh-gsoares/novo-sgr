@@ -11,7 +11,7 @@ public class DbConnect {
         Connection con = null;
         try {
             String serverName = "localhost";
-            String mydatabase = "projetoetb2sem";
+            String mydatabase = "sgr";
             String username = "root";
             String password = "";
             String driverName = "com.mysql.cj.jdbc.Driver";

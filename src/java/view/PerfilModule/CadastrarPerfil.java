@@ -17,7 +17,7 @@ public class CadastrarPerfil extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = getServletContext()
-                .getRequestDispatcher("/WEB-INF/ProductModule/cadastrarPerfil.jsp");
+                .getRequestDispatcher("/WEB-INF/PerfilModule/cadastrarPerfil.jsp");
         dispatcher.forward(request, response);
     }
 
