@@ -26,7 +26,7 @@
                         <div class="card">
                             <div class="card-header d-flex justify-content-between">
                                 <a type="button" class="btn btn-secondary" href="cadastrarperfil"
-                                        > Cadastrar Perfil <i class="fa-solid fa-floppy-disk"></i>
+                                   > Cadastrar Perfil <i class="fa-solid fa-floppy-disk"></i>
                                 </a>
                             </div>
                             <!-- /.card-header -->
@@ -40,9 +40,8 @@
                                             <th>Ações</th>
                                         </tr>
                                     </thead>
-
-                                <c:forEach items="${listaDePerfis}" var="perfil">
-                                    <tbody>
+                                    <tbody>                       
+                                    <c:forEach items="${listaDePerfis}" var="perfil">
                                         <tr>
                                             <td>${perfil.idPerfil}</td>
                                             <td>${perfil.nome}</td>
@@ -62,9 +61,8 @@
                                                 </form>
                                             </td>
                                         </tr>
-                                    </tbody>
-                                </c:forEach>
-
+                                    </c:forEach>
+                                </tbody>
                                 <tfoot>
                                     <tr>
                                         <th>Código</th>

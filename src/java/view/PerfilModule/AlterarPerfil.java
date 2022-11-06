@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Perfil;
 
-@WebServlet(name = "AlterarPerfil", urlPatterns = {"/alterarPerfil"})
+@WebServlet(name = "AlterarPerfil", urlPatterns = {"/alterarperfil"})
 public class AlterarPerfil extends HttpServlet {
 
     @Override

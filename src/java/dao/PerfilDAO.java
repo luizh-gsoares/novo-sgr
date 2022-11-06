@@ -67,7 +67,7 @@ public class PerfilDAO {
             Perfil perf = new Perfil();
 
             if (rs.next()) {
-                perf.setIdPerfil(rs.getInt("idIdPerfil"));
+                perf.setIdPerfil(rs.getInt("IdPerfil"));
                 perf.setNome(rs.getString("nome"));
                 perf.setDataCadastro(rs.getString("dataCadastro"));
 
