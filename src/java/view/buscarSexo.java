@@ -10,20 +10,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import model.Sexo;
 
 
-@WebServlet(name = "buscarSexo", urlPatterns = {"/buscarsexo"})
+@WebServlet(name = "buscarSexo", urlPatterns = {"/listarsexo"})
 public class buscarSexo extends HttpServlet {
     
-        @Override
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("GET - BUSCARSEXO");
-        SexoDAO sdao = new SexoDAO();
-        ArrayList<Sexo> listaDeSexos = sdao.procuraTodosSexos();
+        SexoDAO dao = new SexoDAO();
+        ArrayList<Sexo> listaDeSexos = dao.procuraTodosSexos();
             request.setAttribute("listaDeSexos", listaDeSexos);
-        RequestDispatcher rd = request.getRequestDispatcher("cadastrarPerfil.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/PerfilModule/cadastrarPerfil.jsp");
         rd.forward(request, response);
     }
 

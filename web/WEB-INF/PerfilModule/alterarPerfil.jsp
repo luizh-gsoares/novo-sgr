@@ -43,16 +43,13 @@
                 <div style="margin-top: 5%" class="col-md-12">
                     <div class="col-md-12">
                         <h4 > Cadastrar novo produto</h4>
-                        <form action="alterarproduto" method="post">
-                            <input type="hidden" name="idProduto" value="${produto.codigo}"/>
+                        <form action="alterarperfil" method="post">
+                            <input type="hidden" name="idPerfil" value="${perfil.idPerfil}"/>
                             <div class="form-group">
-                                <input class="form-control" type="text" value="${produto.nome}" name="nome" placeholder="Digite o nome do produto" autofocus/>
+                                <input class="form-control" type="text" value="${perfil.nome}" name="nome" placeholder="Digite o nome do perfil" autofocus/>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="text" value="${produto.valor}" name="valor" placeholder="Digite o valor do produto"/>                        
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" type="text" value="${produto.descricao}" name="descricao" placeholder="Digite a descrição do produto"/>                        
+                                <input class="form-control" type="date" value="${perfil.dataCadastro}" name="dataCadastro" placeholder="Digite o valor do perfil"/>                        
                             </div>
                             <input  type="submit" class="btn btn-sucess" name="btnEnviar" value="Enviar">
                         </form>

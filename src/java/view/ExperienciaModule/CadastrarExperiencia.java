@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Experiencia;
 
-
 @WebServlet(name = "CadastrarExperiencia", urlPatterns = {"/cadastrarexperiencia"})
 public class CadastrarExperiencia extends HttpServlet {
 
@@ -29,21 +28,24 @@ public class CadastrarExperiencia extends HttpServlet {
         System.out.println("POST - CADASTRAR EXPERIENCIA");
         request.setCharacterEncoding("UTF-8");
         Experiencia e = new Experiencia();
-        u.setNome(request.getParameter("nome"));
-        u.setValor(Double.parseDouble(request.getParameter("valor")));
-        u.setDescricao(request.getParameter("descricao"));
+        e.setIdEmpregado(Integer.parseInt(request.getParameter("idEmpregado")));
+        e.setFuncao(request.getParameter("funcao"));
+        e.setLocal(request.getParameter("local"));
+        e.setCre(Integer.parseInt(request.getParameter("cre")));
+        e.setDtSaida(request.getParameter("dtSaida"));
+        e.setDtEntrada(request.getParameter("dtEntrada"));
         String page = "home.jsp";
 
-        ProdutoDAO dao = new ProdutoDAO();
+        ExperienciaDAO dao = new ExperienciaDAO();
 
-        if (dao.cadastraProduto(u)) {
-            page = "listarprodutos";
+        if (dao.cadastraExperiencia(e)) {
+            page = "listarexperiencia";
             response.sendRedirect(page);
         } else {
             //enviar um atributo msg de erro
-            request.setAttribute("erro", "Produto não inserido.");
+            request.setAttribute("erro", "Experiencia não inserido.");
         }
-        ;
+
     }
 
 }

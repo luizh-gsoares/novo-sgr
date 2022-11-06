@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import model.Sexo;
 
 public class SexoDAO {
-     public ArrayList<Sexo> procuraTodosSexos() {
-         
+      public ArrayList<Sexo> procuraTodosSexos() {
+
         try {
             String sql = "SELECT * FROM sexo;";
             PreparedStatement con = DbConnect.getConexao().prepareStatement(sql);
@@ -17,13 +17,12 @@ public class SexoDAO {
 
             ArrayList<Sexo> listaSexos = new ArrayList<>();
             while (rs.next()) {
-                Sexo sx = new Sexo();
+                Sexo sex = new Sexo();
 
-                sx.setIdSexo(rs.getInt("idSexo"));
-                sx.setSexo(rs.getString("sexo"));
-     
+                sex.setIdSexo(rs.getInt("idSexo"));
+                sex.setSexo(rs.getString("sexo"));
 
-                listaSexos.add(sx);
+                listaSexos.add(sex);
             }
             rs.close();
             con.close();
@@ -34,4 +33,5 @@ public class SexoDAO {
         }
         return null;
     }
+
 }

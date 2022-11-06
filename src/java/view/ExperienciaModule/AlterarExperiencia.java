@@ -11,40 +11,44 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Experiencia;
 
-
-@WebServlet(name = "AlterarProduto", urlPatterns = {"/alterarproduto"})
+@WebServlet(name = "AlterarExperiencia", urlPatterns = {"/alterarexperiencia"})
 public class AlterarExperiencia extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        ProdutoDAO pDao = new ProdutoDAO();
-        Integer idProduto = Integer.parseInt(request.getParameter("idProduto"));
-        Produto p = pDao.procuraProdutoPeloID(idProduto);
-        request.setAttribute("produto", p);
+        ExperienciaDAO eDao = new ExperienciaDAO();
+        Integer idExperiencia = Integer.parseInt(request.getParameter("idExperiencia"));
+        Experiencia e = eDao.procuraExperienciaPeloID(idExperiencia);
+        request.setAttribute("experiencia", e);
 
         RequestDispatcher dispatcher = getServletContext()
-                .getRequestDispatcher("/WEB-INF/ProductModule/alterarProduto.jsp");
+                .getRequestDispatcher("/WEB-INF/ExperienciaModule/alterarExperiencia.jsp");
         dispatcher.forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("POST - Alterar PRODUTO");
+        System.out.println("POST - Alterar EXPERIENCIA");
         request.setCharacterEncoding("UTF-8");
-        Produto u = new Produto();
-        int idProduto = Integer.parseInt(request.getParameter("idProduto"));
-        u.setCodigo(idProduto);
-        u.setNome(request.getParameter("nome"));
-        u.setValor(Double.parseDouble(request.getParameter("valor")));
-        u.setDescricao(request.getParameter("descricao"));
+        Experiencia e = new Experiencia();
+        int idExperiencia = Integer.parseInt(request.getParameter("idExperiencia"));
+        e.setIdExperiencia(idExperiencia);
+        int idEmpregado = Integer.parseInt(request.getParameter("idEmpregado"));
+        e.setIdEmpregado(idEmpregado);
+        e.setFuncao(request.getParameter("funcao"));
+        e.setLocal(request.getParameter("local"));
+        int idCre = Integer.parseInt(request.getParameter("Cre"));
+        e.setCre(idCre);
+        e.setDtSaida(request.getParameter("dtSaida"));
+        e.setDtEntrada(request.getParameter("dtEntrada"));
 
-        ProdutoDAO dao = new ProdutoDAO();
+        ExperienciaDAO dao = new ExperienciaDAO();
 
-        if (dao.alteraProduto(u)) {
-            response.sendRedirect("listarprodutos");
+        if (dao.alteraExperiencia(e)) {
+            response.sendRedirect("listarexperiencias");
         } else {
             //enviar um atributo msg de erro
             request.setAttribute("erro", "Erro ao alterar");

@@ -42,6 +42,10 @@
                                     </thead>
                                     <tbody>                       
                                     <c:forEach items="${listaDePerfis}" var="perfil">
+                                    <select id="" name="">
+                                         <option value="${perfil.idPerfil}">${perfil.nome}</option>
+                                    </select>
+                                       
                                         <tr>
                                             <td>${perfil.idPerfil}</td>
                                             <td>${perfil.nome}</td>
