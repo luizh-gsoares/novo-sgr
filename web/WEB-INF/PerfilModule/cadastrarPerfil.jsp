@@ -68,11 +68,10 @@
                         <div class="form-group">
                             <label>Sexo</label>
                             
-                            <select class="form-control select2">                    
-                            <jsp:useBean class="dao.SexoDAO" id="sdao"/>
-                            <c:forEach var="s" items="${sdao.procuraTodosSexos}">
-                                <option value="${s.idSexo}">
-                                    ${s.sexo}
+                            <select class="form-control select2" id="perfil" name="perfil">                    
+                            <c:forEach var="perfil" items="${listaDePerfis}">
+                                <option value="${perfil.idPerfil}">
+                                    ${perfil.nome}
                                 </option>                                
                             </c:forEach>
                          
