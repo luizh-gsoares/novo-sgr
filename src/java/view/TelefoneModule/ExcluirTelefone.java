@@ -17,7 +17,7 @@ public class ExcluirTelefone extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = getServletContext()
-                .getRequestDispatcher("/TelefoneModule/ListarTelefones.jsp");
+                .getRequestDispatcher("/TelefoneModule/listarTelefones.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -33,7 +33,7 @@ public class ExcluirTelefone extends HttpServlet {
 
         dao.excluiTelefone(t.getIdTelefone());
         String page = "/TelefoneModule/listarTelefones.jsp";
-        response.sendRedirect("listarprodutos");
+        response.sendRedirect("listartelefones");
     }
 
 }

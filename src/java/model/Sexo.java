@@ -1,28 +1,31 @@
 package model;
-
-import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
-@Getter
-@Setter
 @ToString
-public class Sexo {
-    
-    private Integer idSexo;
-    private String sexo;
-
-    
-    public Sexo(Integer idSexo, String sexo) {
-        this.idSexo = idSexo;
-        this.sexo = sexo;
+ 
+    public class Sexo {
+    private int id;
+    private String tipo;
+ 
+    public Sexo(int id, String tipo) {
+        super();
+        this.id = id;
+        this.tipo = tipo;
     }
-    
-    public Sexo() {
+ 
+    public int getId() {
+        return id;
     }
-    
-    @Override
-    public String toString() {
-        return "Sexo{" + "idSexo=" + idSexo + ", sexo=" + sexo + '}';
+ 
+    public void setId(int idsexo) {
+        this.id = id;
+    }
+ 
+    public String getTipo() {
+        return tipo;
+    }
+ 
+    public void setName(String name) {
+        this.tipo = tipo;
     }
 }
