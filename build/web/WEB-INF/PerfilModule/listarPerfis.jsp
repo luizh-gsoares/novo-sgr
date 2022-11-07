@@ -40,32 +40,28 @@
                                             <th>Ações</th>
                                         </tr>
                                     </thead>
-                                    <tbody>                       
+                                    <tbody>      
                                     <c:forEach items="${listaDePerfis}" var="perfil">
-                                    <select id="" name="">
-                                         <option value="${perfil.idPerfil}">${perfil.nome}</option>
-                                    </select>
-                                       
-                                        <tr>
-                                            <td>${perfil.idPerfil}</td>
-                                            <td>${perfil.nome}</td>
-                                            <td>${perfil.dataCadastro}</td>
-                                            <td> 
-                                                <form action="excluirperfil" method="post">
-                                                    <input type="hidden" name="idPerfil"
-                                                           value="${perfil.idPerfil}" />
-                                                    <input type="submit" class="btn btn-danger"
-                                                           value="Excluir Perfil" />
-                                                </form>
-                                                <form action="alterarperfil" method="get">
-                                                    <input type="hidden" name="idPerfil"
-                                                           value="${perfil.idPerfil}" />
-                                                    <input type="submit" class="btn btn-warning"
-                                                           value="Alterar Perfil" />
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
+                                    <tr>
+                                        <td>${perfil.idPerfil}</td>
+                                        <td>${perfil.nome}</td>
+                                        <td>${perfil.dataCadastro}</td>
+                                        <td> 
+                                            <form action="excluirperfil" method="post">
+                                                <input type="hidden" name="idPerfil"
+                                                       value="${perfil.idPerfil}" />
+                                                <input type="submit" class="btn btn-danger"
+                                                       value="Excluir Perfil" />
+                                            </form>
+                                            <form action="alterarperfil" method="get">
+                                                <input type="hidden" name="idPerfil"
+                                                       value="${perfil.idPerfil}" />
+                                                <input type="submit" class="btn btn-warning"
+                                                       value="Alterar Perfil" />
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
                                 </tbody>
                                 <tfoot>
                                     <tr>

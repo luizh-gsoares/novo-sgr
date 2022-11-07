@@ -1,7 +1,7 @@
 
-package view;
-        
-import dao.SexoDAO;
+package view.PerfilModule;
+
+import dao.PerfilDAO;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
@@ -10,29 +10,27 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Perfil;
 
-import model.Sexo;
 
+@WebServlet(name = "ListarPerfis", urlPatterns = {"/listarperfis"})
+public class ListarPerfis extends HttpServlet {
 
-@WebServlet(name = "buscarSexo", urlPatterns = {"/listarsexo"})
-public class buscarSexo extends HttpServlet {
-    
+   
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        SexoDAO dao = new SexoDAO();
-        ArrayList<Sexo> listaDeSexos = dao.procuraTodosSexos();
-            request.setAttribute("listaDeSexos", listaDeSexos);
-        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/PerfilModule/cadastrarPerfil.jsp");
+        PerfilDAO dao = new PerfilDAO();
+        ArrayList<Perfil> listaDePerfis = dao.procuraTodosPerfis();
+            request.setAttribute("listaDePerfis", listaDePerfis);
+        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/PerfilModule/listarPerfis.jsp");
         rd.forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         System.out.println("POST - CADASTRAR USUARIO");
+         System.out.println("POST - CADASTRAR PERFIL");
     }
 
 }
-
-
