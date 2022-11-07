@@ -1,6 +1,6 @@
-package view.PerfilModule;
+package view.EnderecoModule;
 
-import dao.PerfilDAO;
+import dao.EnderecoDAO;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,37 +8,40 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Perfil;
+import model.Endereco;
 
-@WebServlet(name = "CadastrarPerfil", urlPatterns = {"/cadastrarperfil"})
-public class CadastrarPerfil extends HttpServlet {
+@WebServlet(name = "CadastrarEndereco", urlPatterns = {"/cadastrarendereco"})
+public class CadastrarEndereco extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = getServletContext()
-                .getRequestDispatcher("/WEB-INF/PerfilModule/cadastrarPerfil.jsp");
+                .getRequestDispatcher("/WEB-INF/EnderecoModule/cadastrarEndereco.jsp");
         dispatcher.forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("POST - CADASTRAR PERFIL");
+        System.out.println("POST - CADASTRAR ENDERECO");
         request.setCharacterEncoding("UTF-8");
-        Perfil p = new Perfil();
-        p.setNome(request.getParameter("nome"));
-        p.setDataCadastro(request.getParameter("dataCadastro"));
+        Endereco e = new Endereco();
+        e.setCep(request.getParameter("cep"));
+        e.setLogradouro(request.getParameter("logradouro"));
+        e.setComplemento(request.getParameter("complemento"));
+        int idCidade = Integer.parseInt(request.getParameter("idCidade"));
+        e.setIdCidade(idCidade);
         String page = "home.jsp";
 
-        PerfilDAO dao = new PerfilDAO();
+        EnderecoDAO dao = new EnderecoDAO();
 
-        if (dao.cadastraPerfil(p)) {
-            page = "listarperfis";
+        if (dao.cadastraEndereco(e)) {
+            page = "listarenderecos";
             response.sendRedirect(page);
         } else {
             //enviar um atributo msg de erro
-            request.setAttribute("erro", "Perfil não inserido.");
+            request.setAttribute("erro", "Endereco não inserido.");
         }
         ;
     }

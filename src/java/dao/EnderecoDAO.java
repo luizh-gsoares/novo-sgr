@@ -29,15 +29,18 @@ public class EnderecoDAO {
         }
     }
 
-    public boolean alteraEndereco(Endereco perfil) {
-        String insertTableSQL = "UPDATE perfil SET nome = ?, dataCadastro = ?"
-                + "WHERE idPerfil = ? ;";
+    public boolean alteraEndereco(Endereco endereco) {
+        String insertTableSQL = "UPDATE endereco "
+                + "SET cep = ?, logradouro = ?, complemento = ?, idCidade = ?"
+                + "WHERE idEndereco = ?;";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = DbConnect.getConexao().prepareStatement(insertTableSQL);
-            preparedStatement.setString(1, perfil.getNome());
-            preparedStatement.setString(2, perfil.getDataCadastro());
-            preparedStatement.setInt(3, perfil.getIdPerfil());
+            preparedStatement.setString(1, endereco.getCep());
+            preparedStatement.setString(2, endereco.getLogradouro());
+            preparedStatement.setString(3, endereco.getComplemento());
+            preparedStatement.setInt(4, endereco.getIdCidade());
+            preparedStatement.setInt(5, endereco.getIdEndereco());
 
             preparedStatement.executeUpdate();
             return true;
@@ -45,11 +48,13 @@ public class EnderecoDAO {
             e.printStackTrace();
             return false;
         }
+
     }
 
-    public boolean excluiPerfil(Integer toDelete) {
-        String insertTableSQL = "DELETE FROM perfil WHERE idPerfil = ? ; ";
+    public boolean excluiEndereco(Integer toDelete) {
+        String insertTableSQL = "DELETE FROM endereco WHERE idEndereco = ?;";
         PreparedStatement preparedStatement;
+
         try {
             preparedStatement = DbConnect.getConexao().prepareStatement(insertTableSQL);
             preparedStatement.setInt(1, toDelete);
@@ -61,25 +66,26 @@ public class EnderecoDAO {
         }
     }
 
-    public Perfil procuraPerfilPeloID(Integer idPerfil) {
-
+    public Endereco procuraEnderecoPeloID(Integer idEndereco) {
+      
         try {
-            String sql = "SELECT * FROM perfil WHERE idPerfil = ? ;";
+            String sql = "SELECT * FROM endereco WHERE idEndereco = ?;";
             PreparedStatement con = DbConnect.getConexao().prepareStatement(sql);
 
-            con.setInt(1, idPerfil);
+            con.setInt(1, idEndereco);
             ResultSet rs = con.executeQuery();
-            Perfil perf = new Perfil();
+            Endereco ende = new Endereco();
 
             if (rs.next()) {
-                perf.setIdPerfil(rs.getInt("IdPerfil"));
-                perf.setNome(rs.getString("nome"));
-                perf.setDataCadastro(rs.getString("dataCadastro"));
-
+                ende.setIdEndereco(rs.getInt("idEndereco"));
+                ende.setCep(rs.getString("cep"));
+                ende.setLogradouro(rs.getString("logradouro"));
+                ende.setComplemento(rs.getString("complemento"));
+                ende.setIdCidade(rs.getInt("idCidade"));
             }
             rs.close();
             con.close();
-            return perf;
+            return ende;
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -87,27 +93,30 @@ public class EnderecoDAO {
         return null;
     }
 
-    public ArrayList<Perfil> procuraTodosPerfis() {
+    public ArrayList<Endereco> procuraTodosEnderecos() {
 
         try {
-            String sql = "SELECT * FROM perfil;";
+            
+            String sql = "SELECT * FROM endereco;";
             PreparedStatement con = DbConnect.getConexao().prepareStatement(sql);
 
             ResultSet rs = con.executeQuery();
+            ArrayList<Endereco> listaEnderecos = new ArrayList<>();
 
-            ArrayList<Perfil> listaPerfis = new ArrayList<>();
+            
             while (rs.next()) {
-                Perfil perf = new Perfil();
-
-                perf.setIdPerfil(rs.getInt("idPerfil"));
-                perf.setNome(rs.getString("nome"));
-                perf.setDataCadastro(rs.getString("dataCadastro"));
-
-                listaPerfis.add(perf);
+                Endereco ende = new Endereco();
+                ende.setIdEndereco(rs.getInt("idEndereco"));
+                ende.setCep(rs.getString("cep"));
+                ende.setLogradouro(rs.getString("logradouro"));
+                ende.setComplemento(rs.getString("complemento"));
+                ende.setIdCidade(rs.getInt("idCidade"));
+                listaEnderecos.add(ende);
             }
+            
             rs.close();
             con.close();
-            return listaPerfis;
+            return listaEnderecos;
 
         } catch (Exception e) {
             e.printStackTrace();
