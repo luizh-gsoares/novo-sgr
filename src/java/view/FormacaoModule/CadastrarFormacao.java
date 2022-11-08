@@ -11,39 +11,40 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Formacao;
 
-@WebServlet(name = "CadastrarExperiencia", urlPatterns = {"/cadastrarexperiencia"})
+@WebServlet(name = "CadastrarFormacao", urlPatterns = {"/cadastrarformacao"})
 public class CadastrarFormacao extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = getServletContext()
-                .getRequestDispatcher("/WEB-INF/ExperienciaModule/cadastrarExperiencia.jsp");
+                .getRequestDispatcher("/WEB-INF/FormacaoModule/cadastrarFormacao.jsp");
         dispatcher.forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("POST - CADASTRAR EXPERIENCIA");
+        System.out.println("POST - CADASTRAR FORMACAO");
         request.setCharacterEncoding("UTF-8");
-        Experiencia e = new Experiencia();
-        e.setIdEmpregado(Integer.parseInt(request.getParameter("idEmpregado")));
-        e.setFuncao(request.getParameter("funcao"));
-        e.setLocal(request.getParameter("local"));
-        e.setCre(Integer.parseInt(request.getParameter("cre")));
-        e.setDtSaida(request.getParameter("dtSaida"));
-        e.setDtEntrada(request.getParameter("dtEntrada"));
+        Formacao f = new Formacao();
+        f.setIdEmpregado(Integer.parseInt(request.getParameter("idEmpregado")));
+        f.setIdTipocurso(Integer.parseInt(request.getParameter("idTipocurso")));
+        f.setCurso(request.getParameter("curso"));
+        f.setInstituicao(request.getParameter("instituicao"));
+        f.setSemestre(Integer.parseInt(request.getParameter("semestre")));
+        f.setDtInicio(request.getParameter("dtInicio"));
+        f.setDtFim(request.getParameter("dtFim"));
         String page = "home.jsp";
 
-        ExperienciaDAO dao = new ExperienciaDAO();
+        FormacaoDAO dao = new FormacaoDAO();
 
-        if (dao.cadastraExperiencia(e)) {
-            page = "listarexperiencia";
+        if (dao.cadastraFormacao(f)) {
+            page = "listarformacoes";
             response.sendRedirect(page);
         } else {
             //enviar um atributo msg de erro
-            request.setAttribute("erro", "Experiencia não inserido.");
+            request.setAttribute("erro", "Formacao não inserido.");
         }
 
     }

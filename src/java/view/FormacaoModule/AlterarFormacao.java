@@ -11,44 +11,46 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Formacao;
 
-@WebServlet(name = "AlterarExperiencia", urlPatterns = {"/alterarexperiencia"})
+@WebServlet(name = "AlterarFormacao", urlPatterns = {"/alterarformacao"})
 public class AlterarFormacao extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        ExperienciaDAO eDao = new ExperienciaDAO();
-        Integer idExperiencia = Integer.parseInt(request.getParameter("idExperiencia"));
-        Experiencia e = eDao.procuraExperienciaPeloID(idExperiencia);
-        request.setAttribute("experiencia", e);
+        FormacaoDAO fDao = new FormacaoDAO();
+        Integer idFormacao = Integer.parseInt(request.getParameter("idFormacao"));
+        Formacao f = fDao.procuraFormacaoPeloID(idFormacao);
+        request.setAttribute("formacao", f);
 
         RequestDispatcher dispatcher = getServletContext()
-                .getRequestDispatcher("/WEB-INF/ExperienciaModule/alterarExperiencia.jsp");
+                .getRequestDispatcher("/WEB-INF/FormacaoModule/alterarFormacao.jsp");
         dispatcher.forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("POST - Alterar EXPERIENCIA");
+        System.out.println("POST - Alterar FORMACAO");
         request.setCharacterEncoding("UTF-8");
-        Experiencia e = new Experiencia();
-        int idExperiencia = Integer.parseInt(request.getParameter("idExperiencia"));
-        e.setIdExperiencia(idExperiencia);
+        Formacao f = new Formacao();
+        int idFormacao = Integer.parseInt(request.getParameter("idFormacao"));
+        f.setIdFormacao(idFormacao);
         int idEmpregado = Integer.parseInt(request.getParameter("idEmpregado"));
-        e.setIdEmpregado(idEmpregado);
-        e.setFuncao(request.getParameter("funcao"));
-        e.setLocal(request.getParameter("local"));
-        int idCre = Integer.parseInt(request.getParameter("Cre"));
-        e.setCre(idCre);
-        e.setDtSaida(request.getParameter("dtSaida"));
-        e.setDtEntrada(request.getParameter("dtEntrada"));
+        f.setIdEmpregado(idEmpregado);
+        int idTipocurso = Integer.parseInt(request.getParameter("idTipocurso"));
+        f.setIdTipocurso(idTipocurso);
+        f.setCurso(request.getParameter("curso"));
+        f.setInstituicao(request.getParameter("instituicao"));
+        int semestre = Integer.parseInt(request.getParameter("semestre"));
+        f.setSemestre(semestre);
+        f.setDtInicio(request.getParameter("dtInicio"));
+        f.setDtFim(request.getParameter("dtFim"));
 
-        ExperienciaDAO dao = new ExperienciaDAO();
+        FormacaoDAO dao = new FormacaoDAO();
 
-        if (dao.alteraExperiencia(e)) {
-            response.sendRedirect("listarexperiencias");
+        if (dao.alteraFormacao(f)) {
+            response.sendRedirect("listarformacoes");
         } else {
             //enviar um atributo msg de erro
             request.setAttribute("erro", "Erro ao alterar");

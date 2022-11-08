@@ -11,25 +11,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Formacao;
 
-
-@WebServlet(name = "ListarExperiencias", urlPatterns = {"/listarexperiencias"})
+@WebServlet(name = "ListarFormacoes", urlPatterns = {"/listarformacoes"})
 public class ListarFormacoes extends HttpServlet {
 
-   
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ExperienciaDAO dao = new ExperienciaDAO();
-        ArrayList<Experiencia> listaDeExperiencias = dao.procuraTodosExperiencias();
-            request.setAttribute("listaDeExperiencia", listaDeExperiencias);
-        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/ExperienciaModule/listarExperiencias.jsp");
+        FormacaoDAO dao = new FormacaoDAO();
+        ArrayList<Formacao> listaDeFormacoes = dao.procuraTodasFormacoes();
+        request.setAttribute("listaDeFormacoes", listaDeFormacoes);
+        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/FormacaoModule/listarFormacoes.jsp");
         rd.forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         System.out.println("POST - CADASTRAR EXPERIENCIA");
+        System.out.println("POST - CADASTRAR FORMACAO");
     }
 
 }

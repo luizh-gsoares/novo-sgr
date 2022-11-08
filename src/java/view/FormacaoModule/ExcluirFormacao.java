@@ -11,30 +11,30 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Formacao;
 
-@WebServlet(name = "ExcluirExperiencia", urlPatterns = {"/excluirexperiencia"})
+@WebServlet(name = "ExcluirFormacao", urlPatterns = {"/excluirformacao"})
 public class ExcluirFormacao extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = getServletContext()
-                .getRequestDispatcher("/ExperienciaModule/ListarExperiencias.jsp");
+                .getRequestDispatcher("/FormacaoModule/ListarFormacoes.jsp");
         dispatcher.forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("POST - Excluir EXPERIENCIA");
+        System.out.println("POST - Excluir FORMACAO");
 
-        Experiencia e = new Experiencia();
-        e.setIdExperiencia(Integer.parseInt(request.getParameter("idExperiencia")));
+        Formacao f = new Formacao();
+        f.setIdFormacao(Integer.parseInt(request.getParameter("idFormacao")));
 
-        ExperienciaDAO dao = new ExperienciaDAO();
+        FormacaoDAO dao = new FormacaoDAO();
 
-        dao.excluiExperiencia(e.getIdExperiencia());
-        String page = "/ExperienciaModule/listarExperiencias.jsp";
-        response.sendRedirect("listarexperiencias");
+        dao.excluiFormacao(f.getIdFormacao());
+        String page = "/FormacaoModule/listarFormacoes.jsp";
+        response.sendRedirect("listarformacoes");
     }
 
 }

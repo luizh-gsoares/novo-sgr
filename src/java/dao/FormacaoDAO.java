@@ -102,7 +102,7 @@ public class FormacaoDAO {
         return null;
     }
 
-    public ArrayList<Formacao> procuraTodosFormacoes() {
+    public ArrayList<Formacao> procuraTodasFormacoes() {
 
         try {
             String sql = "SELECT * FROM formacao;";
