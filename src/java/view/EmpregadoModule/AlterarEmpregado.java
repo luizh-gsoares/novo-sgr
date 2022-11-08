@@ -1,6 +1,6 @@
-package view.EnderecoModule;
+package view.EmpregadoModule;
 
-import dao.EnderecoDAO;
+import dao.EmpregadoDAO;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,10 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Endereco;
+import model.Empregado;
 
 @WebServlet(name = "AlterarEndereco", urlPatterns = {"/alterarendereco"})
-public class AlterarEndereco extends HttpServlet {
+public class AlterarEmpregado extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
