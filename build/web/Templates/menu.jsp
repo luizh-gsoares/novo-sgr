@@ -82,7 +82,7 @@
                 <li class="nav-header">Example 1</li>
 
                 <li class="nav-item">
-                    <a href="pages/calendar.html" class="nav-link">
+                    <a href="" class="nav-link">
                         <i class="nav-icon fa fa-bars"></i>
                         <p>
                             Menus
@@ -100,7 +100,7 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a href="gerenciarUsuario?acao=listar" class="nav-link">
+                    <a href="listarusuarios" class="nav-link">
                         <i class="nav-icon far fa-address-card"></i>
                         <p>
                             Usuários
@@ -109,10 +109,42 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a href="pages/calendar.html" class="nav-link">
+                    <a href="listarempregados" class="nav-link">
                         <i class="nav-icon far fa-calendar-alt"></i>
                         <p>
-                            Produtos
+                            Empregados
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="listarenderecos" class="nav-link">
+                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <p>
+                            Endereços
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="listarexperiencias" class="nav-link">
+                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <p>
+                            Experiências
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="listarformacoes" class="nav-link">
+                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <p>
+                            Formações
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="listartelefones" class="nav-link">
+                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <p>
+                            Telefones
                         </p>
                     </a>
                 </li>

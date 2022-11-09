@@ -10,30 +10,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Empregado;
 
-@WebServlet(name = "ExcluirEndereco", urlPatterns = {"/excluirendereco"})
+//excluir
+@WebServlet(name = "ExcluirEmpregado", urlPatterns = {"/excluirempregado"})
 public class ExcluirEmpregado extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = getServletContext()
-                .getRequestDispatcher("/EnderecoModule/listarEnderecos.jsp");
+        .getRequestDispatcher("/WEB-INF/EmpregadoModule/listarEmpregados.jsp");
         dispatcher.forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("POST - Excluir ENDERECO");
+        System.out.println("POST - Excluir Empregado");
 
-        Endereco e = new Endereco();
-        e.setIdEndereco(Integer.parseInt(request.getParameter("idEndereco")));
+
+        Empregado e = new Empregado();
         
-        EnderecoDAO dao = new EnderecoDAO();
+        e.setIdEmpregado(Integer.parseInt(request.getParameter("idEmpregado")));
+        
+        EmpregadoDAO dao = new EmpregadoDAO();
 
-        dao.excluiEndereco(e.getIdEndereco());
-        String page = "/EnderecoModule/listarEnderecos.jsp";
-        response.sendRedirect("listarperfis");
+        dao.excluiEmpregado(e.getIdEmpregado());
+        String page = "/EnderecoModule/listarempregados.jsp";
+        response.sendRedirect("listarempregados");
     }
 
 }
