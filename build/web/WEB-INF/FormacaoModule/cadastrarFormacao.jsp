@@ -39,7 +39,7 @@
                     <div class="col">
                         <div class="form-outline">
                           <label class="form-label" for="form6Example1" required>Curso</label>
-                          <input type="number" id="form6Example1" class="form-control" id="validationCustom01"
+                          <input type="text" id="form6Example1" class="form-control" id="validationCustom01"
                             name="curso" value="${formacao.curso}" /> 
                         </div>
                       </div>
