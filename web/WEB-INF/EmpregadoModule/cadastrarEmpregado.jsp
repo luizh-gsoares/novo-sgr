@@ -30,24 +30,27 @@
                 <legend><h3>Cadastrar Empregados</h3></legend>
                 <hr>
 
-                <div class="form-outline">
+                <div class="col-md-4 mb-3">
                     <input type="hidden" id="form6Example1" class="form-control" id="validationCustom01" name="idEmpregado" />
                 </div>
 
-            <div class="row mb-4 d-flex justify-content-between">
-                    <div class="form-outline">
-                        <label class="form-label" for="form6Example1" required>Nome</label>
-                        <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="nome" />
+                <div class="row d-flex justify-content-between">
+                    <div class="col-md-4 mb-3">
+                        <label for="validationDefault01">Nome Completo</label>
+                        <input type="text" class="form-control" id="validationDefault01" placeholder="Nome Completo" name="nome" required>
                     </div>
-                    <div class="form-outline">
+                    <div class="col-md-4 mb-3">
                         <label class="form-label" for="form6Example1" required>Matricula</label>
-                        <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="matricula" />
+                        <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="matricula" placeholder="Matricula"  />
                     </div>
-                    <div class="form-outline">
+                    <div class="col-md-4 mb-3">
                         <label class="form-label" for="form6Example1" required>Nome Social</label>
-                        <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="nomeSocial" />
+                        <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="nomeSocial" placeholder="Nome Social"/>
                     </div>
-                    <div class="form-outline">
+                </div>  
+
+                <div class="row d-flex justify-content-between">
+                    <div class="col-md-4 mb-3">
                         <label class="form-label" for="form6Example1" required>Nacionalidade</label> <br>
                         <select id="idTelefone" name="idTelefone" class="custom-select" >
                         <jsp:useBean class="dao.TelefoneDAO" id="tdao" > </jsp:useBean>
@@ -56,22 +59,25 @@
                         </c:forEach>    
                     </select>
                 </div>
-            </div>
 
-            <div class="row mb-4 d-flex justify-content-between">            
-                <div class="form-outline w-33">
+                <div class="col-md-4 mb-3 w-33">
                     <label class="form-label" for="form6Example1" required>Naturalidade</label>
-                    <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="naturalidade" />
+                    <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="naturalidade" placeholder="Naturalidade" />
                 </div>
-                <div class="form-outline">
+
+                <div class="col-md-4 mb-3">
                     <label class="form-label" for="form6Example1" required>UF</label>
-                    <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="uf" />
+                    <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="uf" placeholder="UF" />
                 </div>
-                <div class="form-outline">
+            </div>            
+
+            <div class="row d-flex justify-content-between">        
+                <div class="col-md-4 mb-3">
                     <label class="form-label" for="form6Example1" required>Data de Nascimento</label>
-                    <input type="date" id="form6Example1" class="form-control" id="validationCustom01" name="dataNasc" />
-                </div>        
-                <div class="form-outline">
+                    <input type="date" id="form6Example1" class="form-control" id="validationCustom01" name="dataNasc" placeholder="Data de Nascimento" />
+                </div>     
+
+                <div class="col-md-4 mb-3">
                     <label class="form-label" for="form6Example1" required>Sexo</label>
                     <select id="idSexo" name="idSexo" class="custom-select" >
                         <jsp:useBean class="dao.TelefoneDAO" id="tedao" > </jsp:useBean>
@@ -79,78 +85,87 @@
                             <option value="${tel.idTelefone}">${tel.telefoneResidencial}</option>
                         </c:forEach>
                     </select>       
-                </div>
-            </div>     
+                </div> 
 
-            <div class="row mb-4 d-flex justify-content-between">              
-                <div class="form-outline">
+                <div class="col-md-4 mb-3">
                     <label class="form-label" for="form6Example1" required>Estado Civil</label>
-                    <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="estadoCivil" />
+                    <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="estadoCivil"  placeholder="Estado Civil"/>
                 </div>
-                <div class="form-outline">
+            </div> 
+
+            <div class="row d-flex justify-content-between">            
+                <div class="col-md-4 mb-3">
                     <label class="form-label" for="form6Example1" required>RG</label>
-                    <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="rg" />
+                    <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="rg" placeholder="RG" />
                 </div>
-                <div class="form-outline">
+                <div class="col-md-4 mb-3">
                     <label class="form-label" for="form6Example1" required>Data de Expedição</label>
-                    <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="dataExpedicao" />
+                    <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="dataExpedicao" placeholder="Data de Expedição" />
                 </div>
-                <div class="form-outline">
+                <div class="col-md-4 mb-3">
                     <label class="form-label" for="form6Example1" required>Órgão Expedidor</label>
                     <input type="text" id="form6Example1" class="form-control" id="validationCustom01"
-                           name="orgaoExpedidor" />
+                           name="orgaoExpedidor" placeholder="Órgão Expedidor"/>
                 </div>
             </div>
 
-            <div class="row mb-4 d-flex justify-content-between">             
-                <div class="form-outline">
+            <div class="row d-flex justify-content-between">             
+                <div class="col-md-4 mb-3">
                     <label class="form-label" for="form6Example1" required>CPF</label>
-                    <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="cpf" />
+                    <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="cpf" placeholder="CPF"/>
                 </div>
-                <div class="form-outline">
+                <div class="col-md-4 mb-3">
                     <label class="form-label" for="form6Example1" required>Zona Eleitoral</label>
-                    <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="zonaEleitoral" />
+                    <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="zonaEleitoral" placeholder="Zona Eleitoral" />
                 </div>
-                <div class="form-outline">
+                <div class="col-md-4 mb-3">
                     <label class="form-label" for="form6Example1" required>Sessão</label>
-                    <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="secao" />
+                    <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="secao" placeholder="Sessão" />
                 </div>
-                <div class="form-outline">
+            </div>    
+
+           <div class="row d-flex justify-content-between">               
+                <div class="col-md-4 mb-3">
                     <label class="form-label" for="form6Example1" required>Titulo Eleitoral</label>
                     <input type="text" id="form6Example1" class="form-control" id="validationCustom01"
-                           name="tituloEleitoral" />
+                           name="tituloEleitoral"  placeholder="Titulo Eleitoral"/>
                 </div>
-            </div>    
-            
-            <div class="row mb-4 d-flex justify-content-between">             
-            <div class="form-outline">
-                <label class="form-label" for="form6Example1" required>E-mail</label>
-                <input type="email" id="form6Example1" class="form-control" id="validationCustom01" name="email" />
-            </div>
-            <div class="form-outline">
-                <label class="form-label" for="form6Example1" required>Nome do Cônjulgue</label>
-                <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="nomeConjulgue" />
-            </div>
-            <div class="form-outline">
-                <label class="form-label" for="form6Example1" required>Nome do Pai</label>
-                <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="nomePai" />
-            </div>
-            <div class="form-outline">
-                <label class="form-label" for="form6Example1" required>Nome da Mãe</label>
-                <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="nomeMae" />
-            </div>
-            
-            </div>    
-                        
-            <div class="form-outline pb-3">
-                <label class="form-label" for="form6Example1" required>Portador de necessidades Especiais?</label>
-                <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="especial" />
-            </div>            
-        
 
-        <br> <br>
-        <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4 w-30">Enviar</button>
+                <div class="col-md-4 mb-3">
+                    <label for="validationDefaultUsername">E-mail</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                        </div>
+                        <input type="text" class="form-control" id="validationDefaultUsername" placeholder="E-mail" aria-describedby="inputGroupPrepend2" required>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-3">
+                    <label class="form-label" for="form6Example1" required>Nome do Cônjulgue</label>
+                    <input type="text" placeholder="Nome do Cônjulgue" id="form6Example1" class="form-control" id="validationCustom01" name="nomeConjulgue" />
+                </div>
+            </div>
+            
+            <div class="row d-flex justify-content-between">              
+                <div class="col-md-4 mb-3">
+                    <label class="form-label" for="form6Example1" required>Nome do Pai</label>
+                    <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="nomePai" placeholder="Nome do Pai"c/>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label" for="form6Example1" required>Nome da Mãe</label>
+                    <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="nomeMae" placeholder="Nome da Mãe" />
+                </div>
+                
+                <div class="col-md-4 mb-3 pb-3">
+                    <label class="form-label" for="form6Example1" required>Portador de necessidades Especiais?</label>
+                    <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="especial" />
+                </div>            
+           </div>      
+
+            <br> <br>
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4 w-30">Enviar</button>
         </div>
 </div>
 </form>
