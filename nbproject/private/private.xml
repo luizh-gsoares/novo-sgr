@@ -3,9 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Admin/Documents/GitHub/novo-sgr/web/loginSGR.jsp</file>
-            <file>file:/C:/Users/Admin/Documents/GitHub/novo-sgr/web/Resources/css/login.css</file>
-            <file>file:/C:/Users/Admin/Documents/GitHub/novo-sgr/web/WEB-INF/EmpregadoModule/cadastrarEmpregado.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/novo-sgr/web/Templates/menu.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/novo-sgr/src/java/view/CadastrarUsuario.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/novo-sgr/web/WEB-INF/EnderecoModule/cadastrarEndereco.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/novo-sgr/src/java/view/Login.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/novo-sgr/src/java/dao/UsuarioDAO.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/novo-sgr/web/login.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/novo-sgr/web/Templates/header.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/novo-sgr/web/WEB-INF/cadastrarUsuario.jsp</file>
         </group>
     </open-files>
 </project-private>
