@@ -1,4 +1,3 @@
-
 package dao;
 
 import java.sql.PreparedStatement;
@@ -15,7 +14,7 @@ public class FormacaoDAO {
                 + "( idFormacao , idEmpregdo,  idTipocurso ,  curso ,  instituicao ,  semestre ,  dtInicio ,  dtFim ) VALUES"
                 + "(?,?,?,?,?,?,?,?)";
         PreparedStatement preparedStatement;
-        try {  
+        try {
             preparedStatement = DbConnect.getConexao().prepareStatement(insertTableSQL);
             preparedStatement.setInt(1, formacao.getIdFormacao());
             preparedStatement.setInt(2, formacao.getIdEmpregado());
@@ -73,13 +72,12 @@ public class FormacaoDAO {
 
     public Formacao procuraFormacaoPeloID(Integer idFormacao) {
 
-
         try {
             String sql = "SELECT * FROM formacao WHERE idFormacao = ?";
             PreparedStatement con = DbConnect.getConexao().prepareStatement(sql);
             con.setInt(1, idFormacao);
             ResultSet rs = con.executeQuery();
-            
+
             Formacao form = new Formacao();
 
             if (rs.next()) {
@@ -112,7 +110,7 @@ public class FormacaoDAO {
             ResultSet rs = con.executeQuery();
 
             ArrayList<Formacao> listaFormacoes = new ArrayList<>();
-            
+
             while (rs.next()) {
                 Formacao form = new Formacao();
                 form.setIdFormacao(rs.getInt("idFormacao"));
@@ -135,7 +133,7 @@ public class FormacaoDAO {
         }
         return null;
     }
-    
+
     public ArrayList<Tipocurso> procuraTodosTipocursos() {
 
         try {
@@ -145,10 +143,10 @@ public class FormacaoDAO {
             ResultSet rs = con.executeQuery();
 
             ArrayList<Tipocurso> listaTipocursos = new ArrayList<>();
-            
+
             while (rs.next()) {
                 Tipocurso tipc = new Tipocurso();
-                tipc.setIdTipocurso(rs.getInt("idTipocurso"));               
+                tipc.setIdTipocurso(rs.getInt("idTipocurso"));
                 tipc.setNome(rs.getString("nome"));
                 tipc.setDt_inativacao(rs.getString("dt_inativacao"));
                 listaTipocursos.add(tipc);
