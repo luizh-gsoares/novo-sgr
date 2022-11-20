@@ -33,7 +33,7 @@
         <hr>
 
         <div class="col-md-4 mb-3">
-          <input type="hidden" id="form6Example1" class="form-control" id="validationCustom01" name="idEmpregado" />
+          <input type="hidden" id="form6Example1" class="form-control" id="validationCustom01" name="idEmpregado" value="${usuario.idEmpregado}" />
         </div>
 
         <div class="row d-flex justify-content-between">
@@ -57,7 +57,7 @@
         <div class="row d-flex justify-content-between">
           <div class="col-md-4 mb-3">
             <label class="form-label" for="form6Example1" required>Nacionalidade</label> <br>
-            <select id="idPais" name="idPais" class="custom-select">
+            <select id="idPais" name="nacionalidade" class="custom-select">
               <jsp:useBean class="dao.EmpregadoDAO" id="empdao"> </jsp:useBean>
               <c:forEach items="${empdao.procuraTodosPaises()}" var="pais">
                 <option value="${pais.id}">${pais.nome_pt}</option>
@@ -66,7 +66,7 @@
           </div>
           <div class="col-md-4 mb-3">
             <label class="form-label" for="form6Example1" required>Naturalidade</label> <br>
-            <select id="idNaturalidade" name="idNaturalidade" class="custom-select">
+            <select id="idNaturalidade" name="naturalidade" class="custom-select">
               <jsp:useBean class="dao.EmpregadoDAO" id="ndao"> </jsp:useBean>
               <c:forEach items="${ndao.procuraTodasCidades()}" var="nat">
                 <option value="${nat.idCidade}">${nat.nome}</option>
@@ -75,7 +75,7 @@
           </div>
           <div class="col-md-4 mb-3">
             <label class="form-label" for="form6Example1" required>Etnia</label> <br>
-            <select id="idEtinia" name="idEtinia" class="custom-select">
+            <select id="idEtinia" name="etnia" class="custom-select">
               <jsp:useBean class="dao.EmpregadoDAO" id="edao"> </jsp:useBean>
               <c:forEach items="${edao.procuraTodasEtnias()}" var="et">
                 <option value="${et.idEtnia}">${et.nome}</option>
@@ -92,7 +92,7 @@
           </div>
           <div class="col-md-4 mb-3">
             <label class="form-label" for="form6Example1" required>Sexo</label>
-            <select id="idSexo" name="idSexo" class="custom-select">
+            <select id="idSexo" name="sexo" class="custom-select">
               <jsp:useBean class="dao.EmpregadoDAO" id="sxdao"> </jsp:useBean>
               <c:forEach items="${sxdao.procuraTodosSexos()}" var="s">
                 <option value="${s.idSexo}">${s.sexo}</option>
@@ -114,7 +114,7 @@
           </div>
           <div class="col-md-4 mb-3">
             <label class="form-label" for="form6Example1" required>Data de Expedição</label>
-            <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="dataExpedicao"
+            <input type="DATE" id="form6Example1" class="form-control" id="validationCustom01" name="dataExpedicao"
               placeholder="Data de Expedição" />
           </div>
           <div class="col-md-4 mb-3">
@@ -180,7 +180,7 @@
 
           <div class="col-md-4 mb-3">
             <label class="form-label" for="form6Example1" required>Possui necessidades especiais?</label> <br>
-            <select id="idEspecialidade" name="idEspecialidade" class="custom-select">
+            <select id="idEspecialidade" name="especial" class="custom-select">
               <jsp:useBean class="dao.EmpregadoDAO" id="esdao"> </jsp:useBean>
               <c:forEach items="${esdao.procuraTodosEspeciais()}" var="esp">
                 <option value="${esp.idEspecialidade}">${esp.nome}</option>

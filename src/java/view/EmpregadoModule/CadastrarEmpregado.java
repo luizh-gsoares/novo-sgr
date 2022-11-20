@@ -42,6 +42,8 @@ public class CadastrarEmpregado extends HttpServlet {
         e.setDataNasc(request.getParameter("dataNasc"));
         int sexo = Integer.parseInt(request.getParameter("sexo"));
         e.setSexo(sexo);
+        int etnia = Integer.parseInt(request.getParameter("etnia"));
+        e.setEtnia(etnia);
         e.setEstadoCivil(request.getParameter("estadoCivil"));
         e.setRg(request.getParameter("rg"));
         e.setDataExpedicao(request.getParameter("dataExpedicao"));
