@@ -22,7 +22,7 @@ public class CadastrarUsuario extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = getServletContext()
-                .getRequestDispatcher("WEB-INF/cadastrarUsuario.jsp");
+                .getRequestDispatcher("/WEB-INF/cadastrarUsuario.jsp");
         dispatcher.forward(request, response);
     }
 

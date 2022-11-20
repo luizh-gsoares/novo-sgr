@@ -19,7 +19,7 @@ public class Login extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = getServletContext()
-                .getRequestDispatcher("WEB-INF/login.jsp");
+                .getRequestDispatcher("/WEB-INF/login.jsp");
         dispatcher.forward(request, response);
 
     }
@@ -37,12 +37,11 @@ public class Login extends HttpServlet {
         UsuarioDAO dao = new UsuarioDAO();
         
         if (dao.validar(u)) {
-            
             u = dao.procuraUsuarioPeloID(u.getLogin());
             request.setAttribute("usuario", u);
             HttpSession ses = request.getSession();
             ses.setAttribute("usuario",u);
-            response.sendRedirect("listarenderecos");
+            response.sendRedirect("listarempregados");
             System.out.println("entrei");
         } else {
             //enviar um atributo msg de erro

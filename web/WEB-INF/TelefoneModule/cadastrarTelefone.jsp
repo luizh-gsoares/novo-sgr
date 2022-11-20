@@ -37,7 +37,7 @@
                     </div>
                     <div class="col">
                         <div class="form-outline">                          
-                            <input type="hidden" id="form6Example1" class="form-control" id="validationCustom01" name="idEmpregado" />
+                            <input type="hidden" id="form6Example1" class="form-control" id="validationCustom01" name="idEmpregado" value="${usuario.idEmpregado}"/>
                         </div>
                     </div>
                 </div>

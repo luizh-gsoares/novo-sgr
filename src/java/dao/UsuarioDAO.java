@@ -69,9 +69,11 @@ public class UsuarioDAO {
             Usuario user = new Usuario();
 
             if (rs.next()) {
-
+                user.setIdUsuario(rs.getInt("idUsuario"));
                 user.setLogin(rs.getString("login"));
                 user.setSenha(rs.getString("senha"));
+                user.setIdEmpregado(rs.getInt("idEmpregado"));
+                user.setIdPerfil(rs.getInt("idPerfil"));
             }
             rs.close();
             con.close();
@@ -90,7 +92,9 @@ public class UsuarioDAO {
             String sql = "SELECT * FROM usuarios WHERE login = ? AND senha = ?";
 
             //executar o sql
-            PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement ps = con.prepareStatement(sql,
+                    ResultSet.TYPE_SCROLL_SENSITIVE,
+                    ResultSet.CONCUR_UPDATABLE);
             ps.setString(1, u.getLogin());
             ps.setString(2, u.getSenha());
 

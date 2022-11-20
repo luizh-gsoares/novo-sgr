@@ -14,7 +14,7 @@ import model.Perfil;
 
 
 @WebServlet(name = "ListarPerfis", urlPatterns = {"/listarperfis"})
-public class ListarEnderecos extends HttpServlet {
+public class ListarPerfis extends HttpServlet {
 
    
     @Override
