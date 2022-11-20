@@ -6,8 +6,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import model.Cidade;
 import model.Empregado;
+import model.Especial;
 import model.Estado;
+import model.Etnia;
 import model.Pais;
+import model.Sexo;
 
 public class EmpregadoDAO {
 
@@ -274,6 +277,81 @@ public class EmpregadoDAO {
             e.printStackTrace();
         }
 
+        return null;
+    }
+
+    public ArrayList<Sexo> procuraTodosSexos() {
+        try {
+
+            String sql = "SELECT * FROM sexo;";
+            PreparedStatement con = DbConnect.getConexao().prepareStatement(sql);
+
+            ResultSet rs = con.executeQuery();
+            ArrayList<Sexo> listaSexos = new ArrayList<>();
+
+            while (rs.next()) {
+                Sexo sexo = new Sexo();
+                sexo.setIdSexo(rs.getInt("idSexo"));
+                sexo.setSexo(rs.getString("sexo"));
+                listaSexos.add(sexo);
+            }
+            rs.close();
+            con.close();
+            return listaSexos;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<Etnia> procuraTodasEtnias() {
+        try {
+
+            String sql = "SELECT * FROM etnia;";
+            PreparedStatement con = DbConnect.getConexao().prepareStatement(sql);
+
+            ResultSet rs = con.executeQuery();
+            ArrayList<Etnia> listaEtnias = new ArrayList<>();
+
+            while (rs.next()) {
+                Etnia etnia = new Etnia();
+                etnia.setIdEtnia(rs.getInt("idEtnia"));
+                etnia.setNome(rs.getString("nome"));
+                listaEtnias.add(etnia);
+            }
+            rs.close();
+            con.close();
+            return listaEtnias;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<Especial> procuraTodasEspeciais() {
+        try {
+
+            String sql = "SELECT * FROM especial;";
+            PreparedStatement con = DbConnect.getConexao().prepareStatement(sql);
+
+            ResultSet rs = con.executeQuery();
+            ArrayList<Especial> listaEspeciais = new ArrayList<>();
+
+            while (rs.next()) {
+                Especial espec = new Especial();
+                espec.setIdEspecialidade(rs.getInt("idEspecialidade"));
+                espec.setNome(rs.getString("nome"));
+                listaEspeciais.add(espec);
+            }
+            rs.close();
+            con.close();
+            return listaEspeciais;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 }
