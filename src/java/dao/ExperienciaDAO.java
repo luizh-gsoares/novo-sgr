@@ -1,11 +1,12 @@
-
 package dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import model.Cre;
 import model.Experiencia;
+import model.Funcao;
 
 public class ExperienciaDAO {
 
@@ -86,7 +87,7 @@ public class ExperienciaDAO {
                 expe.setDtSaida(rs.getString("dtSaida"));
                 expe.setDtEntrada(rs.getString("dtEntrada"));
             }
-    
+
             rs.close();
             con.close();
             return expe;
@@ -117,10 +118,66 @@ public class ExperienciaDAO {
                 expe.setDtEntrada(rs.getString("dtEntrada"));
                 listaExperiencias.add(expe);
             }
-            
+
             rs.close();
             con.close();
             return listaExperiencias;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<Funcao> procuraTodasFuncoes() {
+
+        try {
+            String sql = "SELECT * FROM funcao;";
+            PreparedStatement con = DbConnect.getConexao().prepareStatement(sql);
+
+            ResultSet rs = con.executeQuery();
+
+            ArrayList<Funcao> listaFuncoes = new ArrayList<>();
+
+            while (rs.next()) {
+                Funcao func = new Funcao();
+                func.setIdFuncao(rs.getInt("idFuncao"));
+                func.setTipo(rs.getString("tipo"));
+                func.setDt_inativacao(rs.getString("dt_inativacao"));
+                listaFuncoes.add(func);
+            }
+
+            rs.close();
+            con.close();
+            return listaFuncoes;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<Cre> procuraTodosCres() {
+
+        try {
+            String sql = "SELECT * FROM cre;";
+            PreparedStatement con = DbConnect.getConexao().prepareStatement(sql);
+
+            ResultSet rs = con.executeQuery();
+
+            ArrayList<Cre> listaCres = new ArrayList<>();
+
+            while (rs.next()) {
+                Cre cre = new Cre();
+                cre.setIdCre(rs.getInt("idCre"));
+                cre.setNome(rs.getString("nome"));
+                cre.setSigla(rs.getString("sigla"));
+                listaCres.add(cre);
+            }
+
+            rs.close();
+            con.close();
+            return listaCres;
 
         } catch (Exception e) {
             e.printStackTrace();

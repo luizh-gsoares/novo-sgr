@@ -134,34 +134,6 @@ public class FormacaoDAO {
             e.printStackTrace();
         }
         return null;
-    }
-    
-    public ArrayList<Tipocurso> procuraTodosTipocursos() {
-
-        try {
-            String sql = "SELECT * FROM tipocurso;";
-            PreparedStatement con = DbConnect.getConexao().prepareStatement(sql);
-
-            ResultSet rs = con.executeQuery();
-
-            ArrayList<Tipocurso> listaTipocursos = new ArrayList<>();
-            
-            while (rs.next()) {
-                Tipocurso tipc = new Tipocurso();
-                tipc.setIdTipocurso(rs.getInt("idTipocurso"));               
-                tipc.setNome(rs.getString("nome"));
-                tipc.setDt_inativacao(rs.getString("dt_inativacao"));
-                listaTipocursos.add(tipc);
-            }
-
-            rs.close();
-            con.close();
-            return listaTipocursos;
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+    }    
 
 }
