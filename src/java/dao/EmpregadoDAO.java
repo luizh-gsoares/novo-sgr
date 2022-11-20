@@ -330,7 +330,7 @@ public class EmpregadoDAO {
         return null;
     }
 
-    public ArrayList<Especial> procuraTodasEspeciais() {
+    public ArrayList<Especial> procuraTodosEspeciais() {
         try {
 
             String sql = "SELECT * FROM especial;";
