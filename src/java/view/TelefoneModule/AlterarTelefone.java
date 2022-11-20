@@ -18,7 +18,7 @@ public class AlterarTelefone extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         TelefoneDAO tDao = new TelefoneDAO();
-        Integer idTelefone = Integer.parseInt(request.getParameter("idTelefone"));
+        int idTelefone = Integer.parseInt(request.getParameter("idTelefone"));
         Telefone t = tDao.procuraTelefonePeloID(idTelefone);
         request.setAttribute("telefone", t);
 

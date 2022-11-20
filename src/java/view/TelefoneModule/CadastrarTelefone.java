@@ -24,11 +24,11 @@ public class CadastrarTelefone extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("POST - CADASTRAR TELEFONE   ");
+        System.out.println("POST - CADASTRAR TELEFONE");
         request.setCharacterEncoding("UTF-8");
         Telefone t = new Telefone();
-        int idTelefone = Integer.parseInt(request.getParameter("idTelefone"));
-        t.setIdTelefone(idTelefone);
+        int idEmpregado = Integer.parseInt(request.getParameter("idEmpregado"));
+        t.setIdEmpregado(idEmpregado);
         t.setTelefoneResidencial(Integer.parseInt(request.getParameter("telefoneResidencial")));
         t.setTelefoneCelular(Integer.parseInt(request.getParameter("telefoneCelular")));
         t.setTelefoneRecado(Integer.parseInt(request.getParameter("telefoneCelular")));
