@@ -32,10 +32,6 @@ public class AlterarUsuario extends HttpServlet {
         Usuario u = new Usuario();
         u.setLogin(request.getParameter("usuario"));
         u.setSenha(request.getParameter("senha"));
-        u.setNome(request.getParameter("nome"));
-        u.setCpf(request.getParameter("cpf"));
-        u.setTelefone(request.getParameter("telefone"));
-        u.setEndereco(request.getParameter("endereco"));
         String page = "index.jsp";
 
         UsuarioDAO dao = new UsuarioDAO();

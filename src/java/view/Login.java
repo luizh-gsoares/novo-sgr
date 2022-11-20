@@ -19,7 +19,7 @@ public class Login extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = getServletContext()
-                .getRequestDispatcher("/login.jsp");
+                .getRequestDispatcher("WEB-INF/login.jsp");
         dispatcher.forward(request, response);
 
     }
@@ -27,9 +27,9 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("entrei");
+        
         Usuario u = new Usuario();
-        u.setLogin(request.getParameter("usuario"));
+        u.setLogin(request.getParameter("login"));
         u.setSenha(request.getParameter("senha"));
 
         String page = "index.jsp";
@@ -42,7 +42,8 @@ public class Login extends HttpServlet {
             request.setAttribute("usuario", u);
             HttpSession ses = request.getSession();
             ses.setAttribute("usuario",u);
-            response.sendRedirect("listarprodutos");
+            response.sendRedirect("listarenderecos");
+            System.out.println("entrei");
         } else {
             //enviar um atributo msg de erro
             request.setAttribute("erro", "Usuário ou senha inválida!");
