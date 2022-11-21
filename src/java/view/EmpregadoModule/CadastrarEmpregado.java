@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Empregado;
 
-@WebServlet(name = "CadastrarEmpregado", urlPatterns = { "/cadastrarempregado" })
+@WebServlet(name = "CadastrarEmpregado", urlPatterns = {"/cadastrarempregado"})
 public class CadastrarEmpregado extends HttpServlet {
 
     @Override
@@ -58,6 +58,8 @@ public class CadastrarEmpregado extends HttpServlet {
         e.setNomeMae(request.getParameter("nomeMae"));
         int especial = Integer.parseInt(request.getParameter("especial"));
         e.setEspecial(especial);
+        int idEmpregado = Integer.parseInt(request.getParameter("idEmpregado"));
+        e.setIdEmpregado(idEmpregado);
 
         EmpregadoDAO dao = new EmpregadoDAO();
 

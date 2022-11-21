@@ -16,8 +16,8 @@ public class EmpregadoDAO {
 
     public boolean cadastraEmpregado(Empregado empregado) {
         String insertTableSQL = "INSERT INTO empregado "
-                + " (nome, matricula, nomeSocial, nacionalidade, naturalidade, uf, dataNasc, sexo, estadoCivil, rg, dataxpedicao, orgaoExpedidor, cpf, zonaEleitoral, secao, tituloEleitoral, email, nomeConjugue, nomePai, nomeMae, especial, etnia)"
-                + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + " (nome, matricula, nomeSocial, nacionalidade, naturalidade, uf, dataNasc, sexo, estadoCivil, rg, dataExpedicao, orgaoExpedidor, cpf, zonaEleitoral, secao, tituloEleitoral, email, nomeConjugue, nomePai, nomeMae, especial, etnia, idEmpregado)"
+                + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = DbConnect.getConexao().prepareStatement(insertTableSQL);
@@ -43,6 +43,7 @@ public class EmpregadoDAO {
             preparedStatement.setString(20, empregado.getNomeMae());
             preparedStatement.setInt(21, empregado.getEspecial());
             preparedStatement.setInt(22, empregado.getEtnia());
+            preparedStatement.setInt(23, empregado.getIdEmpregado());
             preparedStatement.execute();
             return true;
         } catch (SQLException e) {

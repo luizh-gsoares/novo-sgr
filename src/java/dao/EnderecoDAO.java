@@ -168,7 +168,7 @@ public class EnderecoDAO {
                 esta.setIdEstado(rs.getInt("idEstado"));
                 esta.setNome(rs.getString("nome"));
                 esta.setUf(rs.getString("uf"));
-                esta.setIdPais(rs.getInt("idPais"));
+                esta.setPais(rs.getInt("pais"));
                 listaEstados.add(esta);
             }
 
