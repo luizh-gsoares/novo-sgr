@@ -3,8 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/luizh/Documents/GitHub/novo-sgr/src/java/dao/TelefoneDAO.java</file>
-            <file>file:/C:/Users/luizh/Documents/GitHub/novo-sgr/src/java/view/TelefoneModule/AlterarTelefone.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/novo-sgr/web/Templates/menu.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/novo-sgr/web/WEB-INF/EmpregadoModule/listarEmpregados.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/novo-sgr/web/WEB-INF/TelefoneModule/cadastrarTelefone.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/novo-sgr/web/login.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/novo-sgr/web/WEB-INF/PerfilModule/listarPerfis.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/novo-sgr/web/WEB-INF/EmpregadoModule/cadastrarEmpregado.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/novo-sgr/web/WEB-INF/cadastrarUsuario.jsp</file>
         </group>
     </open-files>
 </project-private>

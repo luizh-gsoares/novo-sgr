@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<title>Lista de Telefones</title>
+<title>Lista de Empregados</title>
 <jsp:include page="/Templates/header.jsp"></jsp:include>
 <jsp:include page="/Templates/menu.jsp"></jsp:include>
 
@@ -13,12 +13,17 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Lista de Telefones</h1>
+                        <h1>Lista de Empregados</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
         </section>
-
+      
+        <div class="card-header d-flex justify-content-between">
+            <a type="button" class="btn btn-secondary" href="cadastrarempregado"
+               > Cadastrar Empregado <i class="fa-solid fa-floppy-disk"></i>
+            </a>
+        </div>
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -142,15 +147,15 @@
 
 <jsp:include page="/Templates/footer.jsp"></jsp:include>
 <script>
-  $(function () {
+    $(function () {
 
 
-    $("#example1").DataTable({
-      "responsive": true,
-      "lengthChange": false,
-      "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-  });
+        $("#example1").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    });
 
 </script>

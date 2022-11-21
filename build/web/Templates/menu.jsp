@@ -28,10 +28,10 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="Resources/images/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+
             </div>
             <div class="info">
-                <a href="#" class="d-block">${usuario.login}</a>
+                <a href="#" class="d-block">Olá, ${usuario.login}.</a>
             </div>
         </div>
 
@@ -40,7 +40,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
-          
+
                 <li class="nav-header">Menus</li>
 
                 <li class="nav-item">
@@ -51,36 +51,28 @@
                         </p>
                     </a>
                 </li>
-                
-                <li class="nav-item">
-                    <a href="listarperfis" class="nav-link">
-                        <i class="nav-icon far fa-user"></i>
-                        <p>
-                            Perfis
-                        </p>
-                    </a>
-                </li>
-                
+
+
                 <li class="nav-item">
                     <a href="listarusuarios" class="nav-link">
                         <i class="nav-icon far fa-address-card"></i>
                         <p>
-                            Usuários
+                            Usuários do Sistema
                         </p>
                     </a>
                 </li>
-                
+
                 <li class="nav-item">
                     <a href="listarempregados" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <i class="nav-icon far fa-user"></i>
                         <p>
-                            Empregados
+                            Funcionários
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="listarenderecos" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <i class="nav-icon fa-solid fa-location-dot"></i>
                         <p>
                             Endereços
                         </p>
@@ -88,23 +80,22 @@
                 </li>
                 <li class="nav-item">
                     <a href="listarexperiencias" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <i class="nav-icon fa-solid fa-briefcase"></i>
                         <p>
-                            Experiências
+                            Experiências 
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="listarformacoes" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
-                        <p>
-                            Formações
+                        <i class="fa-sharp fa-solid fa-book"></i>                        <p>
+                            Formações Acadêmicas
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="listartelefones" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <i class="nav-icon fa-solid fa-phone"></i>
                         <p>
                             Telefones
                         </p>

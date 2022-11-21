@@ -5,6 +5,9 @@
 integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
 <style>
+    body{
+        background-color: #083046;
+    }
     #fundomenu {
         background-color: #08AEEA;
         background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
@@ -13,11 +16,15 @@ integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbs
         border-radius: 7px;
         padding: 30px;
     }
-    
-    label{
-        color:#2AF598;
+
+    label {
+        color: #1d6c48;
+
     }
-    
+    input{
+        margin-top: 0.5rem;
+    }
+
     #fundomenu a {
         color: #fbfbfb;
     }
