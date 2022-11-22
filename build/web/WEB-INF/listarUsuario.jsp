@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<title>Lista de Endereços</title>
+<title>Lista de Usuário</title>
 <jsp:include page="/Templates/header.jsp"></jsp:include>
 <jsp:include page="/Templates/menu.jsp"></jsp:include>
 
@@ -13,18 +13,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Lista de Formações</h1>
+          <h1>Lista de Usuário</h1>
         </div>
       </div>
     </div><!-- /.container-fluid -->
   </section>
-  
-           <div class="card-header d-flex justify-content-between">
-            <a type="button" class="btn btn-secondary" href="cadastrarendereco"
-               > Cadastrar Endereço <i class="fa-solid fa-floppy-disk"></i>
-            </a>
-        </div>
-  
+
   <section class="content">
     <div class="container-fluid">
       <div class="row">
@@ -37,28 +31,26 @@
                 <thead>
                   <tr>
                     <th>Código</th>
-                    <th>CEP</th>
-                    <th>Logradouro</th>
-                    <th>Complemento</th>
-                    <th>Cidade</th>
+                    <th>Login</th>
+                    <th>Código Perfil</th>
+                    <th>Código Empregado</th>        
                   </tr>
                 </thead>
                 <tbody>
-                  <c:forEach items="${listaDeEnderecos}" var="endereco">
+                  <c:forEach items="${listaDeUsuarios}" var="user">
                     <tr>
-                      <td>${endereco.idEndereco}</td>
-                      <td>${endereco.cep}</td>
-                      <td>${endereco.logradouro}</td>
-                      <td>${endereco.complemento}</td>
-                      <td>${endereco.idCidade}</td>
+                      <td>${user.idUsuario}</td>
+                      <td>${user.login}</td>
+                      <td>${user.idPerfil}</td>
+                      <td>${user.idEmpregado}</td>
                       <div class="row" >
                         <td>
-                          <form action="excluirendereco" method="post">
-                            <input type="hidden" name="idendereco" value="${endereco.idEndereco}" />
+                          <form action="excluirusuario" method="post">
+                            <input type="hidden" name="idusuario" value="${user.idUsuario}" />
                             <input type="submit" class="btn btn-danger" value="Excluir" />
                           </form>
-                          <form action="alterarendereco" method="get">
-                            <input type="hidden" name="idendereco" value="${endereco.idEndereco}" />
+                          <form action="alterarusuario" method="get">
+                              <input type="hidden" name="idusuario" value="${user.idUsuario}" />
                             <input type="submit" class="btn btn-warning" value="Alterar" />
                           </form>
                         </td>
@@ -69,10 +61,9 @@
                 <tfoot>
                   <tr>
                     <th>Código</th>
-                    <th>CEP</th>
-                    <th>Logradouro</th>
-                    <th>Complemento</th>
-                    <th>Cidade</th>
+                    <th>Login</th>
+                    <th>Código Perfil</th>
+                    <th>Código Empregado</th>  
                   </tr>
                 </tfoot>
               </table>

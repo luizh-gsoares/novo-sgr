@@ -19,6 +19,12 @@
             </div><!-- /.container-fluid -->
         </section>
 
+        <div class="card-header d-flex justify-content-between">
+            <a type="button" class="btn btn-secondary" href="cadastrarperfil"
+               > Cadastrar Perfil <i class="fa-solid fa-floppy-disk"></i>
+            </a>
+        </div>
+
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -42,26 +48,26 @@
                                     </thead>
                                     <tbody>      
                                     <c:forEach items="${listaDePerfis}" var="perfil">
-                                    <tr>
-                                        <td>${perfil.idPerfil}</td>
-                                        <td>${perfil.nome}</td>
-                                        <td>${perfil.dataCadastro}</td>
-                                        <td> 
-                                            <form action="excluirperfil" method="post">
-                                                <input type="hidden" name="idPerfil"
-                                                       value="${perfil.idPerfil}" />
-                                                <input type="submit" class="btn btn-danger"
-                                                       value="Excluir Perfil" />
-                                            </form>
-                                            <form action="alterarperfil" method="get">
-                                                <input type="hidden" name="idPerfil"
-                                                       value="${perfil.idPerfil}" />
-                                                <input type="submit" class="btn btn-warning"
-                                                       value="Alterar Perfil" />
-                                            </form>
-                                        </td>
-                                    </tr>
-                                </c:forEach>
+                                        <tr>
+                                            <td>${perfil.idPerfil}</td>
+                                            <td>${perfil.nome}</td>
+                                            <td>${perfil.dataCadastro}</td>
+                                            <td> 
+                                                <form action="excluirperfil" method="post">
+                                                    <input type="hidden" name="idPerfil"
+                                                           value="${perfil.idPerfil}" />
+                                                    <input type="submit" class="btn btn-danger"
+                                                           value="Excluir Perfil" />
+                                                </form>
+                                                <form action="alterarperfil" method="get">
+                                                    <input type="hidden" name="idPerfil"
+                                                           value="${perfil.idPerfil}" />
+                                                    <input type="submit" class="btn btn-warning"
+                                                           value="Alterar Perfil" />
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
                                 </tbody>
                                 <tfoot>
                                     <tr>

@@ -43,25 +43,40 @@
             <div class="row d-flex justify-content-center align-items-center h-100">
 
                 <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1" id="fundomenu">
-                    <form action="login" method="post">
+
+                    <form action="listarempregados" method="post"  needs-validation">
                         <div class="pb-5" align="center"><span>
                                 <h1 class="display-6">Cadastrar Usuário</h1>
                             </span></div>
+
                         <!-- lOGIN input -->
-                        <div class="form-outline mb-4">
-                            <label class="form-label" for="form3Example3">Escolha o nome de usuário</label>
-                            <input type="text" id="form3Example3" class="form-control form-control-lg" placeholder="Login"
-                                   name="login" />
+                        <div class="col">
+                            <label for="validationCustom01" class="form-label">Nome de usuário</label>
+                            <input type="text" class="form-control" id="validationCustom01" name="login" placeholder="" required 
+                                   oninvalid="this.setCustomValidity('Digite um nome de usuário válido')" 
+                                   onchange="try {
+                                               setCustomValidity('')
+                                           } catch (e) {
+                                           }">
+                            
+                            
                         </div>
+                        <div class="col mt-3">
+                            <label for="validationCustom02" class="form-label">Senha</label>
+                            <input type="text" class="form-control" id="validationCustom02"placeholder="Mínimo de 8 caracteres" name="senha"  required 
+                                   minlength="8" 
+                                   oninvalid="this.setCustomValidity('Digite uma senha válida!')" 
+                                   onchange="try {
+                                               setCustomValidity('')
+                                           } catch (e) {
+                                           }">                        
+                        </div>
+                        
+
                         <input type="hidden" name="idEmpregado">
                         <!-- Password input -->
-                        <div class="form-outline mb-3">
-                            <label class="form-label" for="form3Example4">Digite uma senha</label>
-                            <input type="password" id="form3Example4" class="form-control form-control-lg" placeholder="Senha"
-                                   name="senha" />
-                        </div>
 
-                        <div class="form-outline mb-3">
+                        <div class="col mt-3">
                             <label class="form-label" for="form6Example1" required>Escolha o perfil</label> <br>
                             <select id="idPerfil" name="perfil" class="custom-select">
                             <jsp:useBean class="dao.PerfilDAO" id="pdao"> </jsp:useBean>

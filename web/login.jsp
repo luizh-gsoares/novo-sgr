@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
@@ -6,7 +8,7 @@ integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbs
 
 <style>
     body{
-        background-color: #083046;
+        background-color: #062030;
     }
     #fundomenu {
         background-color: #08AEEA;
@@ -52,16 +54,16 @@ integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbs
                         </span></div>
                     <!-- lOGIN input -->
                     <div class="form-outline mb-4">
-                        <label class="form-label" for="form3Example3">Login</label>
+                        <label class="form-label" for="form3Example3">Nome de usuário</label>
                         <input type="text" id="form3Example3" class="form-control form-control-lg" placeholder="Login"
-                               name="login" />
+                               name="login" required="" />
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-3">
                         <label class="form-label" for="form3Example4">Senha</label>
                         <input type="password" id="form3Example4" class="form-control form-control-lg" placeholder="Senha"
-                               name="senha" />
+                               name="senha" required="" minlenght="8"/>
                     </div>
 
                     <div class="text-center text-lg-start mt-4 pt-2">

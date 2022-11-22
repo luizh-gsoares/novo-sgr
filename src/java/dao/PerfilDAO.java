@@ -25,7 +25,7 @@ public class PerfilDAO {
     }
 
     public boolean alteraPerfil(Perfil perfil) {
-        String insertTableSQL = "UPDATE perfil SET nome = ?, dataCadastro = ?"
+        String insertTableSQL = "UPDATE perfil SET nome = ?"
                 + "WHERE idPerfil = ? ;";
         PreparedStatement preparedStatement;
         try {
@@ -89,15 +89,13 @@ public class PerfilDAO {
             PreparedStatement con = DbConnect.getConexao().prepareStatement(sql);
 
             ResultSet rs = con.executeQuery();
-
             ArrayList<Perfil> listaPerfis = new ArrayList<>();
+            
             while (rs.next()) {
                 Perfil perf = new Perfil();
-
                 perf.setIdPerfil(rs.getInt("idPerfil"));
                 perf.setNome(rs.getString("nome"));
                 perf.setDataCadastro(rs.getString("dataCadastro"));
-
                 listaPerfis.add(perf);
             }
             rs.close();
