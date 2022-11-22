@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.Endereco;
 
 @WebServlet(name = "AlterarEndereco", urlPatterns = {"/alterarendereco"})
-public class AlterarEmpregado extends HttpServlet {
+public class AlterarEndereco extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
