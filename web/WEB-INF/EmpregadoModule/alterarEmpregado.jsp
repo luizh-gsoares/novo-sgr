@@ -21,7 +21,7 @@
       </div><!-- /.container-fluid -->
     </section>
 
-    <form class="needs-validation" novalidate action="cadastrarempregado" method="post">
+    <form class="needs-validation" novalidate action="alterarempregado" method="post">
 
       <div class="container">
 
@@ -32,7 +32,7 @@
         <div class="row mb-4">
           <div class="col">
             <div class="form-outline">
-              <input type="hidden" id="form6Example1" class="form-control" id="validationCustom01" name="idEmpregado" />
+              <input type="hidden" id="form6Example1" class="form-control" id="validationCustom01" name="idEmpregado" value="${empregado.idEmpregado}"/>
             </div>
             <div class="form-outline">
               <label class="form-label" for="form6Example1" required>Nome</label>

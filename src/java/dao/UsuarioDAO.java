@@ -4,19 +4,23 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Funcao;
+import model.Perfil;
 import model.Usuario;
 
 public class UsuarioDAO {
 
-    public boolean cadastraUsuario(Usuario usuario) {
-        String insertTableSQL = "INSERT INTO usuarios" + "(login, senha, ) VALUES" + "(?,?) ;";
+    public boolean cadastrarUsuario(Usuario usuario) {
+        String insertTableSQL = "INSERT INTO usuarios" + "(login, senha, idPerfil) VALUES" + "(?,?, ?) ;";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = DbConnect.getConexao().prepareStatement(insertTableSQL);
             preparedStatement.setString(1, usuario.getLogin());
             preparedStatement.setString(2, usuario.getSenha());
+            preparedStatement.setInt(4, usuario.getIdPerfil());
             preparedStatement.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -78,6 +82,62 @@ public class UsuarioDAO {
             rs.close();
             con.close();
             return user;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<Usuario> procuraTodosUsuarios() {
+
+        try {
+            String sql = "SELECT * FROM usuarios;";
+            PreparedStatement con = DbConnect.getConexao().prepareStatement(sql);
+
+            ResultSet rs = con.executeQuery();
+
+            ArrayList<Usuario> listaUsuarios = new ArrayList<>();
+
+            while (rs.next()) {
+                Usuario usur = new Usuario();
+                usur.setIdUsuario(rs.getInt("idUsuario"));
+                usur.setLogin(rs.getString("login"));
+                usur.setSenha(rs.getString("senha"));
+                usur.setIdEmpregado(rs.getInt("idEmpregado"));
+                usur.setIdPerfil(rs.getInt("idPerfil"));
+                listaUsuarios.add(usur);
+            }
+
+            rs.close();
+            con.close();
+            return listaUsuarios;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    public ArrayList<Perfil> procuraTodosPerfis() {
+
+        try {
+            String sql = "SELECT * FROM perfil;";
+            PreparedStatement con = DbConnect.getConexao().prepareStatement(sql);
+
+            ResultSet rs = con.executeQuery();
+            ArrayList<Perfil> listaPerfis = new ArrayList<>();
+            
+            while (rs.next()) {
+                Perfil perf = new Perfil();
+                perf.setIdPerfil(rs.getInt("idPerfil"));
+                perf.setNome(rs.getString("nome"));
+                perf.setDataCadastro(rs.getString("dataCadastro"));
+                listaPerfis.add(perf);
+            }
+            rs.close();
+            con.close();
+            return listaPerfis;
 
         } catch (Exception e) {
             e.printStackTrace();

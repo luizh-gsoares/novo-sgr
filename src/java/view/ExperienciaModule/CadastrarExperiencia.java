@@ -1,5 +1,6 @@
 package view.ExperienciaModule;
 
+import dao.EmpregadoDAO;
 import dao.ExperienciaDAO;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Empregado;
 import model.Experiencia;
 
 @WebServlet(name = "CadastrarExperiencia", urlPatterns = {"/cadastrarexperiencia"})
@@ -17,6 +19,12 @@ public class CadastrarExperiencia extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        EmpregadoDAO eDao = new EmpregadoDAO();
+        Integer idEmpregado = Integer.parseInt(request.getParameter("idEmpregado"));
+        Empregado e = eDao.procuraEmpregadoPeloID(idEmpregado);
+        request.setAttribute("empregado", e);
+        
         RequestDispatcher dispatcher = getServletContext()
                 .getRequestDispatcher("/WEB-INF/ExperienciaModule/cadastrarExperiencia.jsp");
         dispatcher.forward(request, response);

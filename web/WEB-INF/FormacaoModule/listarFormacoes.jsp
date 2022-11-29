@@ -20,48 +20,58 @@
         </section>
 
         <div class="card-header d-flex justify-content-between">
-            <a type="button" class="btn btn-secondary" href="cadastrarformacao"
-               > Cadastrar Formação <i class="fa-solid fa-floppy-disk"></i>
-            </a>
+            <div>
+                <form action="cadastrarformacao" method="get">
+                    <select id="idEmpregado" name="idEmpregado" class="custom-select">
+                    <jsp:useBean class="dao.EmpregadoDAO" id="edao"> </jsp:useBean>
+                    <c:forEach items="${edao.procuraTodosEmpregados()}" var="empregado">
+                        <option value="${empregado.idEmpregado}">${empregado.nome}</option>
+                    </c:forEach>
+                </select>
+                <input type="submit" class="btn btn-warning" value="Cadastrar formação" />
+            </form>
         </div>
+    </div>
 
-        <section class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
 
-                            <!-- /.card-header -->
-                            <div class="card-body">
-                                <table id="example1" class="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Código</th>
-                                            <th>Código do tipo curso</th>
-                                            <th>Curso</th>
-                                            <th>Instituição</th>
-                                            <th>Semestre</th>
-                                            <th>Data Inicio</th>
-                                            <th>Data Fim</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    <c:forEach items="${listaDeFormacao}" var="formacao">
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Código do tipo curso</th>
+                                        <th>Curso</th>
+                                        <th>Instituição</th>
+                                        <th>Semestre</th>
+                                        <th>Data Inicio</th>
+                                        <th>Data Fim</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach items="${listaDeFormacoes}" var="formacao">
                                         <tr>
                                             <td>${formacao.idFormacao}</td>
-                                            <td>${formacao.id_tipocurso}</td>
+                                            <td>${formacao.idTipocurso}</td>
                                             <td>${formacao.curso}</td>
-                                            <td>${formacao.instituição}</td>
+                                            <td>${formacao.instituicao}</td>
                                             <td>${formacao.semestre}</td>
                                             <td>${formacao.dtInicio}</td>
                                             <td>${formacao.dtFim}</td>
+                                            
                                     <div class="row" >
                                         <td>
-                                            <form action="excluirtelefone" method="post">
+                                            <form action="excluirformacao" method="post">
                                                 <input type="hidden" name="idFormacao" value="${formacao.idFormacao}" />
                                                 <input type="submit" class="btn btn-danger" value="Excluir" />
                                             </form>
-                                            <form action="alterartelefone" method="get">
+                                            <form action="alterarformacao" method="get">
                                                 <input type="hidden" name="idFormacao" value="${formacao.idFormacao}" />
                                                 <input type="submit" class="btn btn-warning" value="Alterar" />
                                             </form>
@@ -79,6 +89,7 @@
                                         <th>Semestre</th>
                                         <th>Data Inicio</th>
                                         <th>Data Fim</th>
+                                        <th>Ações</th>
                                     </tr>
                                 </tfoot>
                             </table>

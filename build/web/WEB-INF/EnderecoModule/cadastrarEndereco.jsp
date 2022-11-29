@@ -30,56 +30,47 @@
 
                 <div class="row mb-4">
                     <div class="col">
-                      <div class="form-outline">
-                        <label class="form-label" for="form6Example1">idEndereço</label>
-                        <input type="hidden" id="form6Example1" class="form-control" id="validationCustom01" name="idendereco" value="${endereco.idendereco}" />             
-                      </div>
-                    </div>
-                    <div class="col">
                         <div class="form-outline">
-                          <label class="form-label" for="form6Example1" required>CEP</label>
-                          <input type="text" id="form6Example1" class="form-control" id="validationCustom01"
-                            name="cep" value="${endereco.cep}" /> 
-                        </div>
-                      </div>
-                    <div class="col">
-                      <div class="form-outline">
+                            <label class="form-label" for="form6Example1">idEmpregado</label>
+                            <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="idEmpregado" value="${empregado.idEmpregado}" disabled/>             
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example1" required>CEP</label>
+                        <input type="text" id="form6Example1" class="form-control" id="validationCustom01"
+                               name="cep" value="${endereco.cep}" /> 
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
                         <label class="form-label" for="form6Example1">Logradouro</label>
                         <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="logradouro" value="${endereco.logradouro}" />
-                      </div>
-                    </div> 
-                    <div class="col">
-                      <div class="form-outline">
+                    </div>
+                </div> 
+                <div class="col">
+                    <div class="form-outline">
                         <label class="form-label" for="form6Example1" required>Complemento</label>
                         <input type="text" id="form6Example1" class="form-control" id="validationCustom01"
-                          name="complemento" value="${endereco.complemento}"/>
-                      </div>
+                               name="complemento" value="${endereco.complemento}"/>
                     </div>
-                    <div class="col">
-                      <div class="form-outline">
-                        <label class="form-label" for="form6Example1" required>Cidade</label>
-                        <select name="cidade" id="">
-                            <c:forEach items="${listaDeCidades}" var="cidades">
-                                <option>${cidades.nome}</option>
-                            </c:forEach>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="form-outline">
-                        <label class="form-label" for="form6Example1" required>Estado</label>
-                        <select name="cidade" id="">
-                            <c:forEach items="${listaDeEstados}" var="estados">
-                                <option>${estados.nome}</option>
-                            </c:forEach>
-                        </select>
-                      </div>
-                    </div>
-
-                    <!-- Submit button -->
-                    <button type="submit" class="btn btn-primary btn-block mb-4">Enviar</button>
-
                 </div>
-        </form>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example1" required>Cidade</label>
+                        <select id="idCidade" name="idCidade" class="custom-select">
+                            <jsp:useBean class="dao.EnderecoDAO" id="edao"> </jsp:useBean>
+                            <c:forEach items="${edao.procuraTodasCidades()}" var="end">
+                                <option value="${end.idCidade}">${end.nome}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block mb-4">Enviar</button>
+
+            </div>
+    </form>
 
     <jsp:include page="/Templates/footer.jsp"></jsp:include>

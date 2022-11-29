@@ -1,5 +1,8 @@
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.UsuarioDAO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <jsp:include page="/Templates/header.jsp"></jsp:include>
 
     <style>
@@ -44,7 +47,7 @@
 
                 <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1" id="fundomenu">
 
-                    <form action="listarempregados" method="post"  needs-validation">
+                    <form action="cadastrarusuario" method="post"  needs-validation">
                         <div class="pb-5" align="center"><span>
                                 <h1 class="display-6">Cadastrar Usuário</h1>
                             </span></div>
@@ -78,8 +81,8 @@
 
                         <div class="col mt-3">
                             <label class="form-label" for="form6Example1" required>Escolha o perfil</label> <br>
-                            <select id="idPerfil" name="perfil" class="custom-select">
-                            <jsp:useBean class="dao.PerfilDAO" id="pdao"> </jsp:useBean>
+                            <select id="idUsuario" name="perfil" class="custom-select">
+                            <jsp:useBean class="dao.UsuarioDAO" id="pdao"> </jsp:useBean>
                             <c:forEach items="${pdao.procuraTodosPerfis()}" var="perf">
                                 <option value="${perf.idPerfil}">${perf.nome}</option>
                             </c:forEach>

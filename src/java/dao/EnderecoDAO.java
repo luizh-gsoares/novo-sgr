@@ -12,12 +12,12 @@ public class EnderecoDAO {
 
     public boolean cadastraEndereco(Endereco endereco) {
 
-        String insertTableSQL = "INSERT INTO endereco" + "(idEndereco, cep, logradouro, complemento, idCidade) VALUES"
+        String insertTableSQL = "INSERT INTO endereco" + "(idEmpregado, cep, logradouro, complemento, idCidade) VALUES"
                 + "(?,?,?,?,?) ;";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = DbConnect.getConexao().prepareStatement(insertTableSQL);
-            preparedStatement.setInt(1, endereco.getIdEndereco());
+            preparedStatement.setInt(1, endereco.getIdEmpregado());
             preparedStatement.setString(2, endereco.getCep());
             preparedStatement.setString(3, endereco.getLogradouro());
             preparedStatement.setString(4, endereco.getComplemento());

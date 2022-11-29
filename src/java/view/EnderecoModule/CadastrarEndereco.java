@@ -1,5 +1,6 @@
 package view.EnderecoModule;
 
+import dao.EmpregadoDAO;
 import dao.EnderecoDAO;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
@@ -8,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Empregado;
 import model.Endereco;
 
 @WebServlet(name = "CadastrarEndereco", urlPatterns = {"/cadastrarendereco"})
@@ -16,6 +18,11 @@ public class CadastrarEndereco extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        EmpregadoDAO eDao = new EmpregadoDAO();
+        Integer idEmpregado = Integer.parseInt(request.getParameter("idEmpregado"));
+        Empregado e = eDao.procuraEmpregadoPeloID(idEmpregado);
+        request.setAttribute("empregado", e);
+
         RequestDispatcher dispatcher = getServletContext()
                 .getRequestDispatcher("/WEB-INF/EnderecoModule/cadastrarEndereco.jsp");
         dispatcher.forward(request, response);
@@ -27,6 +34,8 @@ public class CadastrarEndereco extends HttpServlet {
         System.out.println("POST - CADASTRAR ENDERECO");
         request.setCharacterEncoding("UTF-8");
         Endereco e = new Endereco();
+        int idEmpregado = Integer.parseInt(request.getParameter("idEmpregado"));
+        e.setIdEmpregado(idEmpregado);
         e.setCep(request.getParameter("cep"));
         e.setLogradouro(request.getParameter("logradouro"));
         e.setComplemento(request.getParameter("complemento"));

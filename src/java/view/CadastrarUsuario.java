@@ -33,10 +33,12 @@ public class CadastrarUsuario extends HttpServlet {
         Usuario u = new Usuario();
         u.setLogin(request.getParameter("usuario"));
         u.setSenha(request.getParameter("senha"));
+        int idPerfil = Integer.parseInt(request.getParameter("idPerfil"));
+        u.setIdPerfil(idPerfil);
 
         UsuarioDAO dao = new UsuarioDAO();
 
-        if (dao.cadastraUsuario(u)) {
+        if (dao.cadastrarUsuario(u)) {
             request.setAttribute("usuario", u);
             HttpSession ses = request.getSession();
             ses.setAttribute("usuario",u);
@@ -45,7 +47,7 @@ public class CadastrarUsuario extends HttpServlet {
             request.setAttribute("erro", "Usuário ou senha inválida!");
         }
         
-        response.sendRedirect("listarprodutos");
+        response.sendRedirect("listarempregados");
 
     }
 

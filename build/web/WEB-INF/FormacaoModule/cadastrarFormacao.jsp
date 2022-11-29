@@ -6,7 +6,7 @@
 <jsp:include page="/Templates/header.jsp"></jsp:include>
 <jsp:include page="/Templates/menu.jsp"></jsp:include>
 
-    <title>Cadastrar formacao</title>
+    <title>Cadastrar Formação</title>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -15,74 +15,77 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Cadastrar formacao</h1>
+                        <h1>Cadastrar formação</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
         </section>
 
-        <form class="needs-validation" novalidate action="cadastrarformacao" method="post">
+        <form action="cadastrarformacao" method="post">
 
             <div class="container">
 
                 <legend>Formação</legend>
                 <hr>
                 <!-- Campos Dados Pessoais -->
-
                 <div class="row mb-4">
                     <div class="col">
-                      <div class="form-outline">
-                        <label class="form-label" for="form6Example1">idFormação</label>
-                        <input type="hidden" id="form6Example1" class="form-control" id="validationCustom01" name="idFormacao" value="${formacao.idformacao}" />             
-                      </div>
-                    </div>
-                    <div class="col">
                         <div class="form-outline">
-                          <label class="form-label" for="form6Example1" required>Curso</label>
-                          <input type="text" id="form6Example1" class="form-control" id="validationCustom01"
-                            name="curso" value="${formacao.curso}" /> 
-                        </div>
-                      </div>
-                    <div class="col">
-                      <div class="form-outline">
+                            <label class="form-label" for="form6Example1">idEmpregado</label>
+                            <input type="text" id="form6Example1" class="form-control" id="validationCustom01"
+                               name="idEmpregado" value="${empregado.idEmpregado}"/></div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example1" required>Curso</label>
+                        <input type="text" id="form6Example1" class="form-control" id="validationCustom01"
+                               name="curso" /> 
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
                         <label class="form-label" for="form6Example1">Tipo Curso</label>
-                        <input type="hidden" id="form6Example1" class="form-control" id="validationCustom01" name="id_tipocurso" value="${formacao.id_tipocurso}" />
-                      </div>
-                    </div> 
-                    <div class="col">
-                      <div class="form-outline">
+                        <select id="id_tipocurso" name="idTipocurso" class="custom-select">
+                            <jsp:useBean class="dao.FormacaoDAO" id="fordao"> </jsp:useBean>
+                            <c:forEach items="${fordao.procuraTodosTipocursos()}" var="form">
+                                <option value="${form.idTipocurso}">${form.nome}</option>
+                            </c:forEach>
+                        </select></div>
+                </div> 
+                <div class="col">
+                    <div class="form-outline">
                         <label class="form-label" for="form6Example1" required>Instituição</label>
                         <input type="text" id="form6Example1" class="form-control" id="validationCustom01"
-                          name="Instituição" value="${formacao.instituição}"/>
-                      </div>
+                               name="instituicao"/>
                     </div>
-                    <div class="col">
-                      <div class="form-outline">
+                </div>
+                <div class="col">
+                    <div class="form-outline">
                         <label class="form-label" for="form6Example1" required>Semestre Atual</label>
                         <input type="number" id="form6Example1" class="form-control" id="validationCustom01"
-                          name="semestre" value="${formacao.semestre}" />
-                      </div>
+                               name="semestre"/>
                     </div>
-                    <div class="col">
-                      <div class="form-outline">
+                </div>
+                <div class="col">
+                    <div class="form-outline">
                         <label class="form-label" for="form6Example1" required>Data Inicio</label>
                         <input type="date" id="form6Example1" class="form-control" id="validationCustom01"
-                          name="dtIncio" value="${formacao.dtIncio}" />
-                      </div>
+                               name="dtInicio"/>
                     </div>
-                    <div class="col">
-                      <div class="form-outline">
-                        <label class="form-label" for="form6Example1" required>Semestre Atual</label>
-                        <input type="date" id="form6Example1" class="form-control" id="validationCustom01"
-                          name="dtFim" value="${formacao.dtFim}" />
-                      </div>
-                    </div>
-                  </div>
-
-                    <!-- Submit button -->
-                    <button type="submit" class="btn btn-primary btn-block mb-4">Enviar</button>
-
                 </div>
-        </form>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example1" required>Data Fim</label>
+                        <input type="date" id="form6Example1" class="form-control" id="validationCustom01"
+                               name="dtFim"/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4">Enviar</button>
+
+        </div>
+    </form>
 
     <jsp:include page="/Templates/footer.jsp"></jsp:include>

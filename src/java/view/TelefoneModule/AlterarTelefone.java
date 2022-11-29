@@ -1,5 +1,6 @@
 package view.TelefoneModule;
 
+import dao.EmpregadoDAO;
 import dao.TelefoneDAO;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
@@ -33,13 +34,10 @@ public class AlterarTelefone extends HttpServlet {
         System.out.println("POST - Alterar TELEFONE");
         request.setCharacterEncoding("UTF-8");
         Telefone t = new Telefone();
-        int idTelefone = Integer.parseInt(request.getParameter("idTelefone"));
-        t.setIdTelefone(idTelefone);
-        int idEmpregado = Integer.parseInt(request.getParameter("idEmpregado"));
-        t.setIdEmpregado(idEmpregado);
         t.setTelefoneResidencial(Integer.parseInt(request.getParameter("telefoneResidencial")));
         t.setTelefoneCelular(Integer.parseInt(request.getParameter("telefoneCelular")));
         t.setTelefoneRecado(Integer.parseInt(request.getParameter("telefoneCelular")));
+        t.setIdTelefone(Integer.parseInt(request.getParameter("idTelefone")));
 
         TelefoneDAO dao = new TelefoneDAO();
 

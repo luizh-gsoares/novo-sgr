@@ -1,8 +1,7 @@
-
+    
 package view;
 
-import view.ProductModule.*;
-import dao.ProdutoDAO;
+import dao.UsuarioDAO;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
@@ -11,28 +10,27 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Produto;
+import model.Usuario;
 
 
-@WebServlet(name = "Loja", urlPatterns = {"/loja"})
-public class Loja extends HttpServlet {
+@WebServlet(name = "ListarUsuario", urlPatterns = {"/listarusuarios"})
+public class ListarUsuarios extends HttpServlet {
 
    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("GET - LOJA");
-        ProdutoDAO dao = new ProdutoDAO();
-        ArrayList<Produto> listaDeProdutos = dao.procuraTodosProdutos();
-            request.setAttribute("listaDeProdutos", listaDeProdutos);
-        RequestDispatcher rd = request.getRequestDispatcher("loja.jsp");
+        UsuarioDAO dao = new UsuarioDAO();
+        ArrayList<Usuario> listaDeUsuarios = dao.procuraTodosUsuarios();
+            request.setAttribute("listaDeUsuarios", listaDeUsuarios);
+        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/listarUsuarios.jsp");
         rd.forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         System.out.println("POST - CADASTRAR USUARIO");
+         System.out.println("POST - LISTAR USUARIOS");
     }
 
 }

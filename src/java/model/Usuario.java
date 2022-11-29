@@ -8,10 +8,10 @@ import lombok.Setter;
 
 public class Usuario {
 
+    private Integer idUsuario;
     private String login;
     private String senha;
     private Integer idEmpregado;
-    private Integer idUsuario;
     private Integer idPerfil;
 
     public Usuario(String login, String senha, Integer idEmpregado, Integer idUsuario, Integer idPerfil) {
@@ -29,7 +29,5 @@ public class Usuario {
     public String toString() {
         return "Usuario{" + "login=" + login + ", senha=" + senha + ", idEmpregado=" + idEmpregado + ", idUsuario=" + idUsuario + ", idPerfil=" + idPerfil + '}';
     }
-
-
 
 }

@@ -21,7 +21,7 @@
       </div><!-- /.container-fluid -->
     </section>
 
-    <form class="needs-validation" novalidate action="alterartelefone" method="post">
+    <form action="alterartelefone" method="post">
 
       <div class="container">
 
@@ -33,34 +33,34 @@
           <div class="col">
             <div class="form-outline">
               <label class="form-label" for="form6Example1">idTelefone</label>
-              <input type="hidden" id="form6Example1" class="form-control" id="validationCustom01" name="idTelefone" value="${telefone.idTelefone}" />             
+              <input type="text" id="idTelefone" class="form-control" name="idTelefone" value="${telefone.idTelefone}" disabled/>             
             </div>
           </div>
           <div class="col">
             <div class="form-outline">
               <label class="form-label" for="form6Example1">idEmpregado</label>
-              <input type="hidden" id="form6Example1" class="form-control" id="validationCustom01" name="idEmpregado" value="${telefone.idEmpregado}" />
+              <input type="text" id="idEmpregado" class="form-control" name="idEmpregado" value="${telefone.idEmpregado}" disabled/>
             </div>
           </div>
           <div class="col">
             <div class="form-outline">
               <label class="form-label" for="form6Example1" required>Telefone Residencial</label>
-              <input type="number" id="form6Example1" class="form-control" id="validationCustom01"
-                name="telefoneResidencial" value="${telefone.telefoneResidencial}" /> ${telefone.telefoneResidencial}
+              <input type="text" id="form6Example1" class="form-control" id="validationCustom01"
+                name="telefoneResidencial" value="${telefone.telefoneResidencial}"/>
             </div>
           </div>
           <div class="col">
             <div class="form-outline">
               <label class="form-label" for="form6Example1" required>Telefone Celular</label>
-              <input type="number" id="form6Example1" class="form-control" id="validationCustom01"
-                name="telefoneCelular" value="${telefone.telefoneCelular}"/> ${telefone.telefoneCelular}
+              <input type="text" id="form6Example1" class="form-control" id="validationCustom01"
+                name="telefoneCelular" value="${telefone.telefoneCelular}"/>
             </div>
           </div>
           <div class="col">
             <div class="form-outline">
               <label class="form-label" for="form6Example1" required>Telefone Recado</label>
-              <input type="number" id="form6Example1" class="form-control" id="validationCustom01"
-                name="telefoneRecado" value="${telefone.telefoneRecado}" /> ${telefone.telefoneRecado}
+              <input type="text" id="form6Example1" class="form-control" id="validationCustom01"
+                name="telefoneRecado" value="${telefone.telefoneRecado}" />
             </div>
           </div>
         </div>

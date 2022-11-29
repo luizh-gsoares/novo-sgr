@@ -24,7 +24,6 @@
         <form class="needs-validation" novalidate action="cadastrartelefone" method="post">
 
             <div class="container">
-
                 <legend>Telefones</legend>
                 <hr>
                 <!-- Campos Dados Pessoais -->
@@ -32,44 +31,42 @@
                 <div class="row mb-4">
                     <div class="col">
                         <div class="form-outline">
-                            <input type="hidden" id="form6Example1" class="form-control" id="validationCustom01" name="idTelefone" />
+                            <input type="hidden" class="form-control" name="idTelefone" />
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-outline">                          
-                            <input type="hidden" id="form6Example1" class="form-control" id="validationCustom01" name="idEmpregado" value="${usuario.idEmpregado}"/>
-                        </div>
+                            <input type="hidden" class="form-control" name="idEmpregado" value="${empregado.idEmpregado}"/>
                     </div>
                 </div>
-                    <div class="row mb-4">
-                        <div class="col">
-                            <div class="form-outline">
-                                <label class="form-label" for="form6Example1" required>Telefone Residencial</label>
-                                <input type="number" id="form6Example1" class="form-control" id="validationCustom01"
-                                       name="telefoneResidencial" />
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-outline">
-                                <label class="form-label" for="form6Example1" required>Telefone Celular</label>
-                                <input type="number" id="form6Example1" class="form-control" id="validationCustom01"
-                                       name="telefoneCelular" />
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-outline">
-                                <label class="form-label" for="form6Example1" required>Telefone Recado</label>
-                                <input type="number" id="form6Example1" class="form-control" id="validationCustom01"
-                                       name="telefoneRecado" />
-                            </div>
-                        </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example1" required>Telefone Residencial</label>
+                        <input type="number" id="form6Example1" class="form-control" id="validationCustom01"
+                               name="telefoneResidencial" />
                     </div>
-
-
-                    <!-- Submit button -->
-                    <button type="submit" class="btn btn-primary btn-block mb-4">Enviar</button>
-
                 </div>
-        </form>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example1" required>Telefone Celular</label>
+                        <input type="number" id="form6Example1" class="form-control" id="validationCustom01"
+                               name="telefoneCelular" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form6Example1" required>Telefone Recado</label>
+                        <input type="number" id="form6Example1" class="form-control" id="validationCustom01"
+                               name="telefoneRecado" />
+                    </div>
+                </div>
+            </div>
 
-    <jsp:include page="/Templates/footer.jsp"></jsp:include>
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4">Enviar</button>
+    </form>
+</div>
+
+<jsp:include page="/Templates/footer.jsp"></jsp:include>

@@ -11,19 +11,18 @@ public class FormacaoDAO {
 
     public boolean cadastraFormacao(Formacao formacao) {
         String insertTableSQL = "INSERT INTO formacao"
-                + "( idFormacao , idEmpregdo,  idTipocurso ,  curso ,  instituicao ,  semestre ,  dtInicio ,  dtFim ) VALUES"
-                + "(?,?,?,?,?,?,?,?)";
+                + "(idEmpregado, idTipocurso , curso , instituicao , semestre , dtInicio , dtFim ) VALUES"
+                + "(?,?,?,?,?,?,?)";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = DbConnect.getConexao().prepareStatement(insertTableSQL);
-            preparedStatement.setInt(1, formacao.getIdFormacao());
-            preparedStatement.setInt(2, formacao.getIdEmpregado());
-            preparedStatement.setInt(3, formacao.getIdTipocurso());
-            preparedStatement.setString(4, formacao.getCurso());
-            preparedStatement.setString(5, formacao.getInstituicao());
-            preparedStatement.setInt(6, formacao.getSemestre());
-            preparedStatement.setString(7, formacao.getDtInicio());
-            preparedStatement.setString(8, formacao.getDtFim());
+            preparedStatement.setInt(1, formacao.getIdEmpregado());
+            preparedStatement.setInt(2, formacao.getIdTipocurso());
+            preparedStatement.setString(3, formacao.getCurso());
+            preparedStatement.setString(4, formacao.getInstituicao());
+            preparedStatement.setInt(5, formacao.getSemestre());
+            preparedStatement.setString(6, formacao.getDtInicio());
+            preparedStatement.setString(7, formacao.getDtFim());
             preparedStatement.executeUpdate();
             return true;
         } catch (SQLException e) {
