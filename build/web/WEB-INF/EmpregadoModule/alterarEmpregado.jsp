@@ -6,7 +6,7 @@
   <jsp:include page="/Templates/header.jsp"></jsp:include>
   <jsp:include page="/Templates/menu.jsp"></jsp:include>
 
-  <title>Cadastrar Empregado</title>
+  <title>Alterar Empregado</title>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -32,95 +32,92 @@
         <div class="row mb-4">
           <div class="col">
             <div class="form-outline">
-              <input type="hidden" id="form6Example1" class="form-control" id="validationCustom01" name="idEmpregado" value="${empregado.idEmpregado}"/>
+              <input type="hidden" id="form6Example1" class="form-control" id="validationCustom01" name="idEmpregado" value="${empregado.idEmpregado}">
             </div>
             <div class="form-outline">
-              <label class="form-label" for="form6Example1" required>Nome</label>
-              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="nome" />
-              ${empregado.nome}
+              <label class="form-label" for="form6Example1" >Nome</label>
+              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="nome" required  value="${empregado.nome}">
             </div>
             <div class="form-outline">
-              <label class="form-label" for="form6Example1" required>Matricula</label>
-              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="matricula" />${empregado.matricula}
+              <label class="form-label" for="form6Example1" >Matricula</label>
+              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="matricula" required value="${empregado.matricula}" />
             </div>
             <div class="form-outline">
-              <label class="form-label" for="form6Example1" required>Nome Social</label>
-              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="nomeSocial" />${empregado.nomeSocial}
+              <label class="form-label" for="form6Example1" >Nome Social</label>
+              <input type="text" id="form6Example1" class="form-control" id="validationCustom01"  required name="nomeSocial" value="${empregado.nomeSocial}" />
             </div>
             <div class="form-outline">
-              <label class="form-label" for="form6Example1" required>Nacionalidade</label>${empregado.nacionalidade}
-              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="nacionalidade" />
-              SELECT
+              <label class="form-label" for="form6Example1" >Nacionalidade</label> 
+              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" required name="nacionalidade" value="${nacionalidade.nome}">
+              
             </div>
             <div class="form-outline">
-              <label class="form-label" for="form6Example1" required>Naturalidade</label>
-              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="naturalidade" />${empregado.naturalidade}
+              <label class="form-label" for="form6Example1" >Naturalidade</label>
+              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" required name="naturalidade"  value="${empregado.naturalidade}" />
             </div>
             <div class="form-outline">
-              <label class="form-label" for="form6Example1" required>UF</label>
-              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="uf" />${empregado.uf}
+              <label class="form-label" for="form6Example1" >UF</label>
+              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" required name="uf" value="${empregado.uf}" />
             </div>
             <div class="form-outline">
-              <label class="form-label" for="form6Example1" required>Data de Nascimento</label>
-              <input type="date" id="form6Example1" class="form-control" id="validationCustom01" name="dataNasc" />${empregado.dataNasc}
+              <label class="form-label" for="form6Example1" >Data de Nascimento</label>
+              <input type="date" id="form6Example1" class="form-control" id="validationCustom01" required name="dataNasc"  value="${empregado.dataNasc}" />
             </div>
             <div class="form-outline">
-              <label class="form-label" for="form6Example1" required>Sexo</label>
-              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="sexo" /> SELECT${empregado.sexo}
+              <label class="form-label" for="form6Example1" >Sexo</label>
+              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="sexo" required value="${empregado.sexo}" />
             </div>
             <div class="form-outline">
-              <label class="form-label" for="form6Example1" required>Estado Civil</label>
-              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="estadoCivil" />${empregado.estadoCivil}
+              <label class="form-label" for="form6Example1" >Estado Civil</label>
+              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="estadoCivil" required value="${empregado.estadoCivil}" />
             </div>
             <div class="form-outline">
-              <label class="form-label" for="form6Example1" required>RG</label>
-              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="rg" />${empregado.rg}
+              <label class="form-label" for="form6Example1" >RG</label>
+              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="rg" required value="${empregado.rg}" />
             </div>
             <div class="form-outline">
-              <label class="form-label" for="form6Example1" required>Data de Expedição</label>
-              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="dataExpedicao" />${empregado.dataExpedicao}
+              <label class="form-label" for="form6Example1" >Data de Expedição</label>
+              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="dataExpedicao" required value="${empregado.dataExpedicao}" />
             </div>
             <div class="form-outline">
-              <label class="form-label" for="form6Example1" required>Órgão Expedidor</label>
-              <input type="text" id="form6Example1" class="form-control" id="validationCustom01"
-                name="orgaoExpedidor" />${empregado.orgaoExpedidor}
+              <label class="form-label" for="form6Example1" >Órgão Expedidor</label>
+              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="orgaoExpedidor" required  value="${empregado.orgaoExpedidor}" />
             </div>
             <div class="form-outline">
-              <label class="form-label" for="form6Example1" required>CPF</label>
-              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="cpf" />${empregado.cpf}
+              <label class="form-label" for="form6Example1" >CPF</label>
+              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="cpf" required value="${empregado.cpf}" />
             </div>
             <div class="form-outline">
-              <label class="form-label" for="form6Example1" required>Zona Eleitoral</label>
-              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="zonaEleitoral" />${empregado.zonaEleitoral}
+              <label class="form-label" for="form6Example1" >Zona Eleitoral</label>
+              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="zonaEleitoral" required value="${empregado.zonaEleitoral}" />
             </div>
             <div class="form-outline">
-              <label class="form-label" for="form6Example1" required>Sessão</label>
-              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="secao" />${empregado.secao}
+              <label class="form-label" for="form6Example1" >Sessão</label>
+              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="secao" required value="${empregado.secao}" />
             </div>
             <div class="form-outline">
-              <label class="form-label" for="form6Example1" required>Titulo Eleitoral</label>
-              <input type="text" id="form6Example1" class="form-control" id="validationCustom01"
-                name="tituloEleitoral" />${empregado.tituloEleitoral}
+              <label class="form-label" for="form6Example1" >Titulo Eleitoral</label>
+              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="tituloEleitoral" required value="${empregado.tituloEleitoral}" />
             </div>
             <div class="form-outline">
-              <label class="form-label" for="form6Example1" required>E-mail</label>
-              <input type="email" id="form6Example1" class="form-control" id="validationCustom01" name="email" />${empregado.email}
+              <label class="form-label" for="form6Example1" >E-mail</label>
+              <input type="email" id="form6Example1" class="form-control" id="validationCustom01" name="email" required value="${empregado.email}" />
             </div>
             <div class="form-outline">
-              <label class="form-label" for="form6Example1" required>Nome do Cônjulgue</label>
-              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="nomeConjulgue" />${empregado.nomeConjulgue}
+              <label class="form-label" for="form6Example1" >Nome do Cônjulgue</label>
+              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="nomeConjulgue" required value="${empregado.nomeConjugue}" />
             </div>
             <div class="form-outline">
-              <label class="form-label" for="form6Example1" required>Nome do Pai</label>
-              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="nomePai" />${empregado.nomePai}
+              <label class="form-label" for="form6Example1" >Nome do Pai</label>
+              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="nomePai" required value="${empregado.nomePai}" />
             </div>
             <div class="form-outline">
-              <label class="form-label" for="form6Example1" required>Nome da Mãe</label>
-              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="nomeMae" />${empregado.nomeMae}
+              <label class="form-label" for="form6Example1" >Nome da Mãe</label>
+              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="nomeMae" required value="${empregado.nomeMae}" />
             </div>
             <div class="form-outline">
-              <label class="form-label" for="form6Example1" required>Especial?</label>
-              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="especial" />${empregado.especial}
+              <label class="form-label" for="form6Example1" >Especial?</label>
+              <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="especial" required value="${empregado.especial}" />
             </div>
           </div>
 

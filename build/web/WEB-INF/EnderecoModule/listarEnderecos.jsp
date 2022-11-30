@@ -13,25 +13,27 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Lista de Formações</h1>
+                        <h1>Lista de Endereços</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
         </section>
 
-        <div class="card-header d-flex justify-content-between">
+        <div class="card-header d-flex justify-content-between py-3">
             <div>
                 <form action="cadastrarendereco" method="get">
-                    <select id="idEmpregado" name="idEmpregado" class="custom-select">
+                    <select id="idEmpregado" name="idEmpregado"  class="custom-select" required>
+                        <option value="" disabled selected >Selecione o empregado</option>
                     <jsp:useBean class="dao.EmpregadoDAO" id="edao"> </jsp:useBean>
                     <c:forEach items="${edao.procuraTodosEmpregados()}" var="empregado">
                         <option value="${empregado.idEmpregado}">${empregado.nome}</option>
                     </c:forEach>
                 </select>
-                <input type="submit" class="btn btn-warning" value="Cadastrar endereço" />
+                <input type="submit" class="btn btn-primary my-3" value="Cadastrar novo endereço"  onclick="click()" />
             </form>
         </div>
     </div>
+
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -43,7 +45,7 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Código</th>
+                                        <th>#</th>
                                         <th>CEP</th>
                                         <th>Logradouro</th>
                                         <th>Complemento</th>
@@ -75,7 +77,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th>Código</th>
+                                        <th>#</th>
                                         <th>CEP</th>
                                         <th>Logradouro</th>
                                         <th>Complemento</th>
@@ -100,6 +102,13 @@
 </div>
 
 <jsp:include page="/Templates/footer.jsp"></jsp:include>
+    <script>
+        function click(){
+             if("nome" = null){
+                alert("Escolha um empregado");
+                return cadastrarusuario;
+            }}
+     </script>
 <script>
     $(function () {
 

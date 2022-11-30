@@ -19,19 +19,20 @@
             </div><!-- /.container-fluid -->
         </section>
 
-        <div class="card-header d-flex justify-content-between">
-            <div>
-                <form action="cadastrarformacao" method="get">
-                    <select id="idEmpregado" name="idEmpregado" class="custom-select">
-                    <jsp:useBean class="dao.EmpregadoDAO" id="edao"> </jsp:useBean>
-                    <c:forEach items="${edao.procuraTodosEmpregados()}" var="empregado">
-                        <option value="${empregado.idEmpregado}">${empregado.nome}</option>
-                    </c:forEach>
-                </select>
-                <input type="submit" class="btn btn-warning" value="Cadastrar formação" />
-            </form>
+            <div class="card-header d-flex justify-content-between py-3">
+                <div>
+                    <form action="cadastrarformacao" method="get">
+                        <select id="idEmpregado" name="idEmpregado" class="custom-select" required>
+                            <option value="" disabled selected>Selecione o empregado</option>
+                        <jsp:useBean class="dao.EmpregadoDAO" id="edao"> </jsp:useBean>
+                        <c:forEach items="${edao.procuraTodosEmpregados()}" var="empregado">
+                            <option value="${empregado.idEmpregado}">${empregado.nome}</option>
+                        </c:forEach>
+                    </select>
+                    <input type="submit" class="btn btn-primary my-3" value="Cadastrar nova formação" />
+                </form>
+            </div>
         </div>
-    </div>
 
     <section class="content">
         <div class="container-fluid">
@@ -44,7 +45,7 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Código</th>
+                                        <th>#</th>
                                         <th>Código do tipo curso</th>
                                         <th>Curso</th>
                                         <th>Instituição</th>
@@ -64,7 +65,7 @@
                                             <td>${formacao.semestre}</td>
                                             <td>${formacao.dtInicio}</td>
                                             <td>${formacao.dtFim}</td>
-                                            
+
                                     <div class="row" >
                                         <td>
                                             <form action="excluirformacao" method="post">
@@ -82,7 +83,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th>Código</th>
+                                        <th>#</th>
                                         <th>Código do tipo curso</th>
                                         <th>Curso</th>
                                         <th>Instituição</th>

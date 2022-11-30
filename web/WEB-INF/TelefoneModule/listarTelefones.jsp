@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<title>Lista de Telefones</title>
+<title>Lista de Contatos</title>
 <jsp:include page="/Templates/header.jsp"></jsp:include>
 <jsp:include page="/Templates/menu.jsp"></jsp:include>
 
@@ -13,25 +13,28 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Lista de Telefones</h1>
+                        <h1>Lista de Contatos</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
         </section>
 
-        <div class="card-header d-flex justify-content-between">
-            <div>
-                <form action="cadastrartelefone" method="get">
-                    <select id="idEmpregado" name="idEmpregado" class="custom-select">
-                    <jsp:useBean class="dao.EmpregadoDAO" id="edao"> </jsp:useBean>
-                    <c:forEach items="${edao.procuraTodosEmpregados()}" var="empregado">
-                        <option value="${empregado.idEmpregado}">${empregado.nome}</option>
-                    </c:forEach>
-                </select>
-                <input type="submit" class="btn btn-warning" value="Cadastrar telefone" />
-            </form>
+        
+            <div class="card-header d-flex justify-content-between py-3">
+                <div>
+                    <form action="cadastrartelefone" method="get">
+                        <select id="idEmpregado" name="idEmpregado" class="custom-select" required>
+                            <option value="" disabled selected>Selecione o empregado</option>
+                        <jsp:useBean class="dao.EmpregadoDAO" id="edao"> </jsp:useBean>
+                        <c:forEach items="${edao.procuraTodosEmpregados()}" var="empregado">
+                            <option value="${empregado.idEmpregado}">${empregado.nome}</option>
+                        </c:forEach>
+                    </select>
+                    <input type="submit" class="btn btn-primary my-3" value="Cadastrar novos contatos" />
+                </form>
+            </div>
         </div>
-    </div>
+
 
     <section class="content">
         <div class="container-fluid">
@@ -44,8 +47,8 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Código</th>
-                                        <th>Código Empregado</th>
+                                        <th>#</th>
+                                        <th>Funcionário</th>
                                         <th>Telefone Residencial</th>
                                         <th>Telefone Celular</th>
                                         <th>Telefone Recado</th>
@@ -81,8 +84,8 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th>Código</th>
-                                        <th>Código Empregado</th>
+                                        <th>#</th>
+                                        <th>Funcionário</th>
                                         <th>Telefone Residencial</th>
                                         <th>Telefone Celular</th>
                                         <th>Telefone Recado</th>

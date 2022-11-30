@@ -55,7 +55,7 @@
                         <!-- lOGIN input -->
                         <div class="col">
                             <label for="validationCustom01" class="form-label">Nome de usuário</label>
-                            <input type="text" class="form-control" id="validationCustom01" name="login" placeholder="" required 
+                            <input type="text" class="form-control" id="validationCustom01" name="login" placeholder="Digite o nome de usuário" required 
                                    oninvalid="this.setCustomValidity('Digite um nome de usuário válido')" 
                                    onchange="try {
                                                setCustomValidity('')
@@ -107,4 +107,12 @@
         Copyright © 2020. All rights reserved SHARK.
     </div>
 </div>
+
+    <script>
+            if("value" = 0){
+                alert("Escolha um empregado");
+                return cadastrarusuario;
+            }
+     </script>
+    
 </section>

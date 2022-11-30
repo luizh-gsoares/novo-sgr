@@ -18,19 +18,22 @@
                 </div>
             </div><!-- /.container-fluid -->
         </section>
-        <div class="card-header d-flex justify-content-between">
+
+        <div class="card-header d-flex justify-content-between py-3">
             <div>
                 <form action="cadastrarexperiencia" method="get">
-                    <select id="idEmpregado" name="idEmpregado" class="custom-select">
+                    <select id="idEmpregado" name="idEmpregado" class="custom-select" required>
+                        <option value="" disabled selected>Selecione o empregado</option>
                     <jsp:useBean class="dao.EmpregadoDAO" id="edao"> </jsp:useBean>
                     <c:forEach items="${edao.procuraTodosEmpregados()}" var="empregado">
                         <option value="${empregado.idEmpregado}">${empregado.nome}</option>
                     </c:forEach>
                 </select>
-                <input type="submit" class="btn btn-warning" value="Cadastrar experiência" />
+                <input type="submit" class="btn btn-primary my-3" value="Cadastrar nova experiência" />
             </form>
         </div>
     </div>
+
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -42,7 +45,7 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Código</th>
+                                        <th>#</th>
                                         <th>Código Empregado</th>
                                         <th>Função</th>
                                         <th>Local</th>
@@ -78,7 +81,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th>Código</th>
+                                        <th>#</th>
                                         <th>Código Empregado</th>
                                         <th>Função</th>
                                         <th>Local</th>

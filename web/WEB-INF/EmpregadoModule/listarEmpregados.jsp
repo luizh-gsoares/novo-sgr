@@ -20,9 +20,12 @@
         </section>
 
         <div class="card-header d-flex justify-content-between">
-            <a type="button" class="btn btn-secondary" href="cadastrarempregado"
-               > Cadastrar Empregado <i class="fa-solid fa-floppy-disk"></i>
-            </a>
+            <div>
+                <form action="cadastrarempregado" method="get">
+
+                    <input type="submit" class="btn btn-primary my-2" value="Cadastrar novo empregado" />
+                </form>
+            </div>
         </div>
 
         <section class="content">
@@ -54,42 +57,49 @@
                                             <td>${empregado.nacionalidade}</td>                                      
                                             <td>${empregado.email}</td>
                                             <td>
-                                                <div class="row d-flex-justify-between"> 
-                                                    <div>
-                                                        <form action="alterarempregado" method="get">
-                                                            <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
-                                                            <input type="submit" class="btn btn-warning" value="Alterar dados" />
-                                                        </form>
-                                                    </div>
-                                                    <div>
-                                                        <form action="cadastrartelefone" method="get">
-                                                            <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
-                                                            <input type="submit" class="btn btn-warning" value="Telefone" />
-                                                        </form>
-                                                    </div>
-                                                    <div>
-                                                        <form action="cadastrarendereco" method="get">
-                                                            <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
-                                                            <input type="submit" class="btn btn-warning" value="Endereco" />
-                                                        </form>
-                                                    </div> 
-                                                    <div>
-                                                        <form action="cadastrarexperiencia" method="get">
-                                                            <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
-                                                            <input type="submit" class="btn btn-warning" value="Experiência" />
-                                                        </form>
-                                                    </div> 
-                                                    <div>
-                                                        <form action="cadastrarformacao" method="get">
-                                                            <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
-                                                            <input type="submit" class="btn btn-warning" value="Formação" />
-                                                        </form>
-                                                    </div> 
-                                                    <div>
-                                                        <form action="excluirempregado" method="post" class="me-4">
-                                                            <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
-                                                            <input type="submit" class="btn btn-danger" value="Excluir" />
-                                                        </form>
+
+                                                <div class="dropdown">
+                                                    <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                       Ações
+                                                    </a> 
+                                                    
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                        <div class="dropdown-item">
+                                                            <form action="alterarempregado" method="get">
+                                                                <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
+                                                                <input type="submit" class="btn btn-warning" value="Alterar dados" />
+                                                            </form>
+                                                        </div>
+                                                        <div class="dropdown-item">
+                                                            <form action="cadastrartelefone" method="get">
+                                                                <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
+                                                                <input type="submit" class="btn btn-warning" value="Telefone" />
+                                                            </form>
+                                                        </div>
+                                                        <div class="dropdown-item">
+                                                            <form action="cadastrarendereco" method="get">
+                                                                <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
+                                                                <input type="submit" class="btn btn-warning" value="Endereco" />
+                                                            </form>
+                                                        </div> 
+                                                        <div class="dropdown-item">
+                                                            <form action="cadastrarexperiencia" method="get">
+                                                                <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
+                                                                <input type="submit" class="btn btn-warning" value="Experiência" />
+                                                            </form>
+                                                        </div> 
+                                                        <div class="dropdown-item">
+                                                            <form action="cadastrarformacao" method="get">
+                                                                <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
+                                                                <input type="submit" class="btn btn-warning" value="Formação" />
+                                                            </form>
+                                                        </div> 
+                                                        <div class="dropdown-item">
+                                                            <form action="excluirempregado" method="post" class="me-4">
+                                                                <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
+                                                                <input type="submit" class="btn btn-danger" value="Excluir" />
+                                                            </form>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </td>
