@@ -33,13 +33,13 @@
           <div class="col">
             <div class="form-outline">
               <label class="form-label" for="form6Example1">idTelefone</label>
-              <input type="text" id="idTelefone" class="form-control" name="idTelefone" value="${telefone.idTelefone}" disabled/>             
+              <input type="text" id="idTelefone" class="form-control" name="idTelefone" value="${telefone.idTelefone}" readonly/>             
             </div>
           </div>
           <div class="col">
             <div class="form-outline">
               <label class="form-label" for="form6Example1">idEmpregado</label>
-              <input type="text" id="idEmpregado" class="form-control" name="idEmpregado" value="${telefone.idEmpregado}" disabled/>
+              <input type="text" id="idEmpregado" class="form-control" name="idEmpregado" value="${telefone.idEmpregado}" readonly/>
             </div>
           </div>
           <div class="col">

@@ -34,6 +34,7 @@ public class AlterarTelefone extends HttpServlet {
         System.out.println("POST - Alterar TELEFONE");
         request.setCharacterEncoding("UTF-8");
         Telefone t = new Telefone();
+        t.setIdEmpregado(Integer.parseInt(request.getParameter("idEmpregado")));
         t.setTelefoneResidencial(Integer.parseInt(request.getParameter("telefoneResidencial")));
         t.setTelefoneCelular(Integer.parseInt(request.getParameter("telefoneCelular")));
         t.setTelefoneRecado(Integer.parseInt(request.getParameter("telefoneCelular")));

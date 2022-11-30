@@ -28,16 +28,18 @@ public class TelefoneDAO {
     }
 
     public boolean alteraTelefone(Telefone telefone) {
-        String insertTableSQL = "UPDATE telefone SET telefoneResidencial = ?, telefoneCelular = ?, telefoneRecado= ?"
+        String insertTableSQL = "UPDATE telefone "
+                + "SET idEmpregado = ?, telefoneResidencial = ?, telefoneCelular = ?, telefoneRecado= ?"
                 + "WHERE idTelefone = ?;";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = DbConnect.getConexao().prepareStatement(insertTableSQL);
-            preparedStatement.setInt(1, telefone.getTelefoneResidencial());
-            preparedStatement.setInt(2, telefone.getTelefoneCelular());
-            preparedStatement.setInt(3, telefone.getTelefoneRecado());
-            preparedStatement.setInt(4, telefone.getIdTelefone());
-            
+            preparedStatement.setInt(1, telefone.getIdEmpregado());
+            preparedStatement.setInt(2, telefone.getTelefoneResidencial());
+            preparedStatement.setInt(3, telefone.getTelefoneCelular());
+            preparedStatement.setInt(4, telefone.getTelefoneRecado());
+            preparedStatement.setInt(5, telefone.getIdTelefone());
+
             preparedStatement.executeUpdate();
             return true;
         } catch (SQLException e) {
