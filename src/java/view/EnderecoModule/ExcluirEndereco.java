@@ -33,7 +33,7 @@ public class ExcluirEndereco extends HttpServlet {
 
         dao.excluiEndereco(e.getIdEndereco());
         String page = "/EnderecoModule/listarEnderecos.jsp";
-        response.sendRedirect("listarperfis");
+        response.sendRedirect("listarenderecos");
     }
 
 }

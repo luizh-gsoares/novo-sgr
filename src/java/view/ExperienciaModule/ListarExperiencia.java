@@ -22,7 +22,7 @@ public class ListarExperiencia extends HttpServlet {
             throws ServletException, IOException {
         ExperienciaDAO dao = new ExperienciaDAO();
         ArrayList<Experiencia> listaDeExperiencias = dao.procuraTodosExperiencias();
-            request.setAttribute("listaDeExperiencia", listaDeExperiencias);
+            request.setAttribute("listaDeExperiencias", listaDeExperiencias);
         RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/ExperienciaModule/listarExperiencias.jsp");
         rd.forward(request, response);
     }

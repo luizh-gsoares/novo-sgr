@@ -59,7 +59,7 @@ public class EmpregadoDAO {
 
     public boolean alteraEmpregado(Empregado empregado) {
         String updateTableSQL = "UPDATE empregado "
-                + " SET nome = ?, matricula = ?, nomeSocial = ?, nacionalidade = ?, naturalidade = ?, uf = ?, dataNasc = ?, sexo = ?, estadoCivil = ?, rg = ?, dataxpedicao = ?, orgaoExpedidor = ?, cpf = ?, zonaEleitoral = ?, secao = ?, tituloEleitoral = ?, email = ?, nomeConjugue = ?, nomePai = ?, nomeMae = ?, especial = ? "
+                + " SET nome = ?, matricula = ?, nomeSocial = ?, nacionalidade = ?, naturalidade = ?, uf = ?, dataNasc = ?, sexo = ?, estadoCivil = ?, rg = ?, dataExpedicao = ?, orgaoExpedidor = ?, cpf = ?, zonaEleitoral = ?, secao = ?, tituloEleitoral = ?, email = ?, nomeConjugue = ?, nomePai = ?, nomeMae = ?, especial = ? "
                 + " WHERE idEmpregado = ?";
         PreparedStatement preparedStatement;
         try {
