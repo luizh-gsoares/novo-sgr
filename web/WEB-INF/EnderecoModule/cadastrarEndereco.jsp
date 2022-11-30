@@ -21,7 +21,7 @@
             </div><!-- /.container-fluid -->
         </section>
 
-        <form class="needs-validation" novalidate action="cadastrarendereco" method="post">
+        <form action="cadastrarendereco" method="post">
 
             <div class="container">
 
@@ -32,32 +32,30 @@
                     <div class="col">
                         <div class="form-outline">
                             <label class="form-label" for="form6Example1">idEmpregado</label>
-                            <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="idEmpregado" value="${empregado.idEmpregado}" disabled/>             
+                            <input type="hidden" class="form-control" name="idEmpregado" value="${empregado.idEmpregado}"/>             
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-outline">
-                        <label class="form-label" for="form6Example1" required>CEP</label>
-                        <input type="text" id="form6Example1" class="form-control" id="validationCustom01"
-                               name="cep" value="${endereco.cep}" /> 
+                        <label class="form-label" for="form6Example1" >CEP</label>
+                        <input type="text" class="form-control"  name="cep" /> 
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-outline">
                         <label class="form-label" for="form6Example1">Logradouro</label>
-                        <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="logradouro" value="${endereco.logradouro}" />
+                        <input type="text" class="form-control"  name="logradouro" />
                     </div>
                 </div> 
                 <div class="col">
                     <div class="form-outline">
-                        <label class="form-label" for="form6Example1" required>Complemento</label>
-                        <input type="text" id="form6Example1" class="form-control" id="validationCustom01"
-                               name="complemento" value="${endereco.complemento}"/>
+                        <label class="form-label" for="form6Example1">Complemento</label>
+                        <input type="text"  class="form-control" name="complemento" />
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-outline">
-                        <label class="form-label" for="form6Example1" required>Cidade</label>
+                        <label class="form-label" for="form6Example1">Cidade</label>
                         <select id="idCidade" name="idCidade" class="custom-select">
                             <jsp:useBean class="dao.EnderecoDAO" id="edao"> </jsp:useBean>
                             <c:forEach items="${edao.procuraTodasCidades()}" var="end">
@@ -69,7 +67,6 @@
                 
                 <!-- Submit button -->
                 <button type="submit" class="btn btn-primary btn-block mb-4">Enviar</button>
-
             </div>
     </form>
 

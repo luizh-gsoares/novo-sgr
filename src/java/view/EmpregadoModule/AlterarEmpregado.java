@@ -47,7 +47,8 @@ public class AlterarEmpregado extends HttpServlet {
         e.setDataNasc(request.getParameter("dataNasc"));
         int sexo = Integer.parseInt(request.getParameter("sexo"));
         e.setSexo(sexo);
-        e.setEstadoCivil(request.getParameter("estadoCivil"));
+        int estadoCivil = Integer.parseInt(request.getParameter("estadoCivil"));
+        e.setSexo(estadoCivil);
         e.setRg(request.getParameter("rg"));
         e.setDataExpedicao(request.getParameter("dataExpedicao"));
         e.setOrgaoExpedidor(request.getParameter("orgaoExpedidor"));

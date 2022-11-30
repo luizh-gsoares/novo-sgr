@@ -27,10 +27,7 @@ public class CadastrarEmpregado extends HttpServlet {
         System.out.println("POST - CADASTRAR EMPREGADO");
         request.setCharacterEncoding("UTF-8");
         Empregado e = new Empregado();
-        // COPILOT : " (nome, matricula, nomeSocial, nacionalidade, naturalidade, uf,
-        // dataNasc, sexo, estadoCivil, rg, dataxpedicao, orgaoExpedidor, cpf,
-        // zonaEleitoral, secao, tituloEleitoral, email, nomeConjugue, nomePai, nomeMae,
-        // especial)"
+        
         e.setNome(request.getParameter("nome"));
         e.setMatricula(request.getParameter("matricula"));
         e.setNomeSocial(request.getParameter("nomeSocial"));
@@ -44,7 +41,8 @@ public class CadastrarEmpregado extends HttpServlet {
         e.setSexo(sexo);
         int etnia = Integer.parseInt(request.getParameter("etnia"));
         e.setEtnia(etnia);
-        e.setEstadoCivil(request.getParameter("estadoCivil"));
+        int estadoCivil = Integer.parseInt(request.getParameter("estadoCivil"));
+        e.setEstadoCivil(estadoCivil);
         e.setRg(request.getParameter("rg"));
         e.setDataExpedicao(request.getParameter("dataExpedicao"));
         e.setOrgaoExpedidor(request.getParameter("orgaoExpedidor"));
@@ -58,8 +56,6 @@ public class CadastrarEmpregado extends HttpServlet {
         e.setNomeMae(request.getParameter("nomeMae"));
         int especial = Integer.parseInt(request.getParameter("especial"));
         e.setEspecial(especial);
-        int idEmpregado = Integer.parseInt(request.getParameter("idEmpregado"));
-        e.setIdEmpregado(idEmpregado);
 
         EmpregadoDAO dao = new EmpregadoDAO();
 

@@ -12,12 +12,13 @@ public class Empregado {
     private String nome;
     private String matricula;
     private String nomeSocial;
+    private Integer etnia;
     private Integer nacionalidade;
     private Integer naturalidade;
     private String uf;
     private String dataNasc;
     private Integer sexo;
-    private String estadoCivil;
+    private Integer estadoCivil;
     private String rg;
     private String dataExpedicao;
     private String orgaoExpedidor;
@@ -30,13 +31,13 @@ public class Empregado {
     private String nomePai;
     private String nomeMae;
     private Integer especial;
-    private Integer etnia;
 
-    public Empregado(Integer idEmpregado, String nome, String matricula, String nomeSocial, Integer nacionalidade, Integer naturalidade, String uf, String dataNasc, Integer sexo, String estadoCivil, String rg, String dataExpedicao, String orgaoExpedidor, String cpf, String zonaEleitoral, String secao, String tituloEleitoral, String email, String nomeConjugue, String nomePai, String nomeMae, Integer especial, Integer etnia) {
+    public Empregado(Integer idEmpregado, String nome, String matricula, String nomeSocial, Integer etnia, Integer nacionalidade, Integer naturalidade, String uf, String dataNasc, Integer sexo, Integer estadoCivil, String rg, String dataExpedicao, String orgaoExpedidor, String cpf, String zonaEleitoral, String secao, String tituloEleitoral, String email, String nomeConjugue, String nomePai, String nomeMae, Integer especial) {
         this.idEmpregado = idEmpregado;
         this.nome = nome;
         this.matricula = matricula;
         this.nomeSocial = nomeSocial;
+        this.etnia = etnia;
         this.nacionalidade = nacionalidade;
         this.naturalidade = naturalidade;
         this.uf = uf;
@@ -55,7 +56,6 @@ public class Empregado {
         this.nomePai = nomePai;
         this.nomeMae = nomeMae;
         this.especial = especial;
-        this.etnia = etnia;
     }
 
     public Empregado() {
@@ -63,8 +63,7 @@ public class Empregado {
 
     @Override
     public String toString() {
-        return "Empregado{" + "idEmpregado=" + idEmpregado + ", nome=" + nome + ", matricula=" + matricula + ", nomeSocial=" + nomeSocial + ", nacionalidade=" + nacionalidade + ", naturalidade=" + naturalidade + ", uf=" + uf + ", dataNasc=" + dataNasc + ", sexo=" + sexo + ", estadoCivil=" + estadoCivil + ", rg=" + rg + ", dataExpedicao=" + dataExpedicao + ", orgaoExpedidor=" + orgaoExpedidor + ", cpf=" + cpf + ", zonaEleitoral=" + zonaEleitoral + ", secao=" + secao + ", tituloEleitoral=" + tituloEleitoral + ", email=" + email + ", nomeConjugue=" + nomeConjugue + ", nomePai=" + nomePai + ", nomeMae=" + nomeMae + ", especial=" + especial + ", etnia=" + etnia + '}';
+        return "Empregado{" + "idEmpregado=" + idEmpregado + ", nome=" + nome + ", matricula=" + matricula + ", nomeSocial=" + nomeSocial + ", etnia=" + etnia + ", nacionalidade=" + nacionalidade + ", naturalidade=" + naturalidade + ", uf=" + uf + ", dataNasc=" + dataNasc + ", sexo=" + sexo + ", estadoCivil=" + estadoCivil + ", rg=" + rg + ", dataExpedicao=" + dataExpedicao + ", orgaoExpedidor=" + orgaoExpedidor + ", cpf=" + cpf + ", zonaEleitoral=" + zonaEleitoral + ", secao=" + secao + ", tituloEleitoral=" + tituloEleitoral + ", email=" + email + ", nomeConjugue=" + nomeConjugue + ", nomePai=" + nomePai + ", nomeMae=" + nomeMae + ", especial=" + especial + '}';
     }
 
-    
 }

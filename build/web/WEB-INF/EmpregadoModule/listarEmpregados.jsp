@@ -36,7 +36,7 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Código</th>
+                                            <th>#</th>
                                             <th>Nome</th>
                                             <th>Matricula</th>
                                             <th>Nacionalidade</th>
@@ -53,55 +53,49 @@
                                             <td>${empregado.matricula}</td>
                                             <td>${empregado.nacionalidade}</td>                                      
                                             <td>${empregado.email}</td>
-                                    <div class="row" >
-                                        <td>
-                                            <div class="row d-flex-justify-between"> 
-                                                <div>
-                                                    <form action="alterarempregado" method="get">
-                                                        <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
-                                                        <input type="submit" class="btn btn-warning" value="Alterar dados" />
-                                                    </form>
+                                            <td>
+                                                <div class="row d-flex-justify-between"> 
+                                                    <div>
+                                                        <form action="alterarempregado" method="get">
+                                                            <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
+                                                            <input type="submit" class="btn btn-warning" value="Alterar dados" />
+                                                        </form>
+                                                    </div>
+                                                    <div>
+                                                        <form action="cadastrartelefone" method="get">
+                                                            <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
+                                                            <input type="submit" class="btn btn-warning" value="Telefone" />
+                                                        </form>
+                                                    </div>
+                                                    <div>
+                                                        <form action="cadastrarendereco" method="get">
+                                                            <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
+                                                            <input type="submit" class="btn btn-warning" value="Endereco" />
+                                                        </form>
+                                                    </div> 
+                                                    <div>
+                                                        <form action="cadastrarexperiencia" method="get">
+                                                            <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
+                                                            <input type="submit" class="btn btn-warning" value="Experiência" />
+                                                        </form>
+                                                    </div> 
+                                                    <div>
+                                                        <form action="cadastrarformacao" method="get">
+                                                            <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
+                                                            <input type="submit" class="btn btn-warning" value="Formação" />
+                                                        </form>
+                                                    </div> 
+                                                    <div>
+                                                        <form action="excluirempregado" method="post" class="me-4">
+                                                            <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
+                                                            <input type="submit" class="btn btn-danger" value="Excluir" />
+                                                        </form>
+                                                    </div>
                                                 </div>
-                                                <div>
-                                                    <form action="cadastrartelefone" method="get">
-                                                        <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
-                                                        <input type="submit" class="btn btn-warning" value="Telefone" />
-                                                    </form>
-                                                </div>
-                                                <div>
-                                                    <form action="cadastrarendereco" method="get">
-                                                        <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
-                                                        <input type="submit" class="btn btn-warning" value="Endereco" />
-                                                    </form>
-                                                </div> 
-                                                <div>
-                                                    <form action="cadastrarexperiencia" method="get">
-                                                        <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
-                                                        <input type="submit" class="btn btn-warning" value="Experiência" />
-                                                    </form>
-                                                </div> 
-                                                <div>
-                                                    <form action="cadastrarformacao" method="get">
-                                                        <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
-                                                        <input type="submit" class="btn btn-warning" value="Formação" />
-                                                    </form>
-                                                </div> 
-                                                <div>
-                                                    <form action="excluirempregado" method="post" class="me-4">
-                                                        <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
-                                                        <input type="submit" class="btn btn-danger" value="Excluir" />
-                                                    </form>
-                                                </div>
-
-
-
-                                            </div>
-                                        </td>
-
-
+                                            </td>
                                         </tr>
                                     </c:forEach>
-                                    </tbody>
+                                </tbody>
                             </table>
                         </div>
                         <!-- /.card-body -->

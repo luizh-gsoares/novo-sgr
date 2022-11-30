@@ -3,7 +3,6 @@ package view.ExperienciaModule;
 import dao.EmpregadoDAO;
 import dao.ExperienciaDAO;
 import java.io.IOException;
-import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,9 +21,9 @@ public class CadastrarExperiencia extends HttpServlet {
 
         EmpregadoDAO eDao = new EmpregadoDAO();
         Integer idEmpregado = Integer.parseInt(request.getParameter("idEmpregado"));
-        Empregado e = eDao.procuraEmpregadoPeloID(idEmpregado);
-        request.setAttribute("empregado", e);
-        
+        Empregado emp = eDao.procuraEmpregadoPeloID(idEmpregado);
+        request.setAttribute("empregado", emp);
+
         RequestDispatcher dispatcher = getServletContext()
                 .getRequestDispatcher("/WEB-INF/ExperienciaModule/cadastrarExperiencia.jsp");
         dispatcher.forward(request, response);
@@ -36,8 +35,12 @@ public class CadastrarExperiencia extends HttpServlet {
         System.out.println("POST - CADASTRAR EXPERIENCIA");
         request.setCharacterEncoding("UTF-8");
         Experiencia e = new Experiencia();
-        e.setIdEmpregado(Integer.parseInt(request.getParameter("idEmpregado")));
+
+        int idEmpregado = Integer.parseInt(request.getParameter("idEmpregado"));
+        e.setIdEmpregado(idEmpregado);
         e.setFuncao(request.getParameter("funcao"));
+        e.setTipoVinculo(Integer.parseInt(request.getParameter("tipoVinculo")));
+        e.setCargaHoraria(request.getParameter("cargaHoraria"));
         e.setLocal(request.getParameter("local"));
         e.setCre(Integer.parseInt(request.getParameter("cre")));
         e.setDtSaida(request.getParameter("dtSaida"));
@@ -47,7 +50,7 @@ public class CadastrarExperiencia extends HttpServlet {
         ExperienciaDAO dao = new ExperienciaDAO();
 
         if (dao.cadastraExperiencia(e)) {
-            page = "listarexperiencia";
+            page = "listarexperiencias";
             response.sendRedirect(page);
         } else {
             //enviar um atributo msg de erro

@@ -31,9 +31,7 @@
                 <div class="row mb-4">
                     <div class="col">
                         <div class="form-outline">
-                            <label class="form-label" for="form6Example1">idEmpregado</label>
-                            <input type="text" id="form6Example1" class="form-control" id="validationCustom01"
-                               name="idEmpregado" value="${empregado.idEmpregado}"/></div>
+                            <input type="hidden" class="form-control" name="idEmpregado" value="${empregado.idEmpregado}"/></div>
                 </div>
                 <div class="col">
                     <div class="form-outline">

@@ -7,23 +7,25 @@ import java.util.ArrayList;
 import model.Cre;
 import model.Experiencia;
 import model.Funcao;
+import model.Tipovinculo;
 
 public class ExperienciaDAO {
 
     public boolean cadastraExperiencia(Experiencia experiencia) {
         String insertTableSQL = "INSERT INTO experiencia"
-                + "(idExperiencia, idEmpregado, funcao, local, cre, dtSaida, dtEntrada) VALUES (? , ?, ?, ?, ?, ?, ?)";
+                + "(idEmpregado, funcao, tipoVinculo, cargaHoraria, local, cre, dtSaida, dtEntrada)"
+                + "VALUES (? , ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement preparedStatement;
         try {
-
             preparedStatement = DbConnect.getConexao().prepareStatement(insertTableSQL);
-            preparedStatement.setInt(1, experiencia.getIdExperiencia());
-            preparedStatement.setInt(2, experiencia.getIdEmpregado());
-            preparedStatement.setString(3, experiencia.getFuncao());
-            preparedStatement.setString(4, experiencia.getLocal());
-            preparedStatement.setInt(5, experiencia.getCre());
-            preparedStatement.setString(6, experiencia.getDtSaida());
-            preparedStatement.setString(7, experiencia.getDtEntrada());
+            preparedStatement.setInt(1, experiencia.getIdEmpregado());
+            preparedStatement.setString(2, experiencia.getFuncao());
+            preparedStatement.setInt(3, experiencia.getTipoVinculo());
+            preparedStatement.setString(4, experiencia.getCargaHoraria());
+            preparedStatement.setString(5, experiencia.getLocal());
+            preparedStatement.setInt(6, experiencia.getCre());
+            preparedStatement.setString(7, experiencia.getDtSaida());
+            preparedStatement.setString(8, experiencia.getDtEntrada());
 
             preparedStatement.executeUpdate();
             return true;
@@ -34,18 +36,21 @@ public class ExperienciaDAO {
     }
 
     public boolean alteraExperiencia(Experiencia experiencia) {
-        String insertTableSQL = "UPDATE experiencia SET idEmpregado = ?, funcao = ?, local = ?, cre = ?, dtSaida = ?, dtEntrada = ? "
+        String insertTableSQL = "UPDATE experiencia "
+                + "SET idEmpregado = ?, funcao = ?,tipoVinculo=?,cargaHoraria= ?, local = ?, cre = ?, dtSaida = ?, dtEntrada = ? "
                 + "WHERE idExperiencia = ?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = DbConnect.getConexao().prepareStatement(insertTableSQL);
             preparedStatement.setInt(1, experiencia.getIdEmpregado());
             preparedStatement.setString(2, experiencia.getFuncao());
-            preparedStatement.setString(3, experiencia.getLocal());
-            preparedStatement.setInt(4, experiencia.getCre());
-            preparedStatement.setString(5, experiencia.getDtSaida());
-            preparedStatement.setString(6, experiencia.getDtEntrada());
-            preparedStatement.setInt(7, experiencia.getIdExperiencia());
+            preparedStatement.setInt(3, experiencia.getTipoVinculo());
+            preparedStatement.setString(4, experiencia.getCargaHoraria());
+            preparedStatement.setString(5, experiencia.getLocal());
+            preparedStatement.setInt(6, experiencia.getCre());
+            preparedStatement.setString(7, experiencia.getDtSaida());
+            preparedStatement.setString(8, experiencia.getDtEntrada());
+            preparedStatement.setInt(9, experiencia.getIdExperiencia());
 
             preparedStatement.executeUpdate();
             return true;
@@ -82,6 +87,8 @@ public class ExperienciaDAO {
                 expe.setIdExperiencia(rs.getInt("idExperiencia"));
                 expe.setIdEmpregado(rs.getInt("idEmpregado"));
                 expe.setFuncao(rs.getString("funcao"));
+                expe.setTipoVinculo(rs.getInt("tipoVinculo"));
+                expe.setCargaHoraria(rs.getString("cargaHoraria"));
                 expe.setLocal(rs.getString("local"));
                 expe.setCre(rs.getInt("cre"));
                 expe.setDtSaida(rs.getString("dtSaida"));
@@ -112,6 +119,8 @@ public class ExperienciaDAO {
                 expe.setIdExperiencia(rs.getInt("idExperiencia"));
                 expe.setIdEmpregado(rs.getInt("idEmpregado"));
                 expe.setFuncao(rs.getString("funcao"));
+                expe.setTipoVinculo(rs.getInt("tipoVinculo"));
+                expe.setCargaHoraria(rs.getString("cargaHoraria"));
                 expe.setLocal(rs.getString("local"));
                 expe.setCre(rs.getInt("cre"));
                 expe.setDtSaida(rs.getString("dtSaida"));
@@ -178,6 +187,34 @@ public class ExperienciaDAO {
             rs.close();
             con.close();
             return listaCres;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<Tipovinculo> procuraTodosTipovinculos() {
+
+        try {
+            String sql = "SELECT * FROM tipovinculo;";
+            PreparedStatement con = DbConnect.getConexao().prepareStatement(sql);
+
+            ResultSet rs = con.executeQuery();
+
+            ArrayList<Tipovinculo> listaTipovinculos = new ArrayList<>();
+
+            while (rs.next()) {
+                Tipovinculo tipv = new Tipovinculo();
+                tipv.setIdTipovinculo(rs.getInt("idTipovinculo"));
+                tipv.setTipo(rs.getString("tipo"));
+                tipv.setDt_inativacao(rs.getString("dt_inativacao"));
+                listaTipovinculos.add(tipv);
+            }
+
+            rs.close();
+            con.close();
+            return listaTipovinculos;
 
         } catch (Exception e) {
             e.printStackTrace();

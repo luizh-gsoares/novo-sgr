@@ -20,8 +20,8 @@ public class CadastrarEndereco extends HttpServlet {
             throws ServletException, IOException {
         EmpregadoDAO eDao = new EmpregadoDAO();
         Integer idEmpregado = Integer.parseInt(request.getParameter("idEmpregado"));
-        Empregado e = eDao.procuraEmpregadoPeloID(idEmpregado);
-        request.setAttribute("empregado", e);
+        Empregado emp = eDao.procuraEmpregadoPeloID(idEmpregado);
+        request.setAttribute("empregado", emp);
 
         RequestDispatcher dispatcher = getServletContext()
                 .getRequestDispatcher("/WEB-INF/EnderecoModule/cadastrarEndereco.jsp");
@@ -34,6 +34,7 @@ public class CadastrarEndereco extends HttpServlet {
         System.out.println("POST - CADASTRAR ENDERECO");
         request.setCharacterEncoding("UTF-8");
         Endereco e = new Endereco();
+        
         int idEmpregado = Integer.parseInt(request.getParameter("idEmpregado"));
         e.setIdEmpregado(idEmpregado);
         e.setCep(request.getParameter("cep"));

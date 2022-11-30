@@ -11,39 +11,43 @@ import model.Estado;
 import model.Etnia;
 import model.Pais;
 import model.Sexo;
+import model.Estadocivil;
 
 public class EmpregadoDAO {
 
     public boolean cadastraEmpregado(Empregado empregado) {
         String insertTableSQL = "INSERT INTO empregado "
-                + " (nome, matricula, nomeSocial, nacionalidade, naturalidade, uf, dataNasc, sexo, estadoCivil, rg, dataExpedicao, orgaoExpedidor, cpf, zonaEleitoral, secao, tituloEleitoral, email, nomeConjugue, nomePai, nomeMae, especial, etnia, idEmpregado)"
-                + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + " (nome, matricula, nomeSocial, etnia, nacionalidade, naturalidade,  "
+                + " uf, dataNasc, sexo, estadoCivil, rg, dataExpedicao, orgaoExpedidor,"
+                + " cpf, zonaEleitoral, secao, tituloEleitoral, email, nomeConjugue,   "
+                + " nomePai, nomeMae, especial) "
+                + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = DbConnect.getConexao().prepareStatement(insertTableSQL);
             preparedStatement.setString(1, empregado.getNome());
             preparedStatement.setString(2, empregado.getMatricula());
             preparedStatement.setString(3, empregado.getNomeSocial());
-            preparedStatement.setInt(4, empregado.getNacionalidade());
-            preparedStatement.setInt(5, empregado.getNaturalidade());
-            preparedStatement.setString(6, empregado.getUf());
-            preparedStatement.setString(7, empregado.getDataNasc());
-            preparedStatement.setInt(8, empregado.getSexo());
-            preparedStatement.setString(9, empregado.getEstadoCivil());
-            preparedStatement.setString(10, empregado.getRg());
-            preparedStatement.setString(11, empregado.getDataExpedicao());
-            preparedStatement.setString(12, empregado.getOrgaoExpedidor());
-            preparedStatement.setString(13, empregado.getCpf());
-            preparedStatement.setString(14, empregado.getZonaEleitoral());
-            preparedStatement.setString(15, empregado.getSecao());
-            preparedStatement.setString(16, empregado.getTituloEleitoral());
-            preparedStatement.setString(17, empregado.getEmail());
-            preparedStatement.setString(18, empregado.getNomeConjugue());
-            preparedStatement.setString(19, empregado.getNomePai());
-            preparedStatement.setString(20, empregado.getNomeMae());
-            preparedStatement.setInt(21, empregado.getEspecial());
-            preparedStatement.setInt(22, empregado.getEtnia());
-            preparedStatement.setInt(23, empregado.getIdEmpregado());
+            preparedStatement.setInt(4, empregado.getEtnia());
+            preparedStatement.setInt(5, empregado.getNacionalidade());
+            preparedStatement.setInt(6, empregado.getNaturalidade());
+            preparedStatement.setString(7, empregado.getUf());
+            preparedStatement.setString(8, empregado.getDataNasc());
+            preparedStatement.setInt(9, empregado.getSexo());
+            preparedStatement.setInt(10, empregado.getEstadoCivil());
+            preparedStatement.setString(11, empregado.getRg());
+            preparedStatement.setString(12, empregado.getDataExpedicao());
+            preparedStatement.setString(13, empregado.getOrgaoExpedidor());
+            preparedStatement.setString(14, empregado.getCpf());
+            preparedStatement.setString(15, empregado.getZonaEleitoral());
+            preparedStatement.setString(16, empregado.getSecao());
+            preparedStatement.setString(17, empregado.getTituloEleitoral());
+            preparedStatement.setString(18, empregado.getEmail());
+            preparedStatement.setString(19, empregado.getNomeConjugue());
+            preparedStatement.setString(20, empregado.getNomePai());
+            preparedStatement.setString(21, empregado.getNomeMae());
+            preparedStatement.setInt(22, empregado.getEspecial());
+
             preparedStatement.execute();
             return true;
         } catch (SQLException e) {
@@ -68,7 +72,7 @@ public class EmpregadoDAO {
             preparedStatement.setString(6, empregado.getUf());
             preparedStatement.setString(7, empregado.getDataNasc());
             preparedStatement.setInt(8, empregado.getSexo());
-            preparedStatement.setString(9, empregado.getEstadoCivil());
+            preparedStatement.setInt(9, empregado.getEstadoCivil());
             preparedStatement.setString(10, empregado.getRg());
             preparedStatement.setString(11, empregado.getDataExpedicao());
             preparedStatement.setString(12, empregado.getOrgaoExpedidor());
@@ -124,7 +128,7 @@ public class EmpregadoDAO {
                 empr.setUf(rs.getString("uf"));
                 empr.setDataNasc(rs.getString("dataNasc"));
                 empr.setSexo(rs.getInt("sexo"));
-                empr.setEstadoCivil(rs.getString("estadoCivil"));
+                empr.setEstadoCivil(rs.getInt("estadoCivil"));
                 empr.setRg(rs.getString("rg"));
                 empr.setDataExpedicao(rs.getString("dataExpedicao"));
                 empr.setOrgaoExpedidor(rs.getString("orgaoExpedidor"));
@@ -170,7 +174,7 @@ public class EmpregadoDAO {
                 empr.setUf(rs.getString("uf"));
                 empr.setDataNasc(rs.getString("dataNasc"));
                 empr.setSexo(rs.getInt("sexo"));
-                empr.setEstadoCivil(rs.getString("estadoCivil"));
+                empr.setEstadoCivil(rs.getInt("estadoCivil"));
                 empr.setRg(rs.getString("rg"));
                 empr.setDataExpedicao(rs.getString("dataExpedicao"));
                 empr.setOrgaoExpedidor(rs.getString("orgaoExpedidor"));
@@ -350,6 +354,31 @@ public class EmpregadoDAO {
             rs.close();
             con.close();
             return listaEspeciais;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    public ArrayList<Estadocivil> procuraTodosEstadocivis() {
+        try {
+
+            String sql = "SELECT * FROM estadocivil;";
+            PreparedStatement con = DbConnect.getConexao().prepareStatement(sql);
+
+            ResultSet rs = con.executeQuery();
+            ArrayList<Estadocivil> listaEstadocivis = new ArrayList<>();
+
+            while (rs.next()) {
+                Estadocivil estci = new Estadocivil();
+                estci.setIdEstadocivil(rs.getInt("idEstadocivil"));
+                estci.setTipo(rs.getString("tipo"));
+                listaEstadocivis.add(estci);
+            }
+            rs.close();
+            con.close();
+            return listaEstadocivis;
 
         } catch (Exception e) {
             e.printStackTrace();
