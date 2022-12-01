@@ -39,6 +39,8 @@ public class AlterarEmpregado extends HttpServlet {
         e.setNome(request.getParameter("nome"));
         e.setMatricula(request.getParameter("matricula"));
         e.setNomeSocial(request.getParameter("nomeSocial"));
+        int etnia = Integer.parseInt(request.getParameter("etnia"));
+        e.setEtnia(etnia);
         int nacionalidade = Integer.parseInt(request.getParameter("nacionalidade"));
         e.setNacionalidade(nacionalidade);
         int naturalidade = Integer.parseInt(request.getParameter("naturalidade"));

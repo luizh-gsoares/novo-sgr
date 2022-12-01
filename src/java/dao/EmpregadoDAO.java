@@ -58,34 +58,38 @@ public class EmpregadoDAO {
     }
 
     public boolean alteraEmpregado(Empregado empregado) {
-        String updateTableSQL = "UPDATE empregado "
-                + " SET nome = ?, matricula = ?, nomeSocial = ?, nacionalidade = ?, naturalidade = ?, uf = ?, dataNasc = ?, sexo = ?, estadoCivil = ?, rg = ?, dataExpedicao = ?, orgaoExpedidor = ?, cpf = ?, zonaEleitoral = ?, secao = ?, tituloEleitoral = ?, email = ?, nomeConjugue = ?, nomePai = ?, nomeMae = ?, especial = ? "
-                + " WHERE idEmpregado = ?";
+        String updateTableSQL = "UPDATE empregado"
+                + "SET nome=?, matricula=?, nomeSocial=?, etnia=?, nacionalidade=?,"
+                + "naturalidade=?, uf=?, dataNasc=?, sexo=?, estadoCivil=?, rg=?,"
+                + "dataExpedicao=?, orgaoExpedidor=?, cpf=?, zonaEleitoral=?, secao=?,"
+                + "tituloEleitoral=?, email=?, nomeConjugue=?, nomePai=? ,nomeMae=?, especial=?"
+                + " WHERE idEmpregado=?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = DbConnect.getConexao().prepareStatement(updateTableSQL);
             preparedStatement.setString(1, empregado.getNome());
             preparedStatement.setString(2, empregado.getMatricula());
             preparedStatement.setString(3, empregado.getNomeSocial());
-            preparedStatement.setInt(4, empregado.getNacionalidade());
-            preparedStatement.setInt(5, empregado.getNaturalidade());
-            preparedStatement.setString(6, empregado.getUf());
-            preparedStatement.setString(7, empregado.getDataNasc());
-            preparedStatement.setInt(8, empregado.getSexo());
-            preparedStatement.setInt(9, empregado.getEstadoCivil());
-            preparedStatement.setString(10, empregado.getRg());
-            preparedStatement.setString(11, empregado.getDataExpedicao());
-            preparedStatement.setString(12, empregado.getOrgaoExpedidor());
-            preparedStatement.setString(13, empregado.getCpf());
-            preparedStatement.setString(14, empregado.getZonaEleitoral());
-            preparedStatement.setString(15, empregado.getSecao());
-            preparedStatement.setString(16, empregado.getTituloEleitoral());
-            preparedStatement.setString(17, empregado.getEmail());
-            preparedStatement.setString(18, empregado.getNomeConjugue());
-            preparedStatement.setString(19, empregado.getNomePai());
-            preparedStatement.setString(20, empregado.getNomeMae());
-            preparedStatement.setInt(21, empregado.getEspecial());
-            preparedStatement.setInt(22, empregado.getIdEmpregado());
+            preparedStatement.setInt(5, empregado.getEtnia());
+            preparedStatement.setInt(6, empregado.getNacionalidade());
+            preparedStatement.setInt(7, empregado.getNaturalidade());
+            preparedStatement.setString(8, empregado.getUf());
+            preparedStatement.setString(9, empregado.getDataNasc());
+            preparedStatement.setInt(10, empregado.getSexo());
+            preparedStatement.setInt(11, empregado.getEstadoCivil());
+            preparedStatement.setString(12, empregado.getRg());
+            preparedStatement.setString(13, empregado.getDataExpedicao());
+            preparedStatement.setString(14, empregado.getOrgaoExpedidor());
+            preparedStatement.setString(15, empregado.getCpf());
+            preparedStatement.setString(16, empregado.getZonaEleitoral());
+            preparedStatement.setString(17, empregado.getSecao());
+            preparedStatement.setString(18, empregado.getTituloEleitoral());
+            preparedStatement.setString(19, empregado.getEmail());
+            preparedStatement.setString(20, empregado.getNomeConjugue());
+            preparedStatement.setString(21, empregado.getNomePai());
+            preparedStatement.setString(22, empregado.getNomeMae());
+            preparedStatement.setInt(23, empregado.getEspecial());
+            preparedStatement.setInt(24, empregado.getIdEmpregado());
             preparedStatement.execute();
             return true;
         } catch (SQLException e) {
@@ -360,7 +364,7 @@ public class EmpregadoDAO {
         }
         return null;
     }
-    
+
     public ArrayList<Estadocivil> procuraTodosEstadocivis() {
         try {
 
