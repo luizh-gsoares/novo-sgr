@@ -32,14 +32,12 @@
         <div class="row mb-4">
           <div class="col">
             <div class="form-outline">
-              <label class="form-label" for="form6Example1">idTelefone</label>
-              <input type="text" id="idTelefone" class="form-control" name="idTelefone" value="${telefone.idTelefone}" readonly/>             
+              <input type="hidden" id="idTelefone" class="form-control" name="idTelefone" value="${telefone.idTelefone}"/>             
             </div>
           </div>
           <div class="col">
             <div class="form-outline">
-              <label class="form-label" for="form6Example1">idEmpregado</label>
-              <input type="text" id="idEmpregado" class="form-control" name="idEmpregado" value="${telefone.idEmpregado}" readonly/>
+              <input type="hidden" id="idEmpregado" class="form-control" name="idEmpregado" value="${telefone.idEmpregado}"/>
             </div>
           </div>
           <div class="col">

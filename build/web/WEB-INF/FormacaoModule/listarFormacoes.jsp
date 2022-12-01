@@ -19,20 +19,20 @@
             </div><!-- /.container-fluid -->
         </section>
 
-            <div class="card-header d-flex justify-content-between py-3">
-                <div>
-                    <form action="cadastrarformacao" method="get">
-                        <select id="idEmpregado" name="idEmpregado" class="custom-select" required>
-                            <option value="" disabled selected>Selecione o empregado</option>
-                        <jsp:useBean class="dao.EmpregadoDAO" id="edao"> </jsp:useBean>
-                        <c:forEach items="${edao.procuraTodosEmpregados()}" var="empregado">
-                            <option value="${empregado.idEmpregado}">${empregado.nome}</option>
-                        </c:forEach>
-                    </select>
-                    <input type="submit" class="btn btn-primary my-3" value="Cadastrar nova formação" />
-                </form>
-            </div>
+        <div class="card-header d-flex justify-content-between py-3">
+            <div>
+                <form action="cadastrarformacao" method="get">
+                    <select id="idEmpregado" name="idEmpregado" class="custom-select" required>
+                        <option value="" disabled selected>Selecione o empregado</option>
+                    <jsp:useBean class="dao.EmpregadoDAO" id="edao"> </jsp:useBean>
+                    <c:forEach items="${edao.procuraTodosEmpregados()}" var="empregado">
+                        <option value="${empregado.idEmpregado}">${empregado.nome}</option>
+                    </c:forEach>
+                </select>
+                <input type="submit" class="btn btn-primary my-3" value="Cadastrar nova formação" />
+            </form>
         </div>
+    </div>
 
     <section class="content">
         <div class="container-fluid">
@@ -59,7 +59,11 @@
                                     <c:forEach items="${listaDeFormacoes}" var="formacao">
                                         <tr>
                                             <td>${formacao.idFormacao}</td>
-                                            <td>${formacao.idTipocurso}</td>
+                                            <c:forEach items="${listaDeTipocursos}" var="tipocurso">
+                                                <c:if test="${formacao.idTipocurso == tipocurso.idTipocurso}">
+                                                    <td>${tipocurso.nome}</td>
+                                                </c:if>
+                                            </c:forEach>
                                             <td>${formacao.curso}</td>
                                             <td>${formacao.instituicao}</td>
                                             <td>${formacao.semestre}</td>

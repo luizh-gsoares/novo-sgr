@@ -8,9 +8,9 @@
         <div id="menu">
         <jsp:include page="Templates/menu.jsp"></jsp:include>
         </div>
-    <div id="container">
-        
+    <div id="container">    
         <div id="conteudo" class="bg-background">
+            <p>Hello World</p>
         </div>               
     </div>
 

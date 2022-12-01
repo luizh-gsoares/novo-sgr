@@ -57,9 +57,9 @@
                     <div class="col">
                       <div class="form-outline">
                         <label class="form-label" for="form6Example1" required>Cidade</label>
-                        <select name="cidade" id="${endereco.cidade}">
+                        <select name="idCidade" id="${endereco.idCidade}">
                             <c:forEach items="${listaDeCidades}" var="cidades">
-                                <option>${cidades.nome}</option>
+                                <option value="${cidades.idCidade}">${cidades.nome}</option>
                             </c:forEach>
                         </select>
                       </div>
