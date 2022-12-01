@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Cidade;
 import model.Endereco;
 
 
@@ -21,8 +22,13 @@ public class ListarEnderecos extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         EnderecoDAO dao = new EnderecoDAO();
+        
         ArrayList<Endereco> listaDeEnderecos = dao.procuraTodosEnderecos();
             request.setAttribute("listaDeEnderecos", listaDeEnderecos);
+        
+        ArrayList<Cidade> listaDeCidades = dao.procuraTodasCidades();
+            request.setAttribute("listaDeCidades", listaDeCidades);
+            
         RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/EnderecoModule/listarEnderecos.jsp");
         rd.forward(request, response);
     }

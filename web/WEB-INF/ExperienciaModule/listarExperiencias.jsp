@@ -46,8 +46,10 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Código Empregado</th>
+                                        <th>Empregado</th>
                                         <th>Função</th>
+                                        <th>Carga Horária</th>
+                                        <th>Vinculo</th>
                                         <th>Local</th>
                                         <th>CRE</th>
                                         <th>Data de Entrada</th>
@@ -58,8 +60,20 @@
                                     <c:forEach items="${listaDeExperiencias}" var="experiencia">
                                         <tr>
                                             <td>${experiencia.idExperiencia}</td>
-                                            <td>${experiencia.idEmpregado}</td>
+                                            <c:forEach items="${listaDeEmpregados}" var="empregado">
+                                                <c:if test="${experiencia.idEmpregado == empregado.idEmpregado}">
+                                                    <td>${empregado.nome}</td>
+                                                </c:if>
+                                            </c:forEach>
                                             <td>${experiencia.funcao}</td>
+                                            <td>${experiencia.cargaHoraria}</td>   
+                                            
+                                            <c:forEach items="${listaDeTipovinculos}" var="vinculo">
+                                                <c:if test="${experiencia.tipoVinculo == vinculo.idTipovinculo}">
+                                                   <td>${vinculo.tipo}</td>
+                                                </c:if>
+                                            </c:forEach>
+                                                   
                                             <td>${experiencia.local}</td>
                                             <td>${experiencia.cre}</td>
                                             <td>${experiencia.dtEntrada}</td>
@@ -82,8 +96,10 @@
                                 <tfoot>
                                     <tr>
                                         <th>#</th>
-                                        <th>Código Empregado</th>
+                                        <th>Empregado</th>
                                         <th>Função</th>
+                                        <th>Carga Horária</th>
+                                        <th>Vinculo</th>
                                         <th>Local</th>
                                         <th>CRE</th>
                                         <th>Data de Entrada</th>

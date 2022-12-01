@@ -32,7 +32,7 @@
                     <input type="hidden" class="form-control" name="idEmpregado" />
                 </legend>
                 <hr>
-            </div>
+           
 
             <fieldset>
                 <legend>Informações Pessoais</legend>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="col-md-4 mb-3">
                         <label class="form-label" for="form6Example1" required>Nome Social</label>
-                        <input required type="text" id="form6Example1" class="form-control" id="validationCustom01" name="nomeSocial"
+                        <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="nomeSocial"
                                placeholder="Nome Social" />
                     </div>
                 </div>
@@ -114,7 +114,7 @@
                 <div class="col-md-4 mb-3">
                     <label class="form-label" for="form6Example1" required>RG</label>
                     <input required type="text" id="form6Example1" class="form-control" id="validationCustom01" name="rg"
-                           placeholder="RG" />
+                           placeholder="RG" data-mask="0.000.000"/>
                 </div>
                 <div class="col-md-4 mb-3">
                     <label class="form-label" for="form6Example1" required>UF</label>
@@ -136,24 +136,24 @@
                 <div class="col-md-4 mb-3">
                     <label class="form-label" for="form6Example1" required>CPF</label>
                     <input required type="text" id="form6Example1" class="form-control" id="validationCustom01" name="cpf"
-                           placeholder="CPF" />
+                           placeholder="CPF" data-mask="000.000.000-00" />
                 </div>
                 <div class="col-md-4 mb-3">
                     <label class="form-label" for="form6Example1" required>Zona Eleitoral</label>
                     <input required type="text" id="form6Example1" class="form-control" id="validationCustom01" name="zonaEleitoral"
-                           placeholder="Zona Eleitoral" />
+                           placeholder="Zona Eleitoral" data-mask="000"/>
                 </div>
                 <div class="col-md-4 mb-3">
                     <label class="form-label" for="form6Example1" required>Sessão</label>
                     <input required type="text" id="form6Example1" class="form-control" id="validationCustom01" name="secao"
-                           placeholder="Sessão" />
+                           placeholder="Sessão" data-mask="000" />
                 </div>
             </div>
             <div class="row d-flex justify-content-between">
                 <div class="col-md-4 mb-3">
                     <label class="form-label" for="form6Example1" required>Titulo Eleitoral</label>
                     <input required type="text" id="form6Example1" class="form-control" id="validationCustom01" name="tituloEleitoral"
-                           placeholder="Titulo Eleitoral" />
+                           placeholder="Titulo Eleitoral" data-mask="0000.0000.0000" />
                 </div>
                 <div class="col-md-4 mb-3">
                     <label class="form-label" for="form6Example1" required>Órgão Expedidor</label>
@@ -213,5 +213,44 @@
 </div>
 </div>
 </form>
-
+ </div>
 <jsp:include page="/Templates/footer.jsp"></jsp:include>
+
+<script>
+    $(document).ready(function () {
+        $('.date').mask('00/00/0000');
+        $('.rg').mask('00/00/0000');
+        $('.time').mask('00:00:00');
+        $('.date_time').mask('00/00/0000 00:00:00');
+        $('.cep').mask('00000-000');
+        $('.phone').mask('0000-0000');
+        $('.phone_with_ddd').mask('(00) 0000-0000');
+        $('.phone_us').mask('(000) 000-0000');
+        $('.mixed').mask('AAA 000-S0S');
+        $('.cpf').mask('000.000.000-00', {reverse: true});
+        $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
+        $('.money').mask('000.000.000.000.000,00', {reverse: true});
+        $('.money2').mask("#.##0,00", {reverse: true});
+        $('.ip_address').mask('0ZZ.0ZZ.0ZZ.0ZZ', {
+            translation: {
+                'Z': {
+                    pattern: /[0-9]/, optional: true
+                }
+            }
+        });
+        $('.ip_address').mask('099.099.099.099');
+        $('.percent').mask('##0,00%', {reverse: true});
+        $('.clear-if-not-match').mask("00/00/0000", {clearIfNotMatch: true});
+        $('.placeholder').mask("00/00/0000", {placeholder: "__/__/____"});
+        $('.fallback').mask("00r00r0000", {
+            translation: {
+                'r': {
+                    pattern: /[\/]/,
+                    fallback: '/'
+                },
+                placeholder: "__/__/____"
+            }
+        });
+        $('.selectonfocus').mask("00/00/0000", {selectOnFocus: true});
+    });
+</script>    

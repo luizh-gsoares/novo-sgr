@@ -43,7 +43,7 @@
                     <th>#</th>
                     <th>Login</th>
                     <th>Código Perfil</th>
-                    <th>Código Empregado</th>        
+                            
                   </tr>
                 </thead>
                 <tbody>
@@ -52,7 +52,7 @@
                       <td>${user.idUsuario}</td>
                       <td>${user.login}</td>
                       <td>${user.idPerfil}</td>
-                      <td>${user.idEmpregado}</td>
+                      
                       <div class="row" >
                         <td>
                           <form action="excluirusuario" method="post">
@@ -73,7 +73,7 @@
                     <th>#</th>
                     <th>Login</th>
                     <th>Código Perfil</th>
-                    <th>Código Empregado</th>  
+                     
                   </tr>
                 </tfoot>
               </table>

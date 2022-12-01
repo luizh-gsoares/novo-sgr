@@ -50,6 +50,7 @@
                                         <th>Logradouro</th>
                                         <th>Complemento</th>
                                         <th>Cidade</th>
+                                        <th>Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -59,7 +60,12 @@
                                             <td>${endereco.cep}</td>
                                             <td>${endereco.logradouro}</td>
                                             <td>${endereco.complemento}</td>
-                                            <td>${endereco.idCidade}</td>
+                                            
+                                            <c:forEach items="${listaDeCidades}" var="cidade">
+                                                <c:if test="${endereco.idCidade == cidade.idCidade}">
+                                                    <td>${cidade.nome}</td>
+                                                </c:if>
+                                            </c:forEach>                                         
                                     <div class="row" >
                                         <td>
                                             <form action="excluirendereco" method="post">
@@ -82,6 +88,7 @@
                                         <th>Logradouro</th>
                                         <th>Complemento</th>
                                         <th>Cidade</th>
+                                        <th>Ações</th>
                                     </tr>
                                 </tfoot>
                             </table>
