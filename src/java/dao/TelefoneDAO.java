@@ -28,8 +28,7 @@ public class TelefoneDAO {
     }
 
     public boolean alteraTelefone(Telefone telefone) {
-        String insertTableSQL = "UPDATE telefone SET idEmpregado = ?, telefoneResidencial = ?, telefoneCelular = ?, telefoneRecado= ?"
-                + "WHERE idTelefone = ?;";
+        String insertTableSQL = "UPDATE telefone SET idEmpregado = ?, telefoneResidencial = ?, telefoneCelular = ?, telefoneRecado= ? WHERE idTelefone = ?;";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = DbConnect.getConexao().prepareStatement(insertTableSQL);

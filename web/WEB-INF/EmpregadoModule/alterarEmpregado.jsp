@@ -21,12 +21,12 @@
             </div><!-- /.container-fluid -->
         </section>
 
-        <form class="needs-validation"  action="cadastrarempregado" method="post">
+        <form class="needs-validation"  action="alterarempregado" method="post">
 
             <div class="container">
                 <legend>
                     <h3>Alterar Empregados</h3>
-                    <input type="hidden" class="form-control" name="idEmpregado" />
+                    <input type="hidden" class="form-control" name="idEmpregado" value="${empregado.idEmpregado}"/>
                 </legend>
                 <hr>
             
@@ -83,7 +83,7 @@
                 <div class="col-md-4 mb-3">
                     <label class="form-label" for="form6Example1" >Data de Nascimento</label>
                     <input  type="date" id="form6Example1" class="form-control" id="validationCustom01" name="dataNasc"
-                           placeholder="Data de Nascimento" value="${empregado.dataNasc}" data-mask="dd/mm/yyyy" />
+                           placeholder="Data de Nascimento" value="${empregado.dataNasc}" />
                 </div>
                 <div class="col-md-4 mb-3">
                     <label class="form-label" for="form6Example1" >Sexo</label>

@@ -58,38 +58,33 @@ public class EmpregadoDAO {
     }
 
     public boolean alteraEmpregado(Empregado empregado) {
-        String updateTableSQL = "UPDATE empregado"
-                + "SET nome=?, matricula=?, nomeSocial=?, etnia=?, nacionalidade=?,"
-                + "naturalidade=?, uf=?, dataNasc=?, sexo=?, estadoCivil=?, rg=?,"
-                + "dataExpedicao=?, orgaoExpedidor=?, cpf=?, zonaEleitoral=?, secao=?,"
-                + "tituloEleitoral=?, email=?, nomeConjugue=?, nomePai=? ,nomeMae=?, especial=?"
-                + " WHERE idEmpregado=?";
+        String updateTableSQL = "UPDATE empregado SET nome=?, matricula=?, nomeSocial=?, etnia=?, nacionalidade=?,naturalidade=?, uf=?, dataNasc=?, sexo=?, estadoCivil=?, rg=?, dataExpedicao=?, orgaoExpedidor=?, cpf=?, zonaEleitoral=?, secao=?, tituloEleitoral=?, email=?, nomeConjugue=?, nomePai=? ,nomeMae=?, especial=? WHERE idEmpregado=?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = DbConnect.getConexao().prepareStatement(updateTableSQL);
             preparedStatement.setString(1, empregado.getNome());
             preparedStatement.setString(2, empregado.getMatricula());
             preparedStatement.setString(3, empregado.getNomeSocial());
-            preparedStatement.setInt(5, empregado.getEtnia());
-            preparedStatement.setInt(6, empregado.getNacionalidade());
-            preparedStatement.setInt(7, empregado.getNaturalidade());
-            preparedStatement.setString(8, empregado.getUf());
-            preparedStatement.setString(9, empregado.getDataNasc());
-            preparedStatement.setInt(10, empregado.getSexo());
-            preparedStatement.setInt(11, empregado.getEstadoCivil());
-            preparedStatement.setString(12, empregado.getRg());
-            preparedStatement.setString(13, empregado.getDataExpedicao());
-            preparedStatement.setString(14, empregado.getOrgaoExpedidor());
-            preparedStatement.setString(15, empregado.getCpf());
-            preparedStatement.setString(16, empregado.getZonaEleitoral());
-            preparedStatement.setString(17, empregado.getSecao());
-            preparedStatement.setString(18, empregado.getTituloEleitoral());
-            preparedStatement.setString(19, empregado.getEmail());
-            preparedStatement.setString(20, empregado.getNomeConjugue());
-            preparedStatement.setString(21, empregado.getNomePai());
-            preparedStatement.setString(22, empregado.getNomeMae());
-            preparedStatement.setInt(23, empregado.getEspecial());
-            preparedStatement.setInt(24, empregado.getIdEmpregado());
+            preparedStatement.setInt(4, empregado.getEtnia());
+            preparedStatement.setInt(5, empregado.getNacionalidade());
+            preparedStatement.setInt(6, empregado.getNaturalidade());
+            preparedStatement.setString(7, empregado.getUf());
+            preparedStatement.setString(8, empregado.getDataNasc());
+            preparedStatement.setInt(9, empregado.getSexo());
+            preparedStatement.setInt(10, empregado.getEstadoCivil());
+            preparedStatement.setString(11, empregado.getRg());
+            preparedStatement.setString(12, empregado.getDataExpedicao());
+            preparedStatement.setString(13, empregado.getOrgaoExpedidor());
+            preparedStatement.setString(14, empregado.getCpf());
+            preparedStatement.setString(15, empregado.getZonaEleitoral());
+            preparedStatement.setString(16, empregado.getSecao());
+            preparedStatement.setString(17, empregado.getTituloEleitoral());
+            preparedStatement.setString(18, empregado.getEmail());
+            preparedStatement.setString(19, empregado.getNomeConjugue());
+            preparedStatement.setString(20, empregado.getNomePai());
+            preparedStatement.setString(21, empregado.getNomeMae());
+            preparedStatement.setInt(22, empregado.getEspecial());
+            preparedStatement.setInt(23, empregado.getIdEmpregado());
             preparedStatement.execute();
             return true;
         } catch (SQLException e) {
