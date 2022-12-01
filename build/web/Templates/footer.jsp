@@ -29,5 +29,8 @@
 <script src="Resources/js/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="Resources/js/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
+<!-- Comentário do Luiz maskJS -->
+<script src="Resources/js/plugins/jQuery-Mask-Plugin-master/src/jquery.mask.js"></script>
+
 </body>
 </html>
