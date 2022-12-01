@@ -63,11 +63,11 @@
                                     <div class="row" >
                                         <td>
                                             <form action="excluirendereco" method="post">
-                                                <input type="hidden" name="idendereco" value="${endereco.idEndereco}" />
+                                                <input type="hidden" name="idEndereco" value="${endereco.idEndereco}" />
                                                 <input type="submit" class="btn btn-danger" value="Excluir" />
                                             </form>
                                             <form action="alterarendereco" method="get">
-                                                <input type="hidden" name="idendereco" value="${endereco.idEndereco}" />
+                                                <input type="hidden" name="idEndereco" value="${endereco.idEndereco}" />
                                                 <input type="submit" class="btn btn-warning" value="Alterar" />
                                             </form>
                                         </td>

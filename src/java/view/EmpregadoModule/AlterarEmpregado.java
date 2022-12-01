@@ -48,7 +48,7 @@ public class AlterarEmpregado extends HttpServlet {
         int sexo = Integer.parseInt(request.getParameter("sexo"));
         e.setSexo(sexo);
         int estadoCivil = Integer.parseInt(request.getParameter("estadoCivil"));
-        e.setSexo(estadoCivil);
+        e.setEstadoCivil(estadoCivil);
         e.setRg(request.getParameter("rg"));
         e.setDataExpedicao(request.getParameter("dataExpedicao"));
         e.setOrgaoExpedidor(request.getParameter("orgaoExpedidor"));
@@ -66,7 +66,7 @@ public class AlterarEmpregado extends HttpServlet {
         EmpregadoDAO dao = new EmpregadoDAO();
 
         if (dao.alteraEmpregado(e)) {
-            response.sendRedirect("listarempregado");
+            response.sendRedirect("listarempregados");
         } else {
             //enviar um atributo msg de erro
             request.setAttribute("erro", "Erro ao alterar");
