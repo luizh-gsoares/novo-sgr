@@ -37,14 +37,14 @@
             <div class="row mb-4">
                 <div class="col">
                     <div class="form-outline">
-                        <label class="form-label" for="form6Example1" required>Função</label>
-                        <input type="text" class="form-control"  name="funcao" placeholder="Função exercida"/>
+                        <label class="form-label" for="form6Example1" >Função</label>
+                        <input type="text" class="form-control"  name="funcao" placeholder="Função exercida" required/>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-outline">
                         <label class="form-label" for="form6Example1">Tipo Vinculo</label>
-                        <select id="tipoVinculo" name="tipoVinculo" class="custom-select">
+                        <select id="tipoVinculo" name="tipoVinculo" class="custom-select" required>
                             <jsp:useBean class="dao.ExperienciaDAO" id="tipdao"> </jsp:useBean>
                             <c:forEach items="${tipdao.procuraTodosTipovinculos()}" var="tip">
                                 <option value="${tip.idTipovinculo}">${tip.tipo}</option>
@@ -54,21 +54,21 @@
 
                 <div class="col">
                     <div class="form-outline">
-                        <label class="form-label" for="form6Example1" required>Carga Horária</label>
-                        <input type="text"  class="form-control" name="cargaHoraria"  data-mask="00" placeholder="Apenas números"/>
+                        <label class="form-label" for="form6Example1">Carga Horária</label>
+                        <input type="text"  class="form-control" name="cargaHoraria"  data-mask="00" placeholder="Apenas números" required/>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-outline">
-                        <label class="form-label" for="form6Example1" required>Local</label>
-                        <input type="text" class="form-control" name="local" placeholder="Local de trabalho"/>
+                        <label class="form-label" for="form6Example1" >Local</label>
+                        <input type="text" class="form-control" name="local" placeholder="Local de trabalho" required/>
                     </div>
                 </div>
 
                 <div class="col">
                     <div class="form-outline">
                         <label class="form-label" for="form6Example1">CRE</label>
-                        <select id="cre" name="cre" class="custom-select">
+                        <select id="cre" name="cre" class="custom-select" required>
                             <c:forEach items="${tipdao.procuraTodosCres()}" var="cr">
                                 <option value="${cr.idCre}">${cr.nome}</option>
                             </c:forEach>
@@ -79,14 +79,14 @@
                 <div class="col">
                     <div class="form-outline">
                         <label class="form-label" for="form6Example1" required>Data de Entrada</label>
-                        <input type="date" class="form-control" name="dtEntrada" />
+                        <input type="date" class="form-control" name="dtEntrada" required/>
                     </div>
                 </div>
 
                 <div class="col">
                     <div class="form-outline">
                         <label class="form-label" for="form6Example1" required>Data de Saida</label>
-                        <input type="date" class="form-control" name="dtSaida""/>
+                        <input type="date" class="form-control" name="dtSaida" required/>
                     </div>
                 </div>
             </div>
