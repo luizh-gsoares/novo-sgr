@@ -80,7 +80,6 @@
                                             <td>${experiencia.cre}</td>
                                             <td>${experiencia.dtEntrada}</td>
                                             <td>${experiencia.dtSaida}</td>
-                                    <div class="form-group row" >
                                         <td>
                                             <form action="excluirexperiencia" method="post">
                                                 <input type="hidden" name="idExperiencia" value="${experiencia.idExperiencia}" />
@@ -91,7 +90,6 @@
                                                 <button type="submit" class="btn btn-warning" > Alterar <i class="fa-solid fa-pen-to-square"></i> </button>
                                             </form>
                                         </td>
-                                    </div>
                                     </tr>
                                 </c:forEach>
                                 </tbody> 
