@@ -7,7 +7,7 @@
 
     <!-- Content Wrapper. Contains page content -->
 
-    <div class="content-wrapper">
+    <div class="content-wrapper mt-2">
         <c:forEach items="${listaDeUsuarios}" var="user"> 
         <section class="content">
             <!-- Content Header (Page header) -->
@@ -45,7 +45,7 @@
                                         <th>#</th>
                                         <th>Nome</th>               
                                         <th>Perfil</th>
-                                        <th>Ações</th>        
+                                       <c:if test="${user.idPerfil == 1}"> <th>Ações</th>  </c:if>      
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -59,7 +59,7 @@
                                                 </c:if>
                                             </c:forEach>     
 
-                                    <div class="row" >
+                                   <c:if test="${user.idPerfil == 1}"> <div class="row" >
                                         <td>
                                             <form action="excluirusuario" method="post">
                                                 <input type="hidden" name="idusuario" value="${user.idUsuario}" />
@@ -70,6 +70,7 @@
                                                 <input type="submit" class="btn btn-warning" value="Alterar" />
                                             </form>
                                         </td>
+                                    </c:if>    
                                     </div>
                                     </tr>
                                 </c:forEach>

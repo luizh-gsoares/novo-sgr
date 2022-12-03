@@ -44,21 +44,21 @@
                 <div class="col">
                     <div class="form-outline">
                         <label class="form-label" for="form6Example1" required>Telefone Residencial</label>
-                        <input type="text" id="form6Example1" class="form-control phone" id="validationCustom01"
+                        <input type="text" id="form6Example1" class="form-control phone_with_ddd" id="validationCustom01"
                                name="telefoneResidencial" value="${telefone.telefoneResidencial}"/>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-outline">
                         <label class="form-label" for="form6Example1" required>Telefone Celular</label>
-                        <input type="text" id="form6Example1" class="form-control phone" id="validationCustom01"
+                        <input type="text" id="form6Example1" class="form-control phone_with_ddd" id="validationCustom01"
                                name="telefoneCelular" value="${telefone.telefoneCelular}"/>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-outline">
                         <label class="form-label" for="form6Example1" required>Telefone Recado</label>
-                        <input type="text" id="form6Example1" class="form-control phone" id="validationCustom01"
+                        <input type="text" id="form6Example1" class="form-control phone_with_ddd" id="validationCustom01"
                                name="telefoneRecado" value="${telefone.telefoneRecado}" />
                     </div>
                 </div>
