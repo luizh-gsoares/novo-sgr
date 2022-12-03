@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01-Dez-2022 às 04:26
+-- Tempo de geração: 04-Dez-2022 às 00:02
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -5703,7 +5703,7 @@ INSERT INTO `empregado` (`idEmpregado`, `nome`, `matricula`, `nomeSocial`, `etni
 
 CREATE TABLE `endereco` (
   `idEndereco` int(11) NOT NULL,
-  `cep` varchar(8) NOT NULL,
+  `cep` varchar(12) NOT NULL,
   `logradouro` varchar(200) NOT NULL,
   `complemento` varchar(100) DEFAULT NULL,
   `idCidade` int(11) NOT NULL,
@@ -5716,7 +5716,9 @@ CREATE TABLE `endereco` (
 
 INSERT INTO `endereco` (`idEndereco`, `cep`, `logradouro`, `complemento`, `idCidade`, `idEmpregado`) VALUES
 (1, '718849', 'Rua das Alvoradas', 'Lote 30', 1, 10),
-(2, '71884581', 'Rua das Alvoradas', 'Lote 30', 2, 10);
+(2, '71884581', 'Rua das Alvoradas', 'Lote 30', 2, 10),
+(3, '70650-212', 'Girassol', 'Sem complemento', 4037, 10),
+(4, '70650-212', 'Girassol', 'Lote 39', 10, 11);
 
 -- --------------------------------------------------------
 
@@ -5871,8 +5873,8 @@ INSERT INTO `experiencia` (`idExperiencia`, `idEmpregado`, `funcao`, `tipoVincul
 
 CREATE TABLE `formacao` (
   `idFormacao` int(11) NOT NULL,
-  `idEmpregado` int(11) DEFAULT NULL,
   `idTipocurso` int(11) DEFAULT NULL,
+  `idEmpregado` int(11) NOT NULL,
   `curso` varchar(200) DEFAULT NULL,
   `instituicao` varchar(200) DEFAULT NULL,
   `semestre` int(2) DEFAULT NULL,
@@ -5884,9 +5886,9 @@ CREATE TABLE `formacao` (
 -- Extraindo dados da tabela `formacao`
 --
 
-INSERT INTO `formacao` (`idFormacao`, `idEmpregado`, `idTipocurso`, `curso`, `instituicao`, `semestre`, `dtInicio`, `dtFim`) VALUES
-(3, 0, 1, 'Engenharia de Software', 'Universidade de Brasilia', 20, '2022-11-01', '2022-11-17'),
-(4, 10, 9, 'Técnico em Informática', 'Escola Técnica de Brasília', 4, '2021-02-08', '2022-12-30');
+INSERT INTO `formacao` (`idFormacao`, `idTipocurso`, `idEmpregado`, `curso`, `instituicao`, `semestre`, `dtInicio`, `dtFim`) VALUES
+(3, 1, 0, 'Engenharia de Software', 'Universidade de Brasilia', 20, '2022-11-01', '2022-11-17'),
+(4, 9, 0, 'Técnico em Informática', 'Escola Técnica de Brasília', 4, '2021-02-08', '2022-12-30');
 
 -- --------------------------------------------------------
 
@@ -6239,9 +6241,9 @@ INSERT INTO `sexo` (`idSexo`, `sexo`) VALUES
 CREATE TABLE `telefone` (
   `idTelefone` int(11) NOT NULL,
   `idEmpregado` int(11) DEFAULT NULL,
-  `telefoneResidencial` int(11) DEFAULT NULL,
-  `telefoneCelular` int(11) DEFAULT NULL,
-  `telefoneRecado` int(11) DEFAULT NULL
+  `telefoneResidencial` varchar(20) DEFAULT NULL,
+  `telefoneCelular` varchar(20) DEFAULT NULL,
+  `telefoneRecado` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -6249,7 +6251,9 @@ CREATE TABLE `telefone` (
 --
 
 INSERT INTO `telefone` (`idTelefone`, `idEmpregado`, `telefoneResidencial`, `telefoneCelular`, `telefoneRecado`) VALUES
-(4, 10, 61998348, 35748228, 35748228);
+(4, 10, '(61) 9983-48', '(35) 7482-28', '(35) 7482-28'),
+(11, 10, '(61) 9963-333', '(61) 9963-333', '(61) 9963-333'),
+(12, 10, '(22) 2222-2222', '(22) 2222-2222', '(22) 2222-2222');
 
 -- --------------------------------------------------------
 
@@ -6323,6 +6327,7 @@ INSERT INTO `tipovinculo` (`idTipovinculo`, `tipo`, `dt_inativacao`) VALUES
 
 CREATE TABLE `usuarios` (
   `idUsuario` int(11) NOT NULL,
+  `nome` varchar(100) NOT NULL,
   `login` varchar(50) NOT NULL,
   `senha` varchar(100) NOT NULL,
   `idEmpregado` int(11) NOT NULL,
@@ -6333,8 +6338,8 @@ CREATE TABLE `usuarios` (
 -- Extraindo dados da tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`idUsuario`, `login`, `senha`, `idEmpregado`, `idPerfil`) VALUES
-(1, 'admin', 'senha', 0, 1);
+INSERT INTO `usuarios` (`idUsuario`, `nome`, `login`, `senha`, `idEmpregado`, `idPerfil`) VALUES
+(1, '', 'admin', 'senha', 0, 1);
 
 --
 -- Índices para tabelas despejadas
@@ -6361,14 +6366,16 @@ ALTER TABLE `empregado`
   ADD KEY `especial_id` (`especial`),
   ADD KEY `etnia_id` (`etnia`),
   ADD KEY `nacionalidade_id` (`nacionalidade`),
-  ADD KEY `sexo_id` (`sexo`);
+  ADD KEY `sexo_id` (`sexo`),
+  ADD KEY `estadocivil_id` (`estadoCivil`);
 
 --
 -- Índices para tabela `endereco`
 --
 ALTER TABLE `endereco`
   ADD PRIMARY KEY (`idEndereco`),
-  ADD KEY `cidade_id` (`idCidade`);
+  ADD KEY `cidade_id` (`idCidade`),
+  ADD KEY `endereco_empregado_id` (`idEmpregado`);
 
 --
 -- Índices para tabela `especial`
@@ -6408,8 +6415,7 @@ ALTER TABLE `experiencia`
 --
 ALTER TABLE `formacao`
   ADD PRIMARY KEY (`idFormacao`),
-  ADD KEY `tipo_curso_id` (`idTipocurso`),
-  ADD KEY `formacao_empregado_id` (`idEmpregado`);
+  ADD KEY `tipo_curso_id` (`idTipocurso`);
 
 --
 -- Índices para tabela `funcao`
@@ -6481,7 +6487,7 @@ ALTER TABLE `empregado`
 -- AUTO_INCREMENT de tabela `endereco`
 --
 ALTER TABLE `endereco`
-  MODIFY `idEndereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idEndereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `especial`
@@ -6535,7 +6541,7 @@ ALTER TABLE `sexo`
 -- AUTO_INCREMENT de tabela `telefone`
 --
 ALTER TABLE `telefone`
-  MODIFY `idTelefone` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idTelefone` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `tipocurso`
@@ -6570,6 +6576,7 @@ ALTER TABLE `cidade`
 --
 ALTER TABLE `empregado`
   ADD CONSTRAINT `especial_id` FOREIGN KEY (`especial`) REFERENCES `especial` (`idEspecialidade`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `estadocivil_id` FOREIGN KEY (`estadoCivil`) REFERENCES `estadocivil` (`idEstadocivil`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `etnia_id` FOREIGN KEY (`etnia`) REFERENCES `etnia` (`idEtnia`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `nacionalidade_id` FOREIGN KEY (`nacionalidade`) REFERENCES `pais` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `sexo_id` FOREIGN KEY (`sexo`) REFERENCES `sexo` (`idSexo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -6578,13 +6585,15 @@ ALTER TABLE `empregado`
 -- Limitadores para a tabela `endereco`
 --
 ALTER TABLE `endereco`
-  ADD CONSTRAINT `cidade_id` FOREIGN KEY (`idCidade`) REFERENCES `cidade` (`idCidade`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `cidade_id` FOREIGN KEY (`idCidade`) REFERENCES `cidade` (`idCidade`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `endereco_empregado_id` FOREIGN KEY (`idEmpregado`) REFERENCES `empregado` (`idEmpregado`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `experiencia`
 --
 ALTER TABLE `experiencia`
   ADD CONSTRAINT `cre_id` FOREIGN KEY (`cre`) REFERENCES `cre` (`idCre`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `experiencia_empregado_id` FOREIGN KEY (`idEmpregado`) REFERENCES `empregado` (`idEmpregado`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `vinculo_id` FOREIGN KEY (`tipoVinculo`) REFERENCES `tipovinculo` (`idTipovinculo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
@@ -6592,6 +6601,12 @@ ALTER TABLE `experiencia`
 --
 ALTER TABLE `formacao`
   ADD CONSTRAINT `tipo_curso_id` FOREIGN KEY (`idTipocurso`) REFERENCES `tipocurso` (`idTipoCurso`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `telefone`
+--
+ALTER TABLE `telefone`
+  ADD CONSTRAINT `telefone_empregado_id` FOREIGN KEY (`idEmpregado`) REFERENCES `empregado` (`idEmpregado`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `usuarios`
