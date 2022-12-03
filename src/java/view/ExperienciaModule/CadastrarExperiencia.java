@@ -3,6 +3,7 @@ package view.ExperienciaModule;
 import dao.EmpregadoDAO;
 import dao.ExperienciaDAO;
 import java.io.IOException;
+import static java.lang.System.out;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -55,6 +56,7 @@ public class CadastrarExperiencia extends HttpServlet {
         } else {
             //enviar um atributo msg de erro
             request.setAttribute("erro", "Experiencia não inserido.");
+
         }
 
     }

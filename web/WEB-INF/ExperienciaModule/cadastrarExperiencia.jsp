@@ -12,29 +12,27 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
 
+    <form action="cadastrarexperiencia" method="post">
 
-        <p value="{$erro}"></p>
-        <form action="cadastrarexperiencia" method="post">
-
-            <div class="container">
+        <div class="container">
 
 
-                <section class="content-header">
-                    <div class="container-fluid">
-                        <div class="row mb-2">
-                            <div class="col-sm-6">
-                                <h1>Cadastrar Experiência</h1>
-                            </div>
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Cadastrar Experiência</h1>
                         </div>
-                    </div><!-- /.container-fluid -->
-                </section>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
 
 
 
-                <legend>Experiência</legend>
-                <hr>
-                <!-- Campos Dados Pessoais -->
-                <input type="hidden" class="form-control" name="idEmpregado" value="${empregado.idEmpregado}"/>
+            <legend>Experiência</legend>
+            <hr>
+            <!-- Campos Dados Pessoais -->
+            <input type="hidden" class="form-control" name="idEmpregado" value="${empregado.idEmpregado}"/>
 
             <div class="row mb-4">
                 <div class="col">

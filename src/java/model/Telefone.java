@@ -9,16 +9,16 @@ public class Telefone {
 
     private Integer idTelefone;
     private Integer idEmpregado;
-    private Integer telefoneResidencial;
-    private Integer telefoneCelular;
-    private Integer telefoneRecado;
+    private String telefoneResidencial;
+    private String telefoneCelular;
+    private String telefoneRecado;
 
-    
-    public Telefone(Integer idTelefone, Integer idEmpregado, Integer telefoneResidencial, Integer telefoneCelular, Integer telefoneRecado) {
-    this.idEmpregado = idEmpregado;
-    this.idTelefone  = idTelefone;
-    this.telefoneCelular = telefoneCelular;
-    this.telefoneRecado = telefoneRecado;
+    public Telefone(Integer idTelefone, Integer idEmpregado, String telefoneResidencial, String telefoneCelular, String telefoneRecado) {
+        this.idTelefone = idTelefone;
+        this.idEmpregado = idEmpregado;
+        this.telefoneResidencial = telefoneResidencial;
+        this.telefoneCelular = telefoneCelular;
+        this.telefoneRecado = telefoneRecado;
     }
 
     public Telefone() {
@@ -28,7 +28,5 @@ public class Telefone {
     public String toString() {
         return "Telefone{" + "idTelefone=" + idTelefone + ", idEmpregado=" + idEmpregado + ", telefoneResidencial=" + telefoneResidencial + ", telefoneCelular=" + telefoneCelular + ", telefoneRecado=" + telefoneRecado + '}';
     }
-    
-    
 
 }

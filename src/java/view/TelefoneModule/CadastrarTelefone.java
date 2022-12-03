@@ -18,7 +18,7 @@ public class CadastrarTelefone extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         EmpregadoDAO eDao = new EmpregadoDAO();
         Integer idEmpregado = Integer.parseInt(request.getParameter("idEmpregado"));
         Empregado e = eDao.procuraEmpregadoPeloID(idEmpregado);
@@ -35,12 +35,12 @@ public class CadastrarTelefone extends HttpServlet {
         System.out.println("POST - CADASTRAR TELEFONE");
         request.setCharacterEncoding("UTF-8");
         Telefone t = new Telefone();
-        
+
         int idEmpregado = Integer.parseInt(request.getParameter("idEmpregado"));
         t.setIdEmpregado(idEmpregado);
-        t.setTelefoneResidencial(Integer.parseInt(request.getParameter("telefoneResidencial")));
-        t.setTelefoneCelular(Integer.parseInt(request.getParameter("telefoneCelular")));
-        t.setTelefoneRecado(Integer.parseInt(request.getParameter("telefoneCelular")));
+        t.setTelefoneResidencial(request.getParameter("telefoneResidencial"));
+        t.setTelefoneCelular(request.getParameter("telefoneCelular"));
+        t.setTelefoneRecado(request.getParameter("telefoneCelular"));
         String page = "index.jsp";
 
         TelefoneDAO dao = new TelefoneDAO();

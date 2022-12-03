@@ -16,9 +16,9 @@ public class TelefoneDAO {
         try {
             preparedStatement = DbConnect.getConexao().prepareStatement(insertTableSQL);
             preparedStatement.setInt(1, telefone.getIdEmpregado());
-            preparedStatement.setInt(2, telefone.getTelefoneResidencial());
-            preparedStatement.setInt(3, telefone.getTelefoneCelular());
-            preparedStatement.setInt(4, telefone.getTelefoneRecado());
+            preparedStatement.setString(2, telefone.getTelefoneResidencial());
+            preparedStatement.setString(3, telefone.getTelefoneCelular());
+            preparedStatement.setString(4, telefone.getTelefoneRecado());
             preparedStatement.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -33,9 +33,9 @@ public class TelefoneDAO {
         try {
             preparedStatement = DbConnect.getConexao().prepareStatement(insertTableSQL);
             preparedStatement.setInt(1, telefone.getIdEmpregado());
-            preparedStatement.setInt(2, telefone.getTelefoneResidencial());
-            preparedStatement.setInt(3, telefone.getTelefoneCelular());
-            preparedStatement.setInt(4, telefone.getTelefoneRecado());
+            preparedStatement.setString(2, telefone.getTelefoneResidencial());
+            preparedStatement.setString(3, telefone.getTelefoneCelular());
+            preparedStatement.setString(4, telefone.getTelefoneRecado());
             preparedStatement.setInt(5, telefone.getIdTelefone());
 
             preparedStatement.executeUpdate();
@@ -73,13 +73,45 @@ public class TelefoneDAO {
             if (rs.next()) {
                 telef.setIdTelefone(rs.getInt("idTelefone"));
                 telef.setIdEmpregado(rs.getInt("idEmpregado"));
-                telef.setTelefoneResidencial(rs.getInt("telefoneResidencial"));
-                telef.setTelefoneCelular(rs.getInt("telefoneCelular"));
-                telef.setTelefoneRecado(rs.getInt("telefoneRecado"));
+                telef.setTelefoneResidencial(rs.getString("telefoneResidencial"));
+                telef.setTelefoneCelular(rs.getString("telefoneCelular"));
+                telef.setTelefoneRecado(rs.getString("telefoneRecado"));
             }
             rs.close();
             con.close();
             return telef;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<Telefone> procuraTelefonePeloEmpregado(Integer idEmpregado) {
+
+        try {
+            String sql = "SELECT * FROM telefone WHERE idEmpregado = ? ;";
+            PreparedStatement con = DbConnect.getConexao().prepareStatement(sql);
+
+            con.setInt(1, idEmpregado);
+            ResultSet rs = con.executeQuery();
+            Telefone telef = new Telefone();
+
+            ArrayList<Telefone> listaTelefones = new ArrayList<>();
+            while (rs.next()) {
+                Telefone tel = new Telefone();
+
+                tel.setIdTelefone(rs.getInt("idTelefone"));
+                tel.setIdEmpregado(rs.getInt("idEmpregado"));
+                tel.setTelefoneResidencial(rs.getString("telefoneResidencial"));
+                tel.setTelefoneCelular(rs.getString("telefoneCelular"));
+                tel.setTelefoneRecado(rs.getString("telefoneRecado"));
+
+                listaTelefones.add(telef);
+            }
+            rs.close();
+            con.close();
+            return listaTelefones;
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -101,9 +133,9 @@ public class TelefoneDAO {
 
                 telef.setIdTelefone(rs.getInt("idTelefone"));
                 telef.setIdEmpregado(rs.getInt("idEmpregado"));
-                telef.setTelefoneResidencial(rs.getInt("telefoneResidencial"));
-                telef.setTelefoneCelular(rs.getInt("telefoneCelular"));
-                telef.setTelefoneRecado(rs.getInt("telefoneRecado"));
+                telef.setTelefoneResidencial(rs.getString("telefoneResidencial"));
+                telef.setTelefoneCelular(rs.getString("telefoneCelular"));
+                telef.setTelefoneRecado(rs.getString("telefoneRecado"));
 
                 listaTelefones.add(telef);
             }
