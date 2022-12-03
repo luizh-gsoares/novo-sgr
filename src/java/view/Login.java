@@ -41,7 +41,7 @@ public class Login extends HttpServlet {
             request.setAttribute("usuario", u);
             HttpSession ses = request.getSession();
             ses.setAttribute("usuario",u);
-            response.sendRedirect("listarempregados");
+            response.sendRedirect("index.jsp");
             System.out.println("entrei");
         } else {
             //enviar um atributo msg de erro

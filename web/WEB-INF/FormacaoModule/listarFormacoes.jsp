@@ -13,26 +13,27 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Lista de Formações</h1>
+                        <h1>Formações<span class="badge "></span></h1>
                     </div>
                 </div>
-            </div><!-- /.container-fluid -->
-        </section>
+                <div class="card-header d-flex justify-content-between py-3">
+                    <div>
+                        <form action="cadastrarformacao" method="get">
+                            <select id="idEmpregado" name="idEmpregado" class="custom-select" required>
+                                <option value="" disabled selected>Selecione o empregado</option>
+                            <jsp:useBean class="dao.EmpregadoDAO" id="edao"> </jsp:useBean>
+                            <c:forEach items="${edao.procuraTodosEmpregados()}" var="empregado">
+                                <option value="${empregado.idEmpregado}">${empregado.nome}</option>
+                            </c:forEach>
+                        </select>
+                        <input type="submit" class="btn btn-primary my-3" value="Cadastrar nova formação" />
+                    </form>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
 
-        <div class="card-header d-flex justify-content-between py-3">
-            <div>
-                <form action="cadastrarformacao" method="get">
-                    <select id="idEmpregado" name="idEmpregado" class="custom-select" required>
-                        <option value="" disabled selected>Selecione o empregado</option>
-                    <jsp:useBean class="dao.EmpregadoDAO" id="edao"> </jsp:useBean>
-                    <c:forEach items="${edao.procuraTodosEmpregados()}" var="empregado">
-                        <option value="${empregado.idEmpregado}">${empregado.nome}</option>
-                    </c:forEach>
-                </select>
-                <input type="submit" class="btn btn-primary my-3" value="Cadastrar nova formação" />
-            </form>
-        </div>
-    </div>
+
 
     <section class="content">
         <div class="container-fluid">
@@ -46,7 +47,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Código do tipo curso</th>
+                                        <th>Escolaridade</th>
                                         <th>Curso</th>
                                         <th>Instituição</th>
                                         <th>Semestre</th>
@@ -88,7 +89,7 @@
                                 <tfoot>
                                     <tr>
                                         <th>#</th>
-                                        <th>Código do tipo curso</th>
+                                        <th>Escolaridadeo</th>
                                         <th>Curso</th>
                                         <th>Instituição</th>
                                         <th>Semestre</th>

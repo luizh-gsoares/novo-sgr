@@ -13,20 +13,21 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Lista de Empregados</h1>
+                        <h1>Empregados</h1>
+                    </div>
+                </div>
+                <div class="card-header d-flex justify-content-between">
+                    <div>
+                        <form action="cadastrarempregado" method="get">
+
+                            <input type="submit" class="btn btn-primary my-2" value="Cadastrar novo empregado" />
+                        </form>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
         </section>
 
-        <div class="card-header d-flex justify-content-between">
-            <div>
-                <form action="cadastrarempregado" method="get">
 
-                    <input type="submit" class="btn btn-primary my-2" value="Cadastrar novo empregado" />
-                </form>
-            </div>
-        </div>
 
         <section class="content">
             <div class="container-fluid">
@@ -60,9 +61,9 @@
 
                                                 <div class="dropdown">
                                                     <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                       Ações
+                                                        Ações
                                                     </a> 
-                                                    
+
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                         <div class="dropdown-item">
                                                             <form action="alterarempregado" method="get">

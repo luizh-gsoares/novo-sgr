@@ -13,27 +13,28 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Lista de Contatos</h1>
+                        <h1>Contatos</h1>
                     </div>
                 </div>
-            </div><!-- /.container-fluid -->
-        </section>
-
-        
-            <div class="card-header d-flex justify-content-between py-3">
-                <div>
-                    <form action="cadastrartelefone" method="get">
-                        <select id="idEmpregado" name="idEmpregado" class="custom-select" required>
-                            <option value="" disabled selected>Selecione o empregado</option>
-                        <jsp:useBean class="dao.EmpregadoDAO" id="edao"> </jsp:useBean>
-                        <c:forEach items="${edao.procuraTodosEmpregados()}" var="empregado">
-                            <option value="${empregado.idEmpregado}">${empregado.nome}</option>
-                        </c:forEach>
-                    </select>
-                    <input type="submit" class="btn btn-primary my-3" value="Cadastrar novos contatos" />
-                </form>
+                <div class="card-header d-flex justify-content-between py-3">
+                    <div>
+                        <form action="cadastrartelefone" method="get">
+                            <select id="idEmpregado" name="idEmpregado" class="custom-select" required>
+                                <option value="" disabled selected>Selecione o empregado</option>
+                            <jsp:useBean class="dao.EmpregadoDAO" id="edao"> </jsp:useBean>
+                            <c:forEach items="${edao.procuraTodosEmpregados()}" var="empregado">
+                                <option value="${empregado.idEmpregado}">${empregado.nome}</option>
+                            </c:forEach>
+                        </select>
+                        <input type="submit" class="btn btn-primary my-3" value="Cadastrar novos contatos" />
+                    </form>
+                </div>
             </div>
-        </div>
+
+        </div><!-- /.container-fluid -->
+    </section>
+
+
 
 
     <section class="content">

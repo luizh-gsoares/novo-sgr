@@ -13,13 +13,10 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Lista de Endereços</h1>
+                        <h1>Endereços</h1>
                     </div>
                 </div>
-            </div><!-- /.container-fluid -->
-        </section>
-
-        <div class="card-header d-flex justify-content-between py-3">
+                        <div class="card-header d-flex justify-content-between py-3">
             <div>
                 <form action="cadastrarendereco" method="get">
                     <select id="idEmpregado" name="idEmpregado"  class="custom-select" required>
@@ -33,6 +30,8 @@
             </form>
         </div>
     </div>
+            </div><!-- /.container-fluid -->
+        </section>
 
     <section class="content">
         <div class="container-fluid">
@@ -65,7 +64,8 @@
                                                 <c:if test="${endereco.idCidade == cidade.idCidade}">
                                                     <td>${cidade.nome}</td>
                                                 </c:if>
-                                            </c:forEach>                                         
+                                            </c:forEach>         
+                                                    
                                     <div class="row" >
                                         <td>
                                             <form action="excluirendereco" method="post">
@@ -81,16 +81,7 @@
                                     </tr>
                                 </c:forEach>
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>CEP</th>
-                                        <th>Logradouro</th>
-                                        <th>Complemento</th>
-                                        <th>Cidade</th>
-                                        <th>Ações</th>
-                                    </tr>
-                                </tfoot>
+                               
                             </table>
                         </div>
                         <!-- /.card-body -->

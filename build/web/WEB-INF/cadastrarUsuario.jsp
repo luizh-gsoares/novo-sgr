@@ -66,7 +66,7 @@
                         </div>
                         <div class="col mt-3">
                             <label for="validationCustom02" class="form-label">Senha</label>
-                            <input type="text" class="form-control" id="validationCustom02"placeholder="Mínimo de 8 caracteres" name="senha"  required 
+                            <input type="password" class="form-control" id="validationCustom02"placeholder="Mínimo de 8 caracteres" name="senha"  required 
                                    minlength="8" 
                                    oninvalid="this.setCustomValidity('Digite uma senha válida!')" 
                                    onchange="try {

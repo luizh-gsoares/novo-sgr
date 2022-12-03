@@ -13,26 +13,27 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Lista de Experiências</h1>
+                        <h1>Experiências</h1>
                     </div>
                 </div>
-            </div><!-- /.container-fluid -->
-        </section>
+                <div class="card-header d-flex justify-content-between py-3">
+                    <div>
+                        <form action="cadastrarexperiencia" method="get">
+                            <select id="idEmpregado" name="idEmpregado" class="custom-select" required>
+                                <option value="" disabled selected>Selecione o empregado</option>
+                            <jsp:useBean class="dao.EmpregadoDAO" id="edao"> </jsp:useBean>
+                            <c:forEach items="${edao.procuraTodosEmpregados()}" var="empregado">
+                                <option value="${empregado.idEmpregado}">${empregado.nome}</option>
+                            </c:forEach>
+                        </select>
+                        <input type="submit" class="btn btn-primary my-3" value="Cadastrar nova experiência" />
+                    </form>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
 
-        <div class="card-header d-flex justify-content-between py-3">
-            <div>
-                <form action="cadastrarexperiencia" method="get">
-                    <select id="idEmpregado" name="idEmpregado" class="custom-select" required>
-                        <option value="" disabled selected>Selecione o empregado</option>
-                    <jsp:useBean class="dao.EmpregadoDAO" id="edao"> </jsp:useBean>
-                    <c:forEach items="${edao.procuraTodosEmpregados()}" var="empregado">
-                        <option value="${empregado.idEmpregado}">${empregado.nome}</option>
-                    </c:forEach>
-                </select>
-                <input type="submit" class="btn btn-primary my-3" value="Cadastrar nova experiência" />
-            </form>
-        </div>
-    </div>
+
 
     <section class="content">
         <div class="container-fluid">
@@ -45,7 +46,7 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th>Cod</th>
                                         <th>Empregado</th>
                                         <th>Função</th>
                                         <th>Carga Horária</th>
@@ -54,6 +55,7 @@
                                         <th>CRE</th>
                                         <th>Data de Entrada</th>
                                         <th>Data de Saida</th>
+                                        <th>Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -67,13 +69,13 @@
                                             </c:forEach>
                                             <td>${experiencia.funcao}</td>
                                             <td>${experiencia.cargaHoraria}</td>   
-                                            
+
                                             <c:forEach items="${listaDeTipovinculos}" var="vinculo">
                                                 <c:if test="${experiencia.tipoVinculo == vinculo.idTipovinculo}">
-                                                   <td>${vinculo.tipo}</td>
+                                                    <td>${vinculo.tipo}</td>
                                                 </c:if>
                                             </c:forEach>
-                                                   
+
                                             <td>${experiencia.local}</td>
                                             <td>${experiencia.cre}</td>
                                             <td>${experiencia.dtEntrada}</td>
@@ -92,20 +94,7 @@
                                     </div>
                                     </tr>
                                 </c:forEach>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Empregado</th>
-                                        <th>Função</th>
-                                        <th>Carga Horária</th>
-                                        <th>Vinculo</th>
-                                        <th>Local</th>
-                                        <th>CRE</th>
-                                        <th>Data de Entrada</th>
-                                        <th>Data de Saida</th>
-                                    </tr>
-                                </tfoot>
+                                </tbody> 
                             </table>
                         </div>
                         <!-- /.card-body -->

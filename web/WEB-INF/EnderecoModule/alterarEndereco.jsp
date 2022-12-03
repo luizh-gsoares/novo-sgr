@@ -30,7 +30,8 @@
 
                 <div class="col">
                     <div class="form-outline">
-                        <input type="hidden" id="form6Example1" class="form-control" id="validationCustom01" name="idEndereco" />
+                        <input type="hidden" id="form6Example1" class="form-control" id="validationCustom01" name="idEndereco" value="${endereco.idEndereco}" />
+                        <input type="hidden" id="form6Example1" class="form-control" id="validationCustom01" name="idEmpregado" value="${endereco.idEmpregado}" />
                     </div>
                 </div>
 
@@ -59,9 +60,9 @@
                     <div class="form-outline">
                         <label class="form-label" for="form6Example1" required>Cidade</label>
                         <select name="idCidade" id="idCidade" class="custom-select">
-                        <jsp:useBean class="dao.EnderecoDAO" id="cdao"> </jsp:useBean>    
-                        <c:forEach items="${cdao.procuraTodasCidades()}" var="cidades">
-                                <option value="${endereco.nome}">${cidades.nome}</option>
+                         <jsp:useBean class="dao.EnderecoDAO" id="edao"> </jsp:useBean>
+                            <c:forEach items="${edao.procuraTodasCidades()}" var="end">
+                                <option value="${end.idCidade}">${end.nome}</option>
                             </c:forEach>
                         </select>
                     </div>
@@ -72,7 +73,7 @@
 
             </div>
     </form>
-
+</div>                       
     <jsp:include page="/Templates/footer.jsp"></jsp:include>
     
     <script>
