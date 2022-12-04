@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04-Dez-2022 às 01:38
--- Versão do servidor: 10.4.24-MariaDB
--- versão do PHP: 8.1.6
+-- Tempo de geração: 04-Dez-2022 às 03:02
+-- Versão do servidor: 10.4.25-MariaDB
+-- versão do PHP: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -5685,7 +5685,7 @@ CREATE TABLE `empregado` (
   `nomePai` varchar(50) DEFAULT NULL,
   `nomeMae` varchar(50) DEFAULT NULL,
   `especial` int(11) DEFAULT NULL,
-  `status` int(11) NOT NULL
+  `status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -5694,7 +5694,8 @@ CREATE TABLE `empregado` (
 
 INSERT INTO `empregado` (`idEmpregado`, `nome`, `matricula`, `nomeSocial`, `etnia`, `nacionalidade`, `naturalidade`, `uf`, `dataNasc`, `sexo`, `estadoCivil`, `rg`, `dataExpedicao`, `orgaoExpedidor`, `cpf`, `zonaEleitoral`, `secao`, `tituloEleitoral`, `email`, `nomeConjugue`, `nomePai`, `nomeMae`, `especial`, `status`) VALUES
 (10, 'Luiz Henrique Soares SIMÕES', '1010', '', 1, 1, 883, '1', '2022-11-08', 1, 1, '1.111.111', '2022-11-07', 'SSP', '066.759.541-48', '101', '101', '1010.1010.1010', 'Luiz@gmail.com', '', '', '', 1, 0),
-(11, 'Cavaleiro dos cornos', '111', 'a', 2, 2, 1565, '2', '2022-12-31', 2, 2, '111', '2022-12-31', 'ssp', '111', '1', '1', '1', 'luizhenriquesoares18@hotmail.com', 'a', 'a', 'a', 2, 0);
+(11, 'Cavaleiro dos cornos', '111', 'a', 2, 2, 1565, '2', '2022-12-31', 2, 2, '111', '2022-12-31', 'ssp', '111', '1', '1', '1', 'luizhenriquesoares18@hotmail.com', 'a', 'a', 'a', 2, 0),
+(12, 'Cavaleiro dos cornos', '111', 'a', 2, 2, 1565, '2', '2022-12-31', 2, 2, '1.132.132', '2022-12-27', 'SSP', '131.313.131-31', '131', '131', '1312.2131.3131', 'luizhenriquesoares18@hotmail.com', 'a', 'a', 'a', 6, 1);
 
 -- --------------------------------------------------------
 
@@ -5709,7 +5710,7 @@ CREATE TABLE `endereco` (
   `complemento` varchar(100) DEFAULT NULL,
   `idCidade` int(11) NOT NULL,
   `idEmpregado` int(11) NOT NULL,
-  `status` int(11) NOT NULL
+  `status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -5717,10 +5718,10 @@ CREATE TABLE `endereco` (
 --
 
 INSERT INTO `endereco` (`idEndereco`, `cep`, `logradouro`, `complemento`, `idCidade`, `idEmpregado`, `status`) VALUES
-(1, '718849', 'Rua das Alvoradas', 'Lote 30', 1, 10, 0),
-(2, '71884581', 'Rua das Alvoradas', 'Lote 30', 2, 10, 0),
+(2, '71884-581', 'Novenida', 'Lote 30', 1, 10, 0),
 (3, '70650-212', 'Girassol', 'Sem complemento', 4037, 10, 0),
-(4, '70650-212', 'Girassol', 'Lote 39', 10, 11, 0);
+(4, '70650-212', 'Girassol', 'Lote 39', 10, 11, 0),
+(5, '71884-581', 'Rua das Alvoradas', 'Lote 30', 2, 11, 1);
 
 -- --------------------------------------------------------
 
@@ -5892,7 +5893,7 @@ CREATE TABLE `formacao` (
 --
 
 INSERT INTO `formacao` (`idFormacao`, `idTipocurso`, `idEmpregado`, `curso`, `instituicao`, `semestre`, `dtInicio`, `dtFim`, `status`) VALUES
-(3, 1, 0, 'Engenharia de Software', 'Universidade de Brasilia', 20, '2022-11-01', '2022-11-17', 0),
+(3, 1, 0, 'Engenharia de Software', 'Universidade de Brasilia', 20, '2022-11-09', '2022-11-01', 0),
 (4, 9, 0, 'Técnico em Informática', 'Escola Técnica de Brasília', 4, '2021-02-08', '2022-12-30', 0);
 
 -- --------------------------------------------------------
@@ -6257,8 +6258,8 @@ CREATE TABLE `telefone` (
 --
 
 INSERT INTO `telefone` (`idTelefone`, `idEmpregado`, `telefoneResidencial`, `telefoneCelular`, `telefoneRecado`, `status`) VALUES
-(4, 10, '(61) 9983-48', '(35) 7482-28', '(35) 7482-28', 0),
-(11, 10, '(61) 9963-333', '(61) 9963-333', '(61) 9963-333', 0),
+(4, 10, '(61) 9 9834-8131', '(35) 74822-8131', '(35) 74822-8313', 0),
+(11, 10, '(61) 9 9633-3311', '(61) 99633-3311', '(61) 99633-3311', 0),
 (12, 10, '(22) 2222-2222', '(22) 2222-2222', '(22) 2222-2222', 0);
 
 -- --------------------------------------------------------
@@ -6333,20 +6334,19 @@ INSERT INTO `tipovinculo` (`idTipovinculo`, `tipo`, `dt_inativacao`) VALUES
 
 CREATE TABLE `usuarios` (
   `idUsuario` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL,
   `login` varchar(50) NOT NULL,
   `senha` varchar(100) NOT NULL,
-  `idEmpregado` int(11) NOT NULL,
   `idPerfil` int(11) NOT NULL DEFAULT 1,
-  `status` int(11) NOT NULL
+  `status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`idUsuario`, `nome`, `login`, `senha`, `idEmpregado`, `idPerfil`, `status`) VALUES
-(1, '', 'admin', 'senha', 0, 1, 0);
+INSERT INTO `usuarios` (`idUsuario`, `login`, `senha`, `idPerfil`, `status`) VALUES
+(1, 'admin', 'senha', 1, 1),
+(3, 'adminastro', '12345678', 2, 1);
 
 --
 -- Índices para tabelas despejadas
@@ -6488,13 +6488,13 @@ ALTER TABLE `cre`
 -- AUTO_INCREMENT de tabela `empregado`
 --
 ALTER TABLE `empregado`
-  MODIFY `idEmpregado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idEmpregado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `endereco`
 --
 ALTER TABLE `endereco`
-  MODIFY `idEndereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idEndereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `especial`
@@ -6566,7 +6566,7 @@ ALTER TABLE `tipovinculo`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restrições para despejos de tabelas
