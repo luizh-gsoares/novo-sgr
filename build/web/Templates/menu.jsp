@@ -1,3 +1,9 @@
+<style>
+    a{
+        text-decoration: none;
+    }
+    </style>
+
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -13,7 +19,7 @@
 <!-- /.navbar -->
 
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation">
     <!-- Brand Logo -->
     <a href="index.jsp" class="brand-link">
         <img src="Resources/images/df.png" alt="AdminLTE Logo" class="brand-image" style="opacity: .8">

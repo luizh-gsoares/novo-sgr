@@ -58,8 +58,8 @@
                                                     <td>${perf.nome}</td>
                                                 </c:if>
                                             </c:forEach>  
-                                                    
-                                                    
+
+
                                             <td>
                                                 <c:choose>
                                                     <c:when test="${user.status == 1}">
@@ -80,12 +80,12 @@
                                                     </c:otherwise>
                                                 </c:choose>
                                             </td>
-                                            
-                                            
-                                            
-                                            
+
+
+
+
                                     <c:if test="${user.idPerfil == 1}"> <div class="row" >
-                                            <td>
+                                            <td class="d-print-none">
                                                 <form action="excluirusuario" method="post">
                                                     <input type="hidden" name="idusuario" value="${user.idUsuario}" />
                                                     <input type="submit" class="btn btn-danger" value="Excluir" />
@@ -147,17 +147,17 @@
 </script>
 
 <script type="text/javascript">
-                                                function confirmDesativar(id, nome){
-                                                    if(confirm('Deseja desativar o menu ' +
-                                                       nome + '?')){
-                                                       location.href="gerenciarMenu?acao=desativar&idMenu="+id;
-                                                    }
-                                                }
+    function confirmDesativar(id, nome) {
+        if (confirm('Deseja desativar o menu ' +
+                nome + '?')) {
+            location.href = "gerenciarMenu?acao=desativar&idMenu=" + id;
+        }
+    }
 
-                                                function confirmAtivar(id, nome){
-                                                    if(confirm('Deseja ativar o menu ' +
-                                                       nome + '?')){
-                                                       location.href="gerenciarMenu?acao=ativar&idMenu="+id;
-                                                    }
-                                                }
-                                            </script>
+    function confirmAtivar(id, nome) {
+        if (confirm('Deseja ativar o menu ' +
+                nome + '?')) {
+            location.href = "gerenciarMenu?acao=ativar&idMenu=" + id;
+        }
+    }
+</script>

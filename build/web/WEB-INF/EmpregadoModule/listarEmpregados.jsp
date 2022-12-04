@@ -52,7 +52,7 @@
                                     <tbody>
                                     <c:forEach items="${listaDeEmpregados}" var="empregado">
                                         <tr>
-                                            <td>${empregado.idEmpregado}</td>
+                                            <td class="d-print-none">${empregado.idEmpregado}</td>
                                             <td>${empregado.nome}</td>
                                             <td>${empregado.matricula}</td>
                                             <td>${empregado.nacionalidade}</td>                                      
