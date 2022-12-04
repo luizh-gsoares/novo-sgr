@@ -105,6 +105,41 @@ public class ExperienciaDAO {
         return null;
     }
 
+    public ArrayList<Experiencia> procuraExperienciaPeloEmpregado(Integer idEmpregado) {
+
+        try {
+            String sql = "SELECT * FROM experiencia "
+                    + " WHERE idEmpregado = ?;";
+            PreparedStatement con = DbConnect.getConexao().prepareStatement(sql);
+
+            con.setInt(1, idEmpregado);
+            ResultSet rs = con.executeQuery();
+
+            ArrayList<Experiencia> listaExperiencias = new ArrayList<>();
+            while (rs.next()) {
+                Experiencia expe = new Experiencia();
+                expe.setIdExperiencia(rs.getInt("idExperiencia"));
+                expe.setIdEmpregado(rs.getInt("idEmpregado"));
+                expe.setFuncao(rs.getString("funcao"));
+                expe.setTipoVinculo(rs.getInt("tipoVinculo"));
+                expe.setCargaHoraria(rs.getString("cargaHoraria"));
+                expe.setLocal(rs.getString("local"));
+                expe.setCre(rs.getInt("cre"));
+                expe.setDtSaida(rs.getString("dtSaida"));
+                expe.setDtEntrada(rs.getString("dtEntrada"));
+                listaExperiencias.add(expe);
+            }
+
+            rs.close();
+            con.close();
+            return listaExperiencias;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
     public ArrayList<Experiencia> procuraTodosExperiencias() {
 
         try {

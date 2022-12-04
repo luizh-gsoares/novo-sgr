@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import model.Cidade;
 import model.Endereco;
 import model.Estado;
+import model.Experiencia;
 
 public class EnderecoDAO {
 
@@ -93,6 +94,38 @@ public class EnderecoDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
+    }
+
+    public ArrayList<Endereco> procuraEnderecoPeloEmpregado(Integer idEmpregado) {
+
+        try {
+            String sql = "SELECT * FROM endereco "
+                    + " WHERE idEmpregado = ?;";
+            PreparedStatement con = DbConnect.getConexao().prepareStatement(sql);
+
+            con.setInt(1, idEmpregado);
+            ResultSet rs = con.executeQuery();
+
+            ArrayList<Endereco> listaEnderecos = new ArrayList<>();
+            while (rs.next()) {
+                Endereco ende = new Endereco();
+                ende.setIdEndereco(rs.getInt("idEndereco"));
+                ende.setIdEmpregado(rs.getInt("idEmpregado"));
+                ende.setCep(rs.getString("cep"));
+                ende.setLogradouro(rs.getString("logradouro"));
+                ende.setComplemento(rs.getString("complemento"));
+                ende.setIdCidade(rs.getInt("idCidade"));
+                listaEnderecos.add(ende);
+            }
+
+            rs.close();
+            con.close();
+            return listaEnderecos;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return null;
     }
 

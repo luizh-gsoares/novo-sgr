@@ -152,6 +152,54 @@ public class EmpregadoDAO {
         return null;
     }
 
+    public ArrayList<Empregado> procuraEmpregadoPeloEmpregado(Integer idEmpregado) {
+
+        try {
+            String sql = "SELECT * FROM empregado "
+                    + " WHERE idEmpregado = ?;";
+            PreparedStatement con = DbConnect.getConexao().prepareStatement(sql);
+
+            con.setInt(1, idEmpregado);
+            ResultSet rs = con.executeQuery();
+
+            ArrayList<Empregado> listaEmpregados = new ArrayList<>();
+            while (rs.next()) {
+                Empregado empr = new Empregado();
+                empr.setIdEmpregado(rs.getInt("idEmpregado"));
+                empr.setNome(rs.getString("nome"));
+                empr.setMatricula(rs.getString("matricula"));
+                empr.setNomeSocial(rs.getString("nomeSocial"));
+                empr.setNacionalidade(rs.getInt("nacionalidade"));
+                empr.setNaturalidade(rs.getInt("naturalidade"));
+                empr.setUf(rs.getString("uf"));
+                empr.setDataNasc(rs.getString("dataNasc"));
+                empr.setSexo(rs.getInt("sexo"));
+                empr.setEstadoCivil(rs.getInt("estadoCivil"));
+                empr.setRg(rs.getString("rg"));
+                empr.setDataExpedicao(rs.getString("dataExpedicao"));
+                empr.setOrgaoExpedidor(rs.getString("orgaoExpedidor"));
+                empr.setCpf(rs.getString("cpf"));
+                empr.setZonaEleitoral(rs.getString("zonaEleitoral"));
+                empr.setSecao(rs.getString("secao"));
+                empr.setTituloEleitoral(rs.getString("tituloEleitoral"));
+                empr.setEmail(rs.getString("email"));
+                empr.setNomeConjugue(rs.getString("nomeConjugue"));
+                empr.setNomePai(rs.getString("nomePai"));
+                empr.setNomeMae(rs.getString("nomeMae"));
+                empr.setEspecial(rs.getInt("especial"));
+                listaEmpregados.add(empr);
+            }
+
+            rs.close();
+            con.close();
+            return listaEmpregados;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
     public ArrayList<Empregado> procuraTodosEmpregados() {
 
         try {
