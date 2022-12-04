@@ -75,6 +75,10 @@
                                                     <input type="submit" class="btn btn-warning"
                                                            value="Alterar Perfil" />
                                                 </form>
+                                                     <form action="ativar" method="get">
+                                                    <input type="hidden" name="idusuario" value="${perfil.idPerfil}" />
+                                                    <input type="submit" class="btn btn-warning" value="Ativar" />
+                                                </form>
                                             </td>
                                         </tr>
                                     </c:forEach>

@@ -50,7 +50,6 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-
                                             <tr>
                                                 <td>${user.idUsuario}</td>
                                             <td>${user.login}</td>
@@ -58,8 +57,33 @@
                                                 <c:if test="${user.idPerfil == perf.idPerfil}">
                                                     <td>${perf.nome}</td>
                                                 </c:if>
-                                            </c:forEach>     
+                                            </c:forEach>  
+                                                    
+                                                    
+                                            <td>
+                                                <c:choose>
+                                                    <c:when test="${user.status == 1}">
+                                                        <button class="btn btn-danger btn-sm"
+                                                                onclick="confirmDesativar('${user.idMenu}', '${user.nome}')">
+                                                            Desativar&nbsp;
+                                                            <i class="fas fa-user fa-user-lock"></i>
+                                                        </button>
 
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <button class="btn btn-success btn-sm"
+                                                                onclick="confirmAtivar('${user.idMenu}', '${user.nome}')">
+                                                            Ativar&nbsp;
+                                                            <i class="fa-solid fa-user-shield"></i>
+                                                        </button>
+
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </td>
+                                            
+                                            
+                                            
+                                            
                                     <c:if test="${user.idPerfil == 1}"> <div class="row" >
                                             <td>
                                                 <form action="excluirusuario" method="post">
@@ -121,3 +145,19 @@
     });
 
 </script>
+
+<script type="text/javascript">
+                                                function confirmDesativar(id, nome){
+                                                    if(confirm('Deseja desativar o menu ' +
+                                                       nome + '?')){
+                                                       location.href="gerenciarMenu?acao=desativar&idMenu="+id;
+                                                    }
+                                                }
+
+                                                function confirmAtivar(id, nome){
+                                                    if(confirm('Deseja ativar o menu ' +
+                                                       nome + '?')){
+                                                       location.href="gerenciarMenu?acao=ativar&idMenu="+id;
+                                                    }
+                                                }
+                                            </script>

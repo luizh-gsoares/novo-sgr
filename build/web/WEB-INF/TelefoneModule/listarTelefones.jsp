@@ -79,6 +79,10 @@
                                                 <input type="hidden" name="idTelefone" value="${telefone.idTelefone}" />
                                                 <button type="submit" class="btn btn-warning" > Alterar <i class="fa-solid fa-pen-to-square"></i> </button>
                                             </form>
+                                                 <form action="ativar" method="get">
+                                                    <input type="hidden" name="idusuario" value="${telefone.idTelefone}" />
+                                                    <input type="submit" class="btn btn-warning" value="Ativar" />
+                                                </form>
                                         </td>
                                     </div>
                                     </tr>
