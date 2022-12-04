@@ -58,11 +58,11 @@
                             <input type="text" class="form-control" id="validationCustom01" name="login" placeholder="Digite o nome de usuário" required 
                                    oninvalid="this.setCustomValidity('Digite um nome de usuário válido')" 
                                    onchange="try {
-                                               setCustomValidity('')
-                                           } catch (e) {
-                                           }">
-                            
-                            
+                                       setCustomValidity('')
+                                       } catch (e) {
+                                       }">
+
+
                         </div>
                         <div class="col mt-3">
                             <label for="validationCustom02" class="form-label">Senha</label>
@@ -70,18 +70,18 @@
                                    minlength="8" 
                                    oninvalid="this.setCustomValidity('Digite uma senha válida!')" 
                                    onchange="try {
-                                               setCustomValidity('')
-                                           } catch (e) {
-                                           }">                        
+                                       setCustomValidity('')
+                                       } catch (e) {
+                                       }">                        
                         </div>
-                        
+
 
                         <input type="hidden" name="idEmpregado">
                         <!-- Password input -->
 
                         <div class="col mt-3">
                             <label class="form-label" for="form6Example1" required>Escolha o perfil</label> <br>
-                            <select id="idUsuario" name="perfil" class="custom-select">
+                            <select id="idUsuario" name="idPerfil" class="custom-select">
                             <jsp:useBean class="dao.UsuarioDAO" id="pdao"> </jsp:useBean>
                             <c:forEach items="${pdao.procuraTodosPerfis()}" var="perf">
                                 <option value="${perf.idPerfil}">${perf.nome}</option>
@@ -108,11 +108,11 @@
     </div>
 </div>
 
-    <script>
-            if("value" = 0){
-                alert("Escolha um empregado");
-                return cadastrarusuario;
-            }
-     </script>
-    
+<script>
+    if ("value" = 0){
+    alert("Escolha um empregado");
+    return cadastrarusuario;
+    }
+</script>
+
 </section>

@@ -31,7 +31,7 @@ public class CadastrarUsuario extends HttpServlet {
             throws ServletException, IOException {
          System.out.println("POST - CADASTRAR USUARIO");
         Usuario u = new Usuario();
-        u.setLogin(request.getParameter("usuario"));
+        u.setLogin(request.getParameter("login"));
         u.setSenha(request.getParameter("senha"));
         int idPerfil = Integer.parseInt(request.getParameter("idPerfil"));
         u.setIdPerfil(idPerfil);
@@ -47,7 +47,7 @@ public class CadastrarUsuario extends HttpServlet {
             request.setAttribute("erro", "Usuário ou senha inválida!");
         }
         
-        response.sendRedirect("listarempregados");
+        response.sendRedirect("listarusuarios");
 
     }
 

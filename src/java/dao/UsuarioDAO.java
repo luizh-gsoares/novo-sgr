@@ -20,7 +20,7 @@ public class UsuarioDAO {
             preparedStatement = DbConnect.getConexao().prepareStatement(insertTableSQL);
             preparedStatement.setString(1, usuario.getLogin());
             preparedStatement.setString(2, usuario.getSenha());
-            preparedStatement.setInt(4, usuario.getIdPerfil());
+            preparedStatement.setInt(3, usuario.getIdPerfil());
             preparedStatement.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -30,7 +30,7 @@ public class UsuarioDAO {
     }
 
     public boolean alteraUsuario(Usuario usuario) {
-        String insertTableSQL = "UPDATE usuarios SET senha = ?, nome = ?, idEmpregado = ?, idPerfil = ?"
+        String insertTableSQL = "UPDATE usuarios SET senha = ?, idPerfil = ?"
                 + "WHERE login = ? ;";
         PreparedStatement preparedStatement;
         try {
@@ -76,7 +76,6 @@ public class UsuarioDAO {
                 user.setIdUsuario(rs.getInt("idUsuario"));
                 user.setLogin(rs.getString("login"));
                 user.setSenha(rs.getString("senha"));
-                user.setIdEmpregado(rs.getInt("idEmpregado"));
                 user.setIdPerfil(rs.getInt("idPerfil"));
             }
             rs.close();
@@ -104,7 +103,6 @@ public class UsuarioDAO {
                 usur.setIdUsuario(rs.getInt("idUsuario"));
                 usur.setLogin(rs.getString("login"));
                 usur.setSenha(rs.getString("senha"));
-                usur.setIdEmpregado(rs.getInt("idEmpregado"));
                 usur.setIdPerfil(rs.getInt("idPerfil"));
                 listaUsuarios.add(usur);
             }
@@ -118,7 +116,7 @@ public class UsuarioDAO {
         }
         return null;
     }
-    
+
     public ArrayList<Perfil> procuraTodosPerfis() {
 
         try {
@@ -127,7 +125,7 @@ public class UsuarioDAO {
 
             ResultSet rs = con.executeQuery();
             ArrayList<Perfil> listaPerfis = new ArrayList<>();
-            
+
             while (rs.next()) {
                 Perfil perf = new Perfil();
                 perf.setIdPerfil(rs.getInt("idPerfil"));
@@ -143,6 +141,28 @@ public class UsuarioDAO {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public boolean ativar(Usuario u) throws SQLException {
+        Connection con = DbConnect.getConexao();
+        String sql = "UPDATE usuario SET status = 1"
+                + "WHERE idUsuario = ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, u.getIdUsuario());
+        ps.executeUpdate();
+
+        return true;
+    }
+
+    public boolean desativar(Usuario u) throws SQLException {
+        Connection con = DbConnect.getConexao();
+        String sql = "UPDATE usuario SET status = 2"
+                + "WHERE idUsuario = ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, u.getIdUsuario());
+        ps.executeUpdate();
+
+        return true;
     }
 
     public boolean validar(Usuario u) {

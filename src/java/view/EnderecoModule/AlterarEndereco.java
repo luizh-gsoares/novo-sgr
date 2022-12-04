@@ -33,18 +33,20 @@ public class AlterarEndereco extends HttpServlet {
         System.out.println("POST - Alterar Endereco");
         request.setCharacterEncoding("UTF-8");
         Endereco e = new Endereco();
-        int idEndereco = Integer.parseInt(request.getParameter("idEndereco"));
-        e.setIdEndereco(idEndereco);
+        int idEmpregado = Integer.parseInt(request.getParameter("idEmpregado"));
+        e.setIdEmpregado(idEmpregado);
         e.setCep(request.getParameter("cep"));
         e.setLogradouro(request.getParameter("logradouro"));
         e.setComplemento(request.getParameter("complemento"));
         int idCidade = Integer.parseInt(request.getParameter("idCidade"));
+        int idEndereco = Integer.parseInt(request.getParameter("idEndereco"));
+        e.setIdEndereco(idEndereco);
         e.setIdCidade(idCidade);
 
         EnderecoDAO dao = new EnderecoDAO();
 
         if (dao.alteraEndereco(e)) {
-            response.sendRedirect("listarendereco");
+            response.sendRedirect("listarenderecos");
         } else {
             //enviar um atributo msg de erro
             request.setAttribute("erro", "Erro ao alterar");

@@ -21,7 +21,7 @@
             </div><!-- /.container-fluid -->
         </section>
 
-        <form class="needs-validation" novalidate action="cadastrarendereco" method="post">
+        <form class="needs-validation" novalidate action="alterarendereco" method="post">
 
             <div class="container">
 
@@ -30,8 +30,8 @@
 
                 <div class="col">
                     <div class="form-outline">
-                        <input type="hidden" id="form6Example1" class="form-control" id="validationCustom01" name="idEndereco" value="${endereco.idEndereco}" />
-                        <input type="hidden" id="form6Example1" class="form-control" id="validationCustom01" name="idEmpregado" value="${endereco.idEmpregado}" />
+                        <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="idEndereco" value="${endereco.idEndereco}" />
+                        <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="idEmpregado" value="${endereco.idEmpregado}" />
                     </div>
                 </div>
 

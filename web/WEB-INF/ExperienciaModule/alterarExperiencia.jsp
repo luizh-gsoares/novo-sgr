@@ -33,8 +33,8 @@
 
                 <legend>Experiência</legend>
                 <hr>
-                <!-- Campos Dados Pessoais -->
-                <input type="hidden" class="form-control" name="idEmpregado" value="${empregado.idEmpregado}"/>
+                <!-- Campos Dados Pessoais -->                
+                <input type="hidden" class="form-control" name="idEmpregado" value="${experiencia.idEmpregado}"/>
 
             <div class="row mb-4">
                 <div class="col">

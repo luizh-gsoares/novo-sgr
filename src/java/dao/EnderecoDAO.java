@@ -33,16 +33,16 @@ public class EnderecoDAO {
 
     public boolean alteraEndereco(Endereco endereco) {
         String insertTableSQL = "UPDATE endereco "
-                + "SET cep = ?, logradouro = ?, complemento = ?, idCidade = ?"
-                + "WHERE idEndereco = ?;";
+                + "SET idEmpregado=?, cep = ?, logradouro = ?, complemento = ?, idCidade = ? WHERE idEndereco = ?;";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = DbConnect.getConexao().prepareStatement(insertTableSQL);
-            preparedStatement.setString(1, endereco.getCep());
-            preparedStatement.setString(2, endereco.getLogradouro());
-            preparedStatement.setString(3, endereco.getComplemento());
-            preparedStatement.setInt(4, endereco.getIdCidade());
-            preparedStatement.setInt(5, endereco.getIdEndereco());
+            preparedStatement.setInt(1, endereco.getIdEmpregado());
+            preparedStatement.setString(2, endereco.getCep());
+            preparedStatement.setString(3, endereco.getLogradouro());
+            preparedStatement.setString(4, endereco.getComplemento());
+            preparedStatement.setInt(5, endereco.getIdCidade());
+            preparedStatement.setInt(6, endereco.getIdEndereco());
 
             preparedStatement.executeUpdate();
             return true;
@@ -79,6 +79,7 @@ public class EnderecoDAO {
             Endereco ende = new Endereco();
 
             if (rs.next()) {
+                ende.setIdEmpregado(rs.getInt("idEmpregado"));
                 ende.setIdEndereco(rs.getInt("idEndereco"));
                 ende.setCep(rs.getString("cep"));
                 ende.setLogradouro(rs.getString("logradouro"));
@@ -108,6 +109,7 @@ public class EnderecoDAO {
             while (rs.next()) {
                 Endereco ende = new Endereco();
                 ende.setIdEndereco(rs.getInt("idEndereco"));
+                ende.setIdEmpregado(rs.getInt("idEmpregado"));
                 ende.setCep(rs.getString("cep"));
                 ende.setLogradouro(rs.getString("logradouro"));
                 ende.setComplemento(rs.getString("complemento"));
