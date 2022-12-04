@@ -90,32 +90,33 @@ public class TelefoneDAO {
     public ArrayList<Telefone> procuraTelefonePeloEmpregado(Integer idEmpregado) {
 
         try {
-            String sql = "SELECT * FROM telefone WHERE idEmpregado = ? ;";
+            String sql = "SELECT idTelefone, idEmpregado, telefoneResidencial, telefoneCelular, telefoneRecado FROM telefone "
+                    + " WHERE idEmpregado = ?;";
             PreparedStatement con = DbConnect.getConexao().prepareStatement(sql);
 
             con.setInt(1, idEmpregado);
             ResultSet rs = con.executeQuery();
-            Telefone telef = new Telefone();
 
             ArrayList<Telefone> listaTelefones = new ArrayList<>();
             while (rs.next()) {
-                Telefone tel = new Telefone();
+                Telefone telef = new Telefone();
 
-                tel.setIdTelefone(rs.getInt("idTelefone"));
-                tel.setIdEmpregado(rs.getInt("idEmpregado"));
-                tel.setTelefoneResidencial(rs.getString("telefoneResidencial"));
-                tel.setTelefoneCelular(rs.getString("telefoneCelular"));
-                tel.setTelefoneRecado(rs.getString("telefoneRecado"));
+                telef.setIdTelefone(rs.getInt("idTelefone"));
+                telef.setIdEmpregado(rs.getInt("idEmpregado"));
+                telef.setTelefoneResidencial(rs.getString("telefoneResidencial"));
+                telef.setTelefoneCelular(rs.getString("telefoneCelular"));
+                telef.setTelefoneRecado(rs.getString("telefoneRecado"));
 
                 listaTelefones.add(telef);
             }
+
             rs.close();
             con.close();
             return listaTelefones;
-
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         return null;
     }
 

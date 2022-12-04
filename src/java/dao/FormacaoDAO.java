@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import model.Formacao;
+import model.Telefone;
 import model.Tipocurso;
 
 public class FormacaoDAO {
@@ -97,6 +98,40 @@ public class FormacaoDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
+    }
+
+    public ArrayList<Formacao> procuraFormacaoPeloEmpregado(Integer idEmpregado) {
+
+        try {
+            String sql = "SELECT * FROM formacao "
+                    + " WHERE idEmpregado = ?;";
+            PreparedStatement con = DbConnect.getConexao().prepareStatement(sql);
+
+            con.setInt(1, idEmpregado);
+            ResultSet rs = con.executeQuery();
+            
+            ArrayList<Formacao> listaFormacoes = new ArrayList<>();
+            while (rs.next()) {
+                Formacao form = new Formacao();
+                form.setIdFormacao(rs.getInt("idFormacao"));
+                form.setIdEmpregado(rs.getInt("idEmpregado"));
+                form.setIdTipocurso(rs.getInt("idTipocurso"));
+                form.setCurso(rs.getString("curso"));
+                form.setInstituicao(rs.getString("instituicao"));
+                form.setSemestre(rs.getInt("semestre"));
+                form.setDtInicio(rs.getString("dtInicio"));
+                form.setDtFim(rs.getString("dtFim"));
+                listaFormacoes.add(form);
+            }
+
+            rs.close();
+            con.close();
+            return listaFormacoes;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return null;
     }
 

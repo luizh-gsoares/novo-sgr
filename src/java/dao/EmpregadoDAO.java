@@ -95,7 +95,7 @@ public class EmpregadoDAO {
     }
 
     public boolean excluiEmpregado(Integer toDelete) {
-        String deleteTableSQL = "DELETE FROM empregado WHERE idEmpregado = ?";
+        String deleteTableSQL = "DELETE * FROM empregado, endereco, experiencia, formacao, telefone WHERE empregado.idEmpregado = ?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = DbConnect.getConexao().prepareStatement(deleteTableSQL);
