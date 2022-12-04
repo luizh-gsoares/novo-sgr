@@ -52,6 +52,7 @@
                                             <th>#</th>
                                             <th>Nome</th>
                                             <th>Data de Cadastro</th>
+                                            <th>Status</th>
                                             <th>Ações</th>
                                         </tr>
                                     </thead>

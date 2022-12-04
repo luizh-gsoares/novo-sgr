@@ -45,8 +45,8 @@
                                             <th>Matricula</th>
                                             <th>Nacionalidade</th>
                                             <th>E-mail</th>
-                                            <th>Ações</th> 
-
+                                            <th>Status</th> 
+                                            <th>Ação</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -101,6 +101,12 @@
                                                                 <input type="submit" class="btn btn-danger" value="Excluir" />
                                                             </form>
                                                         </div>
+                                                        <div class="dropdown-item">
+                                                            <form action="ativar" method="get">
+                                                                <input type="hidden" name="idusuario" value="${empregado.idEmpregado}" />
+                                                                <input type="submit" class="btn btn-warning" value="Ativar" />
+                                                            </form>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </td>
@@ -125,16 +131,23 @@
 </div>
 
 <jsp:include page="/Templates/footer.jsp"></jsp:include>
-<script>
-    $(function () {
+    <script>
+        $(function () {
 
 
-        $("#example1").DataTable({
-            "responsive": true,
-            "lengthChange": false,
-            "autoWidth": false,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    });
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        });
 
-</script>
+    </script>
+    <script>
+        function del(codigo) {
+            if (confirm('Excluir a categoria?')) {
+                location.href = '../excluirempregado' + ${empregado.idEmpregado};
+            }
+        }
+        </scritp>

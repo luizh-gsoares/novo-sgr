@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04-Dez-2022 às 00:02
+-- Tempo de geração: 04-Dez-2022 às 01:38
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -5684,16 +5684,17 @@ CREATE TABLE `empregado` (
   `nomeConjugue` varchar(50) DEFAULT NULL,
   `nomePai` varchar(50) DEFAULT NULL,
   `nomeMae` varchar(50) DEFAULT NULL,
-  `especial` int(11) DEFAULT NULL
+  `especial` int(11) DEFAULT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `empregado`
 --
 
-INSERT INTO `empregado` (`idEmpregado`, `nome`, `matricula`, `nomeSocial`, `etnia`, `nacionalidade`, `naturalidade`, `uf`, `dataNasc`, `sexo`, `estadoCivil`, `rg`, `dataExpedicao`, `orgaoExpedidor`, `cpf`, `zonaEleitoral`, `secao`, `tituloEleitoral`, `email`, `nomeConjugue`, `nomePai`, `nomeMae`, `especial`) VALUES
-(10, 'Luiz Henrique Soares SIMÕES', '1010', '', 1, 1, 883, '1', '2022-11-08', 1, 1, '1.111.111', '2022-11-07', 'SSP', '066.759.541-48', '101', '101', '1010.1010.1010', 'Luiz@gmail.com', '', '', '', 1),
-(11, 'Cavaleiro dos cornos', '111', 'a', 2, 2, 1565, '2', '2022-12-31', 2, 2, '111', '2022-12-31', 'ssp', '111', '1', '1', '1', 'luizhenriquesoares18@hotmail.com', 'a', 'a', 'a', 2);
+INSERT INTO `empregado` (`idEmpregado`, `nome`, `matricula`, `nomeSocial`, `etnia`, `nacionalidade`, `naturalidade`, `uf`, `dataNasc`, `sexo`, `estadoCivil`, `rg`, `dataExpedicao`, `orgaoExpedidor`, `cpf`, `zonaEleitoral`, `secao`, `tituloEleitoral`, `email`, `nomeConjugue`, `nomePai`, `nomeMae`, `especial`, `status`) VALUES
+(10, 'Luiz Henrique Soares SIMÕES', '1010', '', 1, 1, 883, '1', '2022-11-08', 1, 1, '1.111.111', '2022-11-07', 'SSP', '066.759.541-48', '101', '101', '1010.1010.1010', 'Luiz@gmail.com', '', '', '', 1, 0),
+(11, 'Cavaleiro dos cornos', '111', 'a', 2, 2, 1565, '2', '2022-12-31', 2, 2, '111', '2022-12-31', 'ssp', '111', '1', '1', '1', 'luizhenriquesoares18@hotmail.com', 'a', 'a', 'a', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -5707,18 +5708,19 @@ CREATE TABLE `endereco` (
   `logradouro` varchar(200) NOT NULL,
   `complemento` varchar(100) DEFAULT NULL,
   `idCidade` int(11) NOT NULL,
-  `idEmpregado` int(11) NOT NULL
+  `idEmpregado` int(11) NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `endereco`
 --
 
-INSERT INTO `endereco` (`idEndereco`, `cep`, `logradouro`, `complemento`, `idCidade`, `idEmpregado`) VALUES
-(1, '718849', 'Rua das Alvoradas', 'Lote 30', 1, 10),
-(2, '71884581', 'Rua das Alvoradas', 'Lote 30', 2, 10),
-(3, '70650-212', 'Girassol', 'Sem complemento', 4037, 10),
-(4, '70650-212', 'Girassol', 'Lote 39', 10, 11);
+INSERT INTO `endereco` (`idEndereco`, `cep`, `logradouro`, `complemento`, `idCidade`, `idEmpregado`, `status`) VALUES
+(1, '718849', 'Rua das Alvoradas', 'Lote 30', 1, 10, 0),
+(2, '71884581', 'Rua das Alvoradas', 'Lote 30', 2, 10, 0),
+(3, '70650-212', 'Girassol', 'Sem complemento', 4037, 10, 0),
+(4, '70650-212', 'Girassol', 'Lote 39', 10, 11, 0);
 
 -- --------------------------------------------------------
 
@@ -5854,16 +5856,18 @@ CREATE TABLE `experiencia` (
   `local` varchar(200) NOT NULL,
   `cre` int(11) DEFAULT NULL,
   `dtSaida` date DEFAULT NULL,
-  `dtEntrada` date DEFAULT NULL
+  `dtEntrada` date DEFAULT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `experiencia`
 --
 
-INSERT INTO `experiencia` (`idExperiencia`, `idEmpregado`, `funcao`, `tipoVinculo`, `cargaHoraria`, `local`, `cre`, `dtSaida`, `dtEntrada`) VALUES
-(2, 10, 'Estagiário de TI', 2, '20h', 'CONFEA', 1, '2022-12-31', '2022-12-31'),
-(3, 10, 'Estagiário de TI', 2, '20h', 'CONFEA', 1, '2022-12-31', '2022-12-31');
+INSERT INTO `experiencia` (`idExperiencia`, `idEmpregado`, `funcao`, `tipoVinculo`, `cargaHoraria`, `local`, `cre`, `dtSaida`, `dtEntrada`, `status`) VALUES
+(2, 10, 'Estagiário de TI', 2, '20h', 'CONFEA', 1, '2022-12-31', '2022-12-31', 0),
+(3, 10, 'Estagiário de TI', 2, '20h', 'CONFEA', 1, '2022-12-31', '2022-12-31', 0),
+(5, 10, 'dd', 1, '33', 'fff', 1, '3333-03-31', '2022-12-07', 0);
 
 -- --------------------------------------------------------
 
@@ -5879,16 +5883,17 @@ CREATE TABLE `formacao` (
   `instituicao` varchar(200) DEFAULT NULL,
   `semestre` int(2) DEFAULT NULL,
   `dtInicio` date DEFAULT NULL,
-  `dtFim` date DEFAULT NULL
+  `dtFim` date DEFAULT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `formacao`
 --
 
-INSERT INTO `formacao` (`idFormacao`, `idTipocurso`, `idEmpregado`, `curso`, `instituicao`, `semestre`, `dtInicio`, `dtFim`) VALUES
-(3, 1, 0, 'Engenharia de Software', 'Universidade de Brasilia', 20, '2022-11-01', '2022-11-17'),
-(4, 9, 0, 'Técnico em Informática', 'Escola Técnica de Brasília', 4, '2021-02-08', '2022-12-30');
+INSERT INTO `formacao` (`idFormacao`, `idTipocurso`, `idEmpregado`, `curso`, `instituicao`, `semestre`, `dtInicio`, `dtFim`, `status`) VALUES
+(3, 1, 0, 'Engenharia de Software', 'Universidade de Brasilia', 20, '2022-11-01', '2022-11-17', 0),
+(4, 9, 0, 'Técnico em Informática', 'Escola Técnica de Brasília', 4, '2021-02-08', '2022-12-30', 0);
 
 -- --------------------------------------------------------
 
@@ -6243,17 +6248,18 @@ CREATE TABLE `telefone` (
   `idEmpregado` int(11) DEFAULT NULL,
   `telefoneResidencial` varchar(20) DEFAULT NULL,
   `telefoneCelular` varchar(20) DEFAULT NULL,
-  `telefoneRecado` varchar(20) DEFAULT NULL
+  `telefoneRecado` varchar(20) DEFAULT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `telefone`
 --
 
-INSERT INTO `telefone` (`idTelefone`, `idEmpregado`, `telefoneResidencial`, `telefoneCelular`, `telefoneRecado`) VALUES
-(4, 10, '(61) 9983-48', '(35) 7482-28', '(35) 7482-28'),
-(11, 10, '(61) 9963-333', '(61) 9963-333', '(61) 9963-333'),
-(12, 10, '(22) 2222-2222', '(22) 2222-2222', '(22) 2222-2222');
+INSERT INTO `telefone` (`idTelefone`, `idEmpregado`, `telefoneResidencial`, `telefoneCelular`, `telefoneRecado`, `status`) VALUES
+(4, 10, '(61) 9983-48', '(35) 7482-28', '(35) 7482-28', 0),
+(11, 10, '(61) 9963-333', '(61) 9963-333', '(61) 9963-333', 0),
+(12, 10, '(22) 2222-2222', '(22) 2222-2222', '(22) 2222-2222', 0);
 
 -- --------------------------------------------------------
 
@@ -6331,15 +6337,16 @@ CREATE TABLE `usuarios` (
   `login` varchar(50) NOT NULL,
   `senha` varchar(100) NOT NULL,
   `idEmpregado` int(11) NOT NULL,
-  `idPerfil` int(11) NOT NULL DEFAULT 1
+  `idPerfil` int(11) NOT NULL DEFAULT 1,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`idUsuario`, `nome`, `login`, `senha`, `idEmpregado`, `idPerfil`) VALUES
-(1, '', 'admin', 'senha', 0, 1);
+INSERT INTO `usuarios` (`idUsuario`, `nome`, `login`, `senha`, `idEmpregado`, `idPerfil`, `status`) VALUES
+(1, '', 'admin', 'senha', 0, 1, 0);
 
 --
 -- Índices para tabelas despejadas
@@ -6511,7 +6518,7 @@ ALTER TABLE `etnia`
 -- AUTO_INCREMENT de tabela `experiencia`
 --
 ALTER TABLE `experiencia`
-  MODIFY `idExperiencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idExperiencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `formacao`

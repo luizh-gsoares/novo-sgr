@@ -53,6 +53,7 @@
                                         <th>Semestre</th>
                                         <th>Data Inicio</th>
                                         <th>Data Fim</th>
+                                        <th>Status</th>
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
@@ -81,23 +82,16 @@
                                                 <input type="hidden" name="idFormacao" value="${formacao.idFormacao}" />
                                                 <input type="submit" class="btn btn-warning" value="Alterar" />
                                             </form>
+                                                 <form action="ativar" method="get">
+                                                    <input type="hidden" name="idusuario" value="${formacao.idFormacao}" />
+                                                    <input type="submit" class="btn btn-warning" value="Ativar" />
+                                                </form>
                                         </td>
                                     </div>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Escolaridadeo</th>
-                                        <th>Curso</th>
-                                        <th>Instituição</th>
-                                        <th>Semestre</th>
-                                        <th>Data Inicio</th>
-                                        <th>Data Fim</th>
-                                        <th>Ações</th>
-                                    </tr>
-                                </tfoot>
+                               
                             </table>
                         </div>
                         <!-- /.card-body -->

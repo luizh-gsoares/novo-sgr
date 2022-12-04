@@ -55,6 +55,7 @@
                                         <th>CRE</th>
                                         <th>Data de Entrada</th>
                                         <th>Data de Saida</th>
+                                        <th>Status</th>
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
@@ -89,6 +90,10 @@
                                                 <input type="hidden" name="idExperiencia" value="${experiencia.idExperiencia}" />
                                                 <button type="submit" class="btn btn-warning" > Alterar <i class="fa-solid fa-pen-to-square"></i> </button>
                                             </form>
+                                                 <form action="ativar" method="get">
+                                                    <input type="hidden" name="idusuario" value="${experiencia.idExperiencia}" />
+                                                    <input type="submit" class="btn btn-warning" value="Ativar" />
+                                                </form>
                                         </td>
                                     </tr>
                                 </c:forEach>

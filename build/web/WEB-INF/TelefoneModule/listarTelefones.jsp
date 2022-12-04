@@ -53,6 +53,7 @@
                                         <th>Telefone Residencial</th>
                                         <th>Telefone Celular</th>
                                         <th>Telefone Recado</th>
+                                        <th>Status</th>
                                         <th>Ação</th>
                                     </tr>
                                 </thead>

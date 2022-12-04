@@ -49,7 +49,7 @@
                                         <th>Logradouro</th>
                                         <th>Complemento</th>
                                         <th>Cidade</th>
-                                        <th>Ações</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -76,6 +76,10 @@
                                                 <input type="hidden" name="idEndereco" value="${endereco.idEndereco}" />
                                                 <input type="submit" class="btn btn-warning" value="Alterar" />
                                             </form>
+                                                 <form action="ativar" method="get">
+                                                    <input type="hidden" name="idusuario" value="${endereco.idEndereco}" />
+                                                    <input type="submit" class="btn btn-warning" value="Ativar" />
+                                                </form>
                                         </td>
                                     </div>
                                     </tr>
