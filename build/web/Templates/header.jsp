@@ -30,4 +30,4 @@
 
         <title> SGR </title>
 
-    <body>
+    <body class="hold-transition sidebar-mini layout-fixed">

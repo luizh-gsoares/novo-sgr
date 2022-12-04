@@ -14,13 +14,13 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>Empregados</h1>
-                    </div>
+                    </div> 
                 </div>
                 <div class="card-header d-flex justify-content-between">
                     <div>
                         <form action="cadastrarempregado" method="get">
 
-                            <input type="submit" class="btn btn-primary my-2" value="Cadastrar novo empregado" />
+                            <button type="submit" class="btn btn-primary my-2" value=""><i class="fa-solid fa-user-plus pe-1"></i> Cadastrar novo empregado</button>
                         </form>
                     </div>
                 </div>

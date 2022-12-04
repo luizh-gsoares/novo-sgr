@@ -2,7 +2,7 @@
     a{
         text-decoration: none;
     }
-    </style>
+</style>
 
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -12,11 +12,12 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="index.jsp" class="nav-link">Home</a>
+            <a href="index.jsp" class="nav-link">Inicio</a>
         </li>
     </ul>
 </nav>
 <!-- /.navbar -->
+
 
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation">
@@ -101,3 +102,7 @@
     </div>
     <!-- /.sidebar -->
 </aside>
+            
+              <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>

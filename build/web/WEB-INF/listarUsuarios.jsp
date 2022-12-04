@@ -23,7 +23,7 @@
                         <div class="card-header d-flex justify-content-between ">
                             <div>
                                 <form action="cadastrarusuario" method="get">
-                                    <input type="submit" class="btn btn-primary my-3" value="Cadastrar novo usuario"/>
+                                    <button type="submit" class="btn btn-primary my-2" value=""><i class="fa-solid fa-user-plus pe-1"></i> Cadastrar novo usuário</button>
                                 </form>
                             </div>
                         </div>  
