@@ -31,19 +31,30 @@
         <title> SGR </title>
 
     <body class="hold-transition sidebar-mini layout-fixed">
-        
+
         <%
-        //Http 1.1
-        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-        //HTTP 1.0
-        response.setHeader("Pragma", "no-cache");
-        //Proxie
-        response.setHeader("Expires", "0");
+            String message = null;
+            String sessionID = null;
+            Cookie[] cookies = request.getCookies();
+            if (cookies != null) {
+                for (Cookie cookie : cookies) {
+                    if (cookie.getName().equals("message")) {
+                        message = cookie.getValue();
+                    }
+                    if (cookie.getName().equals("JSESSIONID")) {
+                        sessionID = cookie.getValue();
+                    }
+                }
+            }
+        %>
         
-        if(session.getAttribute("usuario") == null){
-            response.sendRedirect("login.jsp");
-        }
-        
-        
+        <% 
+            String erro = (String) request.getAttribute("erro");
+            if(erro != null){
+                out.println(
+                    "<script type='text/javascript'>" +
+                    "alert('" + erro + "');" +
+                     "</script>");    
+            }
         
         %>

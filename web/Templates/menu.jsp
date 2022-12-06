@@ -4,6 +4,7 @@
     }
 </style>
 
+
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -34,9 +35,14 @@
             </div>
             <div class="info">
                 <a href="#" class="d-block">Olá, ${usuario.login}.</a>
-            </div>
+            </div> 
         </div>
 
+        <div class="info">
+            <form action="logout" method="post">
+                <input type="submit" value="logout" >
+            </form>
+        </div>
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -100,7 +106,7 @@
     </div>
     <!-- /.sidebar -->
 </aside>
-            
-              <aside class="control-sidebar control-sidebar-dark">
+
+<aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
-  </aside>
+</aside>
