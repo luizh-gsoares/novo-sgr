@@ -40,7 +40,7 @@ public class CadastrarTelefone extends HttpServlet {
         t.setIdEmpregado(idEmpregado);
         t.setTelefoneResidencial(request.getParameter("telefoneResidencial"));
         t.setTelefoneCelular(request.getParameter("telefoneCelular"));
-        t.setTelefoneRecado(request.getParameter("telefoneCelular"));
+        t.setTelefoneRecado(request.getParameter("telefoneRecado"));
         String page = "index.jsp";
 
         TelefoneDAO dao = new TelefoneDAO();
