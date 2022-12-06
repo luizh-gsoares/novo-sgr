@@ -31,3 +31,19 @@
         <title> SGR </title>
 
     <body class="hold-transition sidebar-mini layout-fixed">
+        
+        <%
+        //Http 1.1
+        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+        //HTTP 1.0
+        response.setHeader("Pragma", "no-cache");
+        //Proxie
+        response.setHeader("Expires", "0");
+        
+        if(session.getAttribute("usuario") == null){
+            response.sendRedirect("login.jsp");
+        }
+        
+        
+        
+        %>

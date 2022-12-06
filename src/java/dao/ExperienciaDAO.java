@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import model.Cre;
+import model.Endereco;
 import model.Experiencia;
 import model.Funcao;
 import model.Tipovinculo;
@@ -93,6 +94,7 @@ public class ExperienciaDAO {
                 expe.setCre(rs.getInt("cre"));
                 expe.setDtSaida(rs.getString("dtSaida"));
                 expe.setDtEntrada(rs.getString("dtEntrada"));
+                expe.setStatus(rs.getInt("status"));
             }
 
             rs.close();
@@ -127,6 +129,7 @@ public class ExperienciaDAO {
                 expe.setCre(rs.getInt("cre"));
                 expe.setDtSaida(rs.getString("dtSaida"));
                 expe.setDtEntrada(rs.getString("dtEntrada"));
+                expe.setStatus(rs.getInt("status"));
                 listaExperiencias.add(expe);
             }
 
@@ -256,6 +259,34 @@ public class ExperienciaDAO {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public boolean ativar(Experiencia e) {
+        String sql = "UPDATE experiencia SET status = 1 WHERE idExperiencia = ?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = DbConnect.getConexao().prepareStatement(sql);
+            preparedStatement.setInt(1, e.getIdExperiencia());
+            preparedStatement.execute();
+        } catch (Exception err) {
+            err.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    public boolean desativar(Experiencia e) {
+        String sql = "UPDATE experiencia SET status = 2 WHERE idExperiencia = ?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = DbConnect.getConexao().prepareStatement(sql);
+            preparedStatement.setInt(1, e.getIdExperiencia());
+            preparedStatement.execute();
+        } catch (Exception err) {
+            err.printStackTrace();
+            return false;
+        }
+        return true;
     }
 
 }

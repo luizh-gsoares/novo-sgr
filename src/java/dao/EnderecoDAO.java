@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import model.Cidade;
+import model.Empregado;
 import model.Endereco;
 import model.Estado;
 import model.Experiencia;
@@ -86,6 +87,7 @@ public class EnderecoDAO {
                 ende.setLogradouro(rs.getString("logradouro"));
                 ende.setComplemento(rs.getString("complemento"));
                 ende.setIdCidade(rs.getInt("idCidade"));
+                ende.setStatus(rs.getInt("status"));
             }
             rs.close();
             con.close();
@@ -116,6 +118,7 @@ public class EnderecoDAO {
                 ende.setLogradouro(rs.getString("logradouro"));
                 ende.setComplemento(rs.getString("complemento"));
                 ende.setIdCidade(rs.getInt("idCidade"));
+                ende.setStatus(rs.getInt("status"));
                 listaEnderecos.add(ende);
             }
 
@@ -216,6 +219,34 @@ public class EnderecoDAO {
             e.printStackTrace();
         }
         return null;
+    }
+    
+    public boolean ativar(Endereco e) {
+        String sql = "UPDATE endereco SET status = 1 WHERE idEndereco = ?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = DbConnect.getConexao().prepareStatement(sql);
+            preparedStatement.setInt(1, e.getIdEndereco());
+            preparedStatement.execute();
+        } catch (Exception err) {
+            err.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+   public boolean desativar(Endereco e) {
+        String sql = "UPDATE endereco SET status = 2 WHERE idEndereco = ?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = DbConnect.getConexao().prepareStatement(sql);
+            preparedStatement.setInt(1, e.getIdEndereco());
+            preparedStatement.execute();
+        } catch (Exception err) {
+            err.printStackTrace();
+            return false;
+        }
+        return true;
     }
 
 }

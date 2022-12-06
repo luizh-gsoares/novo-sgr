@@ -76,6 +76,7 @@ public class TelefoneDAO {
                 telef.setTelefoneResidencial(rs.getString("telefoneResidencial"));
                 telef.setTelefoneCelular(rs.getString("telefoneCelular"));
                 telef.setTelefoneRecado(rs.getString("telefoneRecado"));
+                telef.setStatus(rs.getInt("status"));
             }
             rs.close();
             con.close();
@@ -106,7 +107,7 @@ public class TelefoneDAO {
                 telef.setTelefoneResidencial(rs.getString("telefoneResidencial"));
                 telef.setTelefoneCelular(rs.getString("telefoneCelular"));
                 telef.setTelefoneRecado(rs.getString("telefoneRecado"));
-
+                telef.setStatus(rs.getInt("status"));
                 listaTelefones.add(telef);
             }
 
@@ -151,4 +152,31 @@ public class TelefoneDAO {
         return null;
     }
 
+    public boolean ativar(Telefone t) {
+        String sql = "UPDATE telefone SET status = 1 WHERE idTelefone = ?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = DbConnect.getConexao().prepareStatement(sql);
+            preparedStatement.setInt(1, t.getIdTelefone());
+            preparedStatement.execute();
+        } catch (Exception err) {
+            err.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    public boolean desativar(Telefone t) {
+        String sql = "UPDATE telefone SET status = 2 WHERE idTelefone = ?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = DbConnect.getConexao().prepareStatement(sql);
+            preparedStatement.setInt(1, t.getIdTelefone());
+            preparedStatement.execute();
+        } catch (Exception err) {
+            err.printStackTrace();
+            return false;
+        }
+        return true;
+    }
 }

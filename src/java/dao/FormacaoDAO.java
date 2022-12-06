@@ -89,6 +89,7 @@ public class FormacaoDAO {
                 form.setSemestre(rs.getInt("semestre"));
                 form.setDtInicio(rs.getString("dtInicio"));
                 form.setDtFim(rs.getString("dtFim"));
+                form.setStatus(rs.getInt("status"));
             }
 
             rs.close();
@@ -122,6 +123,7 @@ public class FormacaoDAO {
                 form.setSemestre(rs.getInt("semestre"));
                 form.setDtInicio(rs.getString("dtInicio"));
                 form.setDtFim(rs.getString("dtFim"));
+                form.setStatus(rs.getInt("status"));
                 listaFormacoes.add(form);
             }
 
@@ -195,6 +197,34 @@ public class FormacaoDAO {
             e.printStackTrace();
         }
         return null;
+    }
+    
+    public boolean ativar(Formacao f) {
+        String sql = "UPDATE formacao SET status = 1 WHERE idFormacao = ?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = DbConnect.getConexao().prepareStatement(sql);
+            preparedStatement.setInt(1, f.getIdFormacao());
+            preparedStatement.execute();
+        } catch (Exception err) {
+            err.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    public boolean desativar(Formacao f) {
+        String sql = "UPDATE formacao SET status = 2 WHERE idFormacao = ?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = DbConnect.getConexao().prepareStatement(sql);
+            preparedStatement.setInt(1, f.getIdFormacao());
+            preparedStatement.execute();
+        } catch (Exception err) {
+            err.printStackTrace();
+            return false;
+        }
+        return true;
     }
 
 }
