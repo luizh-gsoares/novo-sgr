@@ -52,9 +52,9 @@ public class fichaFuncional extends HttpServlet {
         request.setAttribute("listaEnderecos", listaEnderecos);
 
         ExperienciaDAO expDao = new ExperienciaDAO();
-        ArrayList<Experiencia> listaExperiencia = expDao.procuraExperienciaPeloEmpregado(idEmpregado);
-        System.out.println(listaExperiencia);
-        request.setAttribute("listaExperiencia", listaExperiencia);
+        ArrayList<Experiencia> listaExperiencias = expDao.procuraExperienciaPeloEmpregado(idEmpregado);
+        System.out.println(listaExperiencias);
+        request.setAttribute("listaExperiencias", listaExperiencias);
 
         // subdados das fichas
         ArrayList<Endereco> listaDeEnderecos = endDao.procuraTodosEnderecos();
