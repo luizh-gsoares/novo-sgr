@@ -13,7 +13,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Formações<span class="badge "></span></h1>
+                        <h1>Formações</h1>
                     </div>
                 </div>
                 <div class="card-header d-flex justify-content-between py-3">
@@ -53,7 +53,7 @@
                                         <th>Semestre</th>
                                         <th>Data Inicio</th>
                                         <th>Data Fim</th>
-                                        <th>Status</th>
+                                 
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
@@ -71,27 +71,37 @@
                                             <td>${formacao.semestre}</td>
                                             <td>${formacao.dtInicio}</td>
                                             <td>${formacao.dtFim}</td>
-
-                                    <div class="row" >
-                                        <td>
-                                            <form action="excluirformacao" method="post">
-                                                <input type="hidden" name="idFormacao" value="${formacao.idFormacao}" />
-                                                <input type="submit" class="btn btn-danger" value="Excluir" />
-                                            </form>
-                                            <form action="alterarformacao" method="get">
-                                                <input type="hidden" name="idFormacao" value="${formacao.idFormacao}" />
-                                                <input type="submit" class="btn btn-warning" value="Alterar" />
-                                            </form>
-                                                 <form action="ativar" method="get">
+                                            <td>
+                                    <div class="dropdown">
+                                        <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Ações </a> 
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            
+                                                <div class="dropdown-item">
+                                                <form action="excluirformacao" method="post">
+                                                    <input type="hidden" name="idFormacao" value="${formacao.idFormacao}" />
+                                                    <input type="submit" class="btn btn-danger" value="Excluir" />
+                                                </form>
+                                                    </div>
+                                                    <div class="dropdown-item">
+                                                <form action="alterarformacao" method="get">
+                                                    <input type="hidden" name="idFormacao" value="${formacao.idFormacao}" />
+                                                    <input type="submit" class="btn btn-warning" value="Alterar" />
+                                                </form>
+                                                    </div>
+                                                    <div class="dropdown-item">
+                                                <form action="ativar" method="get">
                                                     <input type="hidden" name="idusuario" value="${formacao.idFormacao}" />
                                                     <input type="submit" class="btn btn-warning" value="Ativar" />
                                                 </form>
-                                        </td>
-                                    </div>
-                                    </tr>
-                                </c:forEach>
-                                </tbody>
-                               
+                                                    </div>
+                                            </td>
+                                        </div>
+                                    </div>                
+                                        </tr>
+                                    </c:forEach>
+                                    </tbody>
+
                             </table>
                         </div>
                         <!-- /.card-body -->

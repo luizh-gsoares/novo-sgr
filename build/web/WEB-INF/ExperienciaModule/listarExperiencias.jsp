@@ -55,7 +55,7 @@
                                         <th>CRE</th>
                                         <th>Data de Entrada</th>
                                         <th>Data de Saida</th>
-                                        <th>Status</th>
+                                       
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
@@ -81,22 +81,32 @@
                                             <td>${experiencia.cre}</td>
                                             <td>${experiencia.dtEntrada}</td>
                                             <td>${experiencia.dtSaida}</td>
-                                        <td>
-                                            <form action="excluirexperiencia" method="post">
-                                                <input type="hidden" name="idExperiencia" value="${experiencia.idExperiencia}" />
-                                                <button type="submit" class="btn btn-danger" > Excluir <i class="fa-solid fa-trash"></i> </button>
-                                            </form>
-                                            <form action="alterarexperiencia" method="get">
-                                                <input type="hidden" name="idExperiencia" value="${experiencia.idExperiencia}" />
-                                                <button type="submit" class="btn btn-warning" > Alterar <i class="fa-solid fa-pen-to-square"></i> </button>
-                                            </form>
-                                                 <form action="ativar" method="get">
-                                                    <input type="hidden" name="idusuario" value="${experiencia.idExperiencia}" />
-                                                    <input type="submit" class="btn btn-warning" value="Ativar" />
-                                                </form>
-                                        </td>
-                                    </tr>
-                                </c:forEach>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Ações </a> 
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                        <div class="dropdown-item">    
+                                                            <form action="excluirexperiencia" method="post">
+                                                                <input type="hidden" name="idExperiencia" value="${experiencia.idExperiencia}" />
+                                                                <button type="submit" class="btn btn-danger" > Excluir <i class="fa-solid fa-trash"></i> </button>
+                                                            </form>
+                                                        </div>        
+                                                        <form action="alterarexperiencia" method="get">
+                                                            <div class="dropdown-item">
+                                                                <input type="hidden" name="idExperiencia" value="${experiencia.idExperiencia}" />
+                                                                <button type="submit" class="btn btn-warning" > Alterar <i class="fa-solid fa-pen-to-square"></i> </button>
+                                                        </form>
+                                                    </div>
+                                                    <div class="dropdown-item">
+                                                        <form action="ativar" method="get">
+                                                            <input type="hidden" name="idusuario" value="${experiencia.idExperiencia}" />
+                                                            <input type="submit" class="btn btn-warning" value="Ativar" />
+                                                        </form>
+                                                    </div>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
                                 </tbody> 
                             </table>
                         </div>

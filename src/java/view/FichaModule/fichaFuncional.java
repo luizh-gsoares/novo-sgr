@@ -23,7 +23,7 @@ import model.Tipocurso;
 import model.Tipovinculo;
 
 @WebServlet(name = "FichaFuncional", urlPatterns = {"/fichafuncional"})
-public class FichaFuncional extends HttpServlet {
+public class fichaFuncional extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
