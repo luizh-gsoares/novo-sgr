@@ -16,8 +16,9 @@ public class Experiencia {
     private Integer cre;
     private String dtSaida;
     private String dtEntrada;
+    private Integer status;
 
-    public Experiencia(Integer idExperiencia, Integer idEmpregado, String funcao, Integer tipoVinculo, String cargaHoraria, String local, Integer cre, String dtSaida, String dtEntrada) {
+    public Experiencia(Integer idExperiencia, Integer idEmpregado, String funcao, Integer tipoVinculo, String cargaHoraria, String local, Integer cre, String dtSaida, String dtEntrada, Integer status) {
         this.idExperiencia = idExperiencia;
         this.idEmpregado = idEmpregado;
         this.funcao = funcao;
@@ -27,6 +28,7 @@ public class Experiencia {
         this.cre = cre;
         this.dtSaida = dtSaida;
         this.dtEntrada = dtEntrada;
+        this.status = status;
     }
 
     public Experiencia() {
@@ -34,9 +36,7 @@ public class Experiencia {
 
     @Override
     public String toString() {
-        return "Experiencia{" + "idExperiencia=" + idExperiencia + ", idEmpregado=" + idEmpregado + ", funcao=" + funcao + ", tipoVinculo=" + tipoVinculo + ", cargaHoraria=" + cargaHoraria + ", local=" + local + ", cre=" + cre + ", dtSaida=" + dtSaida + ", dtEntrada=" + dtEntrada + '}';
+        return "Experiencia{" + "idExperiencia=" + idExperiencia + ", idEmpregado=" + idEmpregado + ", funcao=" + funcao + ", tipoVinculo=" + tipoVinculo + ", cargaHoraria=" + cargaHoraria + ", local=" + local + ", cre=" + cre + ", dtSaida=" + dtSaida + ", dtEntrada=" + dtEntrada + ", status=" + status + '}';
     }
-    
-    
 
 }

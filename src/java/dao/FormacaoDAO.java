@@ -110,7 +110,7 @@ public class FormacaoDAO {
 
             con.setInt(1, idEmpregado);
             ResultSet rs = con.executeQuery();
-            
+
             ArrayList<Formacao> listaFormacoes = new ArrayList<>();
             while (rs.next()) {
                 Formacao form = new Formacao();
@@ -155,6 +155,7 @@ public class FormacaoDAO {
                 form.setSemestre(rs.getInt("semestre"));
                 form.setDtInicio(rs.getString("dtInicio"));
                 form.setDtFim(rs.getString("dtFim"));
+                form.setStatus(rs.getInt("status"));
                 listaFormacoes.add(form);
             }
 

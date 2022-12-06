@@ -160,6 +160,7 @@ public class ExperienciaDAO {
                 expe.setCre(rs.getInt("cre"));
                 expe.setDtSaida(rs.getString("dtSaida"));
                 expe.setDtEntrada(rs.getString("dtEntrada"));
+                expe.setStatus(rs.getInt("status"));
                 listaExperiencias.add(expe);
             }
 

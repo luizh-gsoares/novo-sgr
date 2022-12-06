@@ -95,7 +95,7 @@ public class EmpregadoDAO {
     }
 
     public boolean excluiEmpregado(Integer toDelete) {
-        String deleteTableSQL = "DELETE * FROM empregado, endereco, experiencia, formacao, telefone WHERE empregado.idEmpregado = ?";
+        String deleteTableSQL = "DELETE FROM empregado WHERE idEmpregado = ?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = DbConnect.getConexao().prepareStatement(deleteTableSQL);
@@ -140,6 +140,7 @@ public class EmpregadoDAO {
                 empr.setNomePai(rs.getString("nomePai"));
                 empr.setNomeMae(rs.getString("nomeMae"));
                 empr.setEspecial(rs.getInt("especial"));
+                empr.setStatus(rs.getInt("status"));
             }
 
             rs.close();
@@ -187,6 +188,7 @@ public class EmpregadoDAO {
                 empr.setNomePai(rs.getString("nomePai"));
                 empr.setNomeMae(rs.getString("nomeMae"));
                 empr.setEspecial(rs.getInt("especial"));
+                empr.setStatus(rs.getInt("status"));
                 listaEmpregados.add(empr);
             }
 
@@ -234,6 +236,7 @@ public class EmpregadoDAO {
                 empr.setNomePai(rs.getString("nomePai"));
                 empr.setNomeMae(rs.getString("nomeMae"));
                 empr.setEspecial(rs.getInt("especial"));
+                empr.setStatus(rs.getInt("status"));
                 listaEmpregados.add(empr);
             }
 
@@ -431,5 +434,33 @@ public class EmpregadoDAO {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public boolean ativar(Empregado e) {
+        String sql = "UPDATE empregado SET status = 1 WHERE idEmpregado = ?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = DbConnect.getConexao().prepareStatement(sql);
+            preparedStatement.setInt(1, e.getIdEmpregado());
+            preparedStatement.execute();
+        } catch (Exception err) {
+            err.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+   public boolean desativar(Empregado e) {
+        String sql = "UPDATE empregado SET status = 2 WHERE idEmpregado = ?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = DbConnect.getConexao().prepareStatement(sql);
+            preparedStatement.setInt(1, e.getIdEmpregado());
+            preparedStatement.execute();
+        } catch (Exception err) {
+            err.printStackTrace();
+            return false;
+        }
+        return true;
     }
 }

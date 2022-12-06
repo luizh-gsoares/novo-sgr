@@ -137,6 +137,7 @@ public class TelefoneDAO {
                 telef.setTelefoneResidencial(rs.getString("telefoneResidencial"));
                 telef.setTelefoneCelular(rs.getString("telefoneCelular"));
                 telef.setTelefoneRecado(rs.getString("telefoneRecado"));
+                telef.setStatus(rs.getInt("status"));
 
                 listaTelefones.add(telef);
             }

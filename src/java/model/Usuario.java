@@ -13,13 +13,15 @@ public class Usuario {
     private String senha;
     private Integer idEmpregado;
     private Integer idPerfil;
+    private Integer status;
 
-    public Usuario(String login, String senha, Integer idEmpregado, Integer idUsuario, Integer idPerfil) {
+    public Usuario(Integer idUsuario, String login, String senha, Integer idEmpregado, Integer idPerfil, Integer status) {
+        this.idUsuario = idUsuario;
         this.login = login;
         this.senha = senha;
         this.idEmpregado = idEmpregado;
-        this.idUsuario = idUsuario;
         this.idPerfil = idPerfil;
+        this.status = status;
     }
 
     public Usuario() {
@@ -27,7 +29,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "login=" + login + ", senha=" + senha + ", idEmpregado=" + idEmpregado + ", idUsuario=" + idUsuario + ", idPerfil=" + idPerfil + '}';
+        return "Usuario{" + "idUsuario=" + idUsuario + ", login=" + login + ", senha=" + senha + ", idEmpregado=" + idEmpregado + ", idPerfil=" + idPerfil + ", status=" + status + '}';
     }
 
 }

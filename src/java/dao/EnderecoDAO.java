@@ -147,6 +147,7 @@ public class EnderecoDAO {
                 ende.setLogradouro(rs.getString("logradouro"));
                 ende.setComplemento(rs.getString("complemento"));
                 ende.setIdCidade(rs.getInt("idCidade"));
+                ende.setStatus(rs.getInt("status"));
                 listaEnderecos.add(ende);
             }
 

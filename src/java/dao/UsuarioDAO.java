@@ -104,6 +104,7 @@ public class UsuarioDAO {
                 usur.setLogin(rs.getString("login"));
                 usur.setSenha(rs.getString("senha"));
                 usur.setIdPerfil(rs.getInt("idPerfil"));
+                usur.setStatus(rs.getInt("status"));
                 listaUsuarios.add(usur);
             }
 
@@ -143,28 +144,6 @@ public class UsuarioDAO {
         return null;
     }
 
-    public boolean ativar(Usuario u) throws SQLException {
-        Connection con = DbConnect.getConexao();
-        String sql = "UPDATE usuario SET status = 1"
-                + "WHERE idUsuario = ?";
-        PreparedStatement ps = con.prepareStatement(sql);
-        ps.setInt(1, u.getIdUsuario());
-        ps.executeUpdate();
-
-        return true;
-    }
-
-    public boolean desativar(Usuario u) throws SQLException {
-        Connection con = DbConnect.getConexao();
-        String sql = "UPDATE usuario SET status = 2"
-                + "WHERE idUsuario = ?";
-        PreparedStatement ps = con.prepareStatement(sql);
-        ps.setInt(1, u.getIdUsuario());
-        ps.executeUpdate();
-
-        return true;
-    }
-
     public boolean validar(Usuario u) {
         try {
             //con: referência para a conexão com o banco
@@ -187,5 +166,27 @@ public class UsuarioDAO {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
+    }
+
+    public boolean ativar(Usuario u) throws SQLException {
+        Connection con = DbConnect.getConexao();
+        String sql = "UPDATE usuario SET status = 1"
+                + "WHERE idUsuario = ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, u.getIdUsuario());
+        ps.executeUpdate();
+
+        return true;
+    }
+
+    public boolean desativar(Usuario u) throws SQLException {
+        Connection con = DbConnect.getConexao();
+        String sql = "UPDATE usuario SET status = 2"
+                + "WHERE idUsuario = ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, u.getIdUsuario());
+        ps.executeUpdate();
+
+        return true;
     }
 }

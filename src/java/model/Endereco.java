@@ -13,14 +13,16 @@ public class Endereco {
     private String complemento;
     private Integer idCidade;
     private Integer idEmpregado;
+    private Integer status;
 
-    public Endereco(Integer idEndereco, String cep, String logradouro, String complemento, Integer idCidade, Integer idEmpregado) {
+    public Endereco(Integer idEndereco, String cep, String logradouro, String complemento, Integer idCidade, Integer idEmpregado, Integer status) {
         this.idEndereco = idEndereco;
         this.cep = cep;
         this.logradouro = logradouro;
         this.complemento = complemento;
         this.idCidade = idCidade;
         this.idEmpregado = idEmpregado;
+        this.status = status;
     }
 
     public Endereco() {
@@ -28,7 +30,7 @@ public class Endereco {
 
     @Override
     public String toString() {
-        return "Endereco{" + "idEndereco=" + idEndereco + ", cep=" + cep + ", logradouro=" + logradouro + ", complemento=" + complemento + ", idCidade=" + idCidade + ", idEmpregado=" + idEmpregado + '}';
+        return "Endereco{" + "idEndereco=" + idEndereco + ", cep=" + cep + ", logradouro=" + logradouro + ", complemento=" + complemento + ", idCidade=" + idCidade + ", idEmpregado=" + idEmpregado + ", status=" + status + '}';
     }
 
 }
