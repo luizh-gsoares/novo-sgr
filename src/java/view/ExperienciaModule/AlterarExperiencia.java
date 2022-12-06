@@ -34,16 +34,17 @@ public class AlterarExperiencia extends HttpServlet {
         System.out.println("POST - Alterar EXPERIENCIA");
         request.setCharacterEncoding("UTF-8");
         Experiencia e = new Experiencia();
-        int idExperiencia = Integer.parseInt(request.getParameter("idExperiencia"));
-        e.setIdExperiencia(idExperiencia);
         int idEmpregado = Integer.parseInt(request.getParameter("idEmpregado"));
         e.setIdEmpregado(idEmpregado);
         e.setFuncao(request.getParameter("funcao"));
+        e.setTipoVinculo(Integer.parseInt(request.getParameter("tipoVinculo")));
+        e.setCargaHoraria(request.getParameter("cargaHoraria"));
         e.setLocal(request.getParameter("local"));
-        int idCre = Integer.parseInt(request.getParameter("Cre"));
-        e.setCre(idCre);
+        e.setCre(Integer.parseInt(request.getParameter("cre")));
         e.setDtSaida(request.getParameter("dtSaida"));
         e.setDtEntrada(request.getParameter("dtEntrada"));
+        int idExperiencia = Integer.parseInt(request.getParameter("idExperiencia"));
+        e.setIdExperiencia(idExperiencia);
 
         ExperienciaDAO dao = new ExperienciaDAO();
 

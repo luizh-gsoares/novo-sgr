@@ -14,7 +14,7 @@
 
 
         <p value="{$erro}"></p>
-        <form action="cadastrarexperiencia" method="post">
+        <form action="alterarexperiencia" method="post">
 
             <div class="container">
 
@@ -35,6 +35,7 @@
                 <hr>
                 <!-- Campos Dados Pessoais -->                
                 <input type="hidden" class="form-control" name="idEmpregado" value="${experiencia.idEmpregado}"/>
+            <input type="hidden" id="idExperiencia" class="form-control" name="idExperiencia" value="${experiencia.idExperiencia}"/>
 
             <div class="row mb-4">
                 <div class="col">

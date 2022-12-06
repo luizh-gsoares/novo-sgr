@@ -89,7 +89,6 @@
                                                             <input type="submit" class="btn btn-warning" value="Alterar" />
                                                         </form>
                                                     </div>            
-       
                                                      <div class="dropdown-item">
                                                         <form action="enderecostatus" method="get">
                                                                     <input type="hidden" name="idEndereco" value="${endereco.idEndereco}" />
