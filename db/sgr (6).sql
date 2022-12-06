@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 06-Dez-2022 às 02:40
--- Versão do servidor: 10.4.25-MariaDB
--- versão do PHP: 7.4.30
+-- Tempo de geração: 06-Dez-2022 às 13:42
+-- Versão do servidor: 10.4.24-MariaDB
+-- versão do PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -5653,7 +5653,10 @@ CREATE TABLE `cre` (
 --
 
 INSERT INTO `cre` (`idCre`, `nome`, `sigla`) VALUES
-(1, 'Coordenação Regional de Ensino do Núcleo Bandeirante', 'CRENB');
+(1, 'Coordenação Regional de Ensino do Núcleo Bandeirante', 'CRENB'),
+(2, 'Coordenação Regional de Ensino da Ceilândia', 'CREC'),
+(3, 'Coordenação Regional de Ensino de Taguatinga', 'CRET'),
+(4, 'Escola fora da Secretária de Ensino do DF', 'NDA');
 
 -- --------------------------------------------------------
 
@@ -5688,16 +5691,6 @@ CREATE TABLE `empregado` (
   `status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Extraindo dados da tabela `empregado`
---
-
-INSERT INTO `empregado` (`idEmpregado`, `nome`, `matricula`, `nomeSocial`, `etnia`, `nacionalidade`, `naturalidade`, `uf`, `dataNasc`, `sexo`, `estadoCivil`, `rg`, `dataExpedicao`, `orgaoExpedidor`, `cpf`, `zonaEleitoral`, `secao`, `tituloEleitoral`, `email`, `nomeConjugue`, `nomePai`, `nomeMae`, `especial`, `status`) VALUES
-(10, 'Luiz Henrique Soares SIMÕES', '1010', '', 1, 1, 883, '1', '2022-11-08', 1, 1, '1.111.111', '2022-11-07', 'SSP', '066.759.541-48', '101', '101', '1010.1010.1010', 'Luiz@gmail.com', '', '', '', 1, 0),
-(11, 'Cavaleiro dos cornos', '111', 'a', 2, 2, 1565, '2', '2022-12-31', 2, 2, '111', '2022-12-31', 'ssp', '111', '1', '1', '1', 'luizhenriquesoares18@hotmail.com', 'a', 'a', 'a', 2, 0),
-(12, 'Cavaleiro dos cornos', '111', 'a', 2, 2, 1565, '2', '2022-12-31', 2, 2, '1.132.132', '2022-12-27', 'SSP', '131.313.131-31', '131', '131', '1312.2131.3131', 'luizhenriquesoares18@hotmail.com', 'a', 'a', 'a', 6, 1),
-(13, 'Cavaleiro dos cornosaaa', '111', 'a', 1, 1, 883, '1', '2022-12-31', 1, 1, '1.111.111', '2021-11-30', 'ssp', '111.111.111-11', '111', '111', '1111.1111.1111', 'luizhenriquesoares18@hotmail.com', 'a', 'aaa', 'a', 1, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -5713,16 +5706,6 @@ CREATE TABLE `endereco` (
   `idEmpregado` int(11) NOT NULL,
   `status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `endereco`
---
-
-INSERT INTO `endereco` (`idEndereco`, `cep`, `logradouro`, `complemento`, `idCidade`, `idEmpregado`, `status`) VALUES
-(2, '71884-581', 'Novenida', 'Lote 30', 1, 10, 0),
-(3, '70650-212', 'Girassol', 'Sem complemento', 4037, 10, 0),
-(4, '70650-212', 'Girassol', 'Lote 39', 10, 11, 0),
-(5, '71884-581', 'Rua das Alvoradas', 'Lote 30', 2, 11, 1);
 
 -- --------------------------------------------------------
 
@@ -5862,16 +5845,6 @@ CREATE TABLE `experiencia` (
   `status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Extraindo dados da tabela `experiencia`
---
-
-INSERT INTO `experiencia` (`idExperiencia`, `idEmpregado`, `funcao`, `tipoVinculo`, `cargaHoraria`, `local`, `cre`, `dtSaida`, `dtEntrada`, `status`) VALUES
-(2, 10, 'Estagiário de TI', 2, '20h', 'CONFEA', 1, '2022-12-31', '2022-12-31', 0),
-(3, 10, 'Estagiário de TI', 2, '20h', 'CONFEA', 1, '2022-12-31', '2022-12-31', 0),
-(5, 10, 'dd', 1, '33', 'fff', 1, '3333-03-31', '2022-12-07', 0),
-(6, 10, 'Estagiário de TI', 3, '10', '\\\\\\', 1, '1111-12-13', '1111-02-17', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -5887,7 +5860,7 @@ CREATE TABLE `formacao` (
   `semestre` int(2) DEFAULT NULL,
   `dtInicio` date DEFAULT NULL,
   `dtFim` date DEFAULT NULL,
-  `status` int(11) NOT NULL
+  `status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -6244,16 +6217,8 @@ CREATE TABLE `telefone` (
   `telefoneResidencial` varchar(20) DEFAULT NULL,
   `telefoneCelular` varchar(20) DEFAULT NULL,
   `telefoneRecado` varchar(20) DEFAULT NULL,
-  `status` int(11) NOT NULL
+  `status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `telefone`
---
-
-INSERT INTO `telefone` (`idTelefone`, `idEmpregado`, `telefoneResidencial`, `telefoneCelular`, `telefoneRecado`, `status`) VALUES
-(11, 10, '(61) 9 9633-3311', '(61) 99633-3311', '(61) 99633-3311', 0),
-(12, 10, '(22) 2222-2222', '(22) 2222-2222', '(22) 2222-2222', 0);
 
 -- --------------------------------------------------------
 
@@ -6338,9 +6303,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`idUsuario`, `login`, `senha`, `idPerfil`, `status`) VALUES
-(1, 'admin', 'senha', 1, 1),
-(3, 'adminastro', '12345678', 2, 1),
-(4, 'luizh-gsoares', '12345678', 2, 1);
+(1, 'admin', 'senha', 1, 1);
 
 --
 -- Índices para tabelas despejadas
@@ -6477,19 +6440,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `cre`
 --
 ALTER TABLE `cre`
-  MODIFY `idCre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idCre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `empregado`
 --
 ALTER TABLE `empregado`
-  MODIFY `idEmpregado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idEmpregado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `endereco`
 --
 ALTER TABLE `endereco`
-  MODIFY `idEndereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idEndereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `especial`
@@ -6513,13 +6476,13 @@ ALTER TABLE `etnia`
 -- AUTO_INCREMENT de tabela `experiencia`
 --
 ALTER TABLE `experiencia`
-  MODIFY `idExperiencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idExperiencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `formacao`
 --
 ALTER TABLE `formacao`
-  MODIFY `idFormacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idFormacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `funcao`
@@ -6543,7 +6506,7 @@ ALTER TABLE `sexo`
 -- AUTO_INCREMENT de tabela `telefone`
 --
 ALTER TABLE `telefone`
-  MODIFY `idTelefone` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idTelefone` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de tabela `tipocurso`
@@ -6588,28 +6551,28 @@ ALTER TABLE `empregado`
 --
 ALTER TABLE `endereco`
   ADD CONSTRAINT `cidade_id` FOREIGN KEY (`idCidade`) REFERENCES `cidade` (`idCidade`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `endereco_empregado_id` FOREIGN KEY (`idEmpregado`) REFERENCES `empregado` (`idEmpregado`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `endereco_empregado_id` FOREIGN KEY (`idEmpregado`) REFERENCES `empregado` (`idEmpregado`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `experiencia`
 --
 ALTER TABLE `experiencia`
   ADD CONSTRAINT `cre_id` FOREIGN KEY (`cre`) REFERENCES `cre` (`idCre`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `experiencia_empregado_id` FOREIGN KEY (`idEmpregado`) REFERENCES `empregado` (`idEmpregado`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `experiencia_empregado_id` FOREIGN KEY (`idEmpregado`) REFERENCES `empregado` (`idEmpregado`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `vinculo_id` FOREIGN KEY (`tipoVinculo`) REFERENCES `tipovinculo` (`idTipovinculo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `formacao`
 --
 ALTER TABLE `formacao`
-  ADD CONSTRAINT `formacao_empregado_id` FOREIGN KEY (`idEmpregado`) REFERENCES `empregado` (`idEmpregado`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `formacao_empregado_id` FOREIGN KEY (`idEmpregado`) REFERENCES `empregado` (`idEmpregado`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `tipo_curso_id` FOREIGN KEY (`idTipocurso`) REFERENCES `tipocurso` (`idTipoCurso`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `telefone`
 --
 ALTER TABLE `telefone`
-  ADD CONSTRAINT `telefone_empregado_id` FOREIGN KEY (`idEmpregado`) REFERENCES `empregado` (`idEmpregado`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `telefone_empregado_id` FOREIGN KEY (`idEmpregado`) REFERENCES `empregado` (`idEmpregado`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `usuarios`
