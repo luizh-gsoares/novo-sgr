@@ -77,6 +77,34 @@ public class UsuarioDAO {
                 user.setLogin(rs.getString("login"));
                 user.setSenha(rs.getString("senha"));
                 user.setIdPerfil(rs.getInt("idPerfil"));
+                user.setStatus(rs.getInt("status"));
+            }
+            rs.close();
+            con.close();
+            return user;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    public Usuario procuraUsuarioPeloIDAlternativo(Integer idUsuario) {
+
+        try {
+            String sql = "SELECT * FROM usuarios WHERE idUsuario = ? ;";
+            PreparedStatement con = DbConnect.getConexao().prepareStatement(sql);
+
+            con.setInt(1, idUsuario);
+            ResultSet rs = con.executeQuery();
+            Usuario user = new Usuario();
+
+            if (rs.next()) {
+                user.setIdUsuario(rs.getInt("idUsuario"));
+                user.setLogin(rs.getString("login"));
+                user.setSenha(rs.getString("senha"));
+                user.setIdPerfil(rs.getInt("idPerfil"));
+                user.setStatus(rs.getInt("status"));
             }
             rs.close();
             con.close();
@@ -168,25 +196,31 @@ public class UsuarioDAO {
         return false;
     }
 
-    public boolean ativar(Usuario u) throws SQLException {
-        Connection con = DbConnect.getConexao();
-        String sql = "UPDATE usuario SET status = 1"
-                + "WHERE idUsuario = ?";
-        PreparedStatement ps = con.prepareStatement(sql);
-        ps.setInt(1, u.getIdUsuario());
-        ps.executeUpdate();
-
+    public boolean ativar(Usuario u) {
+        String sql = "UPDATE usuario SET status = 1 WHERE idUsuario = ?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = DbConnect.getConexao().prepareStatement(sql);
+            preparedStatement.setInt(1, u.getIdUsuario());
+            preparedStatement.execute();
+        } catch (Exception err) {
+            err.printStackTrace();
+            return false;
+        }
         return true;
     }
 
-    public boolean desativar(Usuario u) throws SQLException {
-        Connection con = DbConnect.getConexao();
-        String sql = "UPDATE usuario SET status = 2"
-                + "WHERE idUsuario = ?";
-        PreparedStatement ps = con.prepareStatement(sql);
-        ps.setInt(1, u.getIdUsuario());
-        ps.executeUpdate();
-
+    public boolean desativar(Usuario u) {
+        String sql = "UPDATE usuario SET status = 2 WHERE idUsuario = ?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = DbConnect.getConexao().prepareStatement(sql);
+            preparedStatement.setInt(1, u.getIdUsuario());
+            preparedStatement.execute();
+        } catch (Exception err) {
+            err.printStackTrace();
+            return false;
+        }
         return true;
     }
 }
