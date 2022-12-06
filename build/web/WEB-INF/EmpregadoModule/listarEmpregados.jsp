@@ -57,63 +57,67 @@
                                             <td>${empregado.matricula}</td>
                                             <td>${empregado.nacionalidade}</td>                                      
                                             <td>${empregado.email}</td>
-                                            <td>
+                                            <c:if test="${empregado.status <= 1}"> <th class="text-success">Ativado</th></c:if>
+                                            <c:if test="${empregado.status >= 2}"> <th class="text-danger">Desativado</th></c:if>
+                                                <td>
 
-                                                <div class="dropdown">
-                                                    <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        Ações
-                                                    </a> 
+                                                    <div class="dropdown">
+                                                        <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            Ações
+                                                        </a> 
 
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                        <div class="dropdown-item">
-                                                            <form action="alterarempregado" method="get">
-                                                                <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
-                                                                <input type="submit" class="btn btn-warning" value="Alterar dados" />
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                            <div class="dropdown-item">
+                                                                <form action="alterarempregado" method="get">
+                                                                    <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
+                                                                <input type="submit" class="btn btn-info" value="Alterar dados" />
                                                             </form>
                                                         </div>
                                                         <div class="dropdown-item">
                                                             <form action="cadastrartelefone" method="get">
                                                                 <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
-                                                                <input type="submit" class="btn btn-warning" value="Telefone" />
+                                                                <input type="submit" class="btn btn-info" value="Telefone" />
                                                             </form>
                                                         </div>
                                                         <div class="dropdown-item">
                                                             <form action="cadastrarendereco" method="get">
                                                                 <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
-                                                                <input type="submit" class="btn btn-warning" value="Endereco" />
+                                                                <input type="submit" class="btn btn-info" value="Endereco" />
                                                             </form>
                                                         </div> 
                                                         <div class="dropdown-item">
                                                             <form action="cadastrarexperiencia" method="get">
                                                                 <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
-                                                                <input type="submit" class="btn btn-warning" value="Experiência" />
+                                                                <input type="submit" class="btn btn-info" value="Experiência" />
                                                             </form>
                                                         </div> 
                                                         <div class="dropdown-item">
                                                             <form action="cadastrarformacao" method="get">
                                                                 <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
-                                                                <input type="submit" class="btn btn-warning" value="Formação" />
+                                                                <input type="submit" class="btn btn-info" value="Formação" />
                                                             </form>
                                                         </div> 
                                                         <div class="dropdown-item">
                                                             <form action="fichafuncional" method="get">
                                                                 <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
-                                                                <input type="submit" class="btn btn-warning" value="Ficha Funcional" />
+                                                                <input type="submit" class="btn btn-info" value="Ficha Funcional" />
                                                             </form>
                                                         </div>
+                
+                                                            <div class="dropdown-item">
+                                                                <form action="empregadostatus" method="get">
+                                                                    <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
+                                                                    <c:if test="${empregado.status == 1}"><input type="submit" class="btn btn-success" value="Ativar" /></c:if>
+                                                                    <c:if test="${empregado.status == 2}"><input type="submit" class="btn btn-success" value="Ativar" /></c:if>
+                                                                </form>
+                                                            </div>
+                                                                
                                                         <div class="dropdown-item">
                                                             <form action="excluirempregado" method="post" class="me-4">
                                                                 <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
                                                                 <input type="submit" class="btn btn-danger" value="Excluir" />
                                                             </form>
                                                         </div>
-                                                        <div class="dropdown-item">
-                                                            <form action="ativar" method="get">
-                                                                <input type="hidden" name="idusuario" value="${empregado.idEmpregado}" />
-                                                                <input type="submit" class="btn btn-warning" value="Ativar" />
-                                                            </form>
-                                                        </div>
-
 
                                                     </div>
                                                 </div>

@@ -14,15 +14,93 @@
             colspan: 8 ;
             width: auto;
         }
-
+        title{
+            text-align: center;
+            color: blue;
+        }
     </style>
 
     <!-- Content Wrapper. Contains page content -->
-<div class="container1">
-                                        
-                                        <div class="container"> <!-- Endereço -->
-                                            <div class="row bg-dark mb-3 my-0 pt-2"><h5> Endereço </h5></div>
+                                               
+
+                                    <div class="content-wrapper">   
+                                       <div class="container pt-3"> <!-- Endereço -->
                                             
+                                            <c:forEach items="${listaEmpregados}" var="empregado"> 
+                                            
+                                            <div class="row bg-dark mb-3 my-0 pt-2"><h5> Dados Pessoais </h5></div>                                        
+                                            <div class="row">
+                                                <div class="col"><h6>Nome</h6></div>
+                                                <div class="col"><h6>Matricula</h6></div>
+                                                <div class="col"><h6>Nome Social</h6></div>
+                                                <div class="col"><h6>Etnia<h6></div>
+                                                <div class="col"><h6>Nacionalidade<h6></div>
+                                                <div class="col"><h6>Naturalidade<h6></div>
+                                            </div>
+                                            
+                                            <div class="row">
+                                               <div class="col"><p>${empregado.nome}</p></div> 
+                                               <div class="col"><p>${empregado.matricula}</p></div> 
+                                               <div class="col"><p>${empregado.nomeSocial}</p></div> 
+                                               <div class="col"><p>${empregado.etnia}</p></div> 
+                                               <div class="col"><p>${empregado.nacionalidade}</p></div> 
+                                               <div class="col"><p>${empregado.naturalidade}</p></div> 
+                                            </div>
+                                             
+                                            <div class="row">                
+                                                <div class="col"><h6>UF<h6></div>
+                                                <div class="col"><h6>Data de Nascimento<h6></div>
+                                                <div class="col"><h6>Sexo<h6></div>
+                                                <div class="col"><h6>Estado Civil<h6></div>
+                                                <div class="col"><h6>RG<h6></div>
+                                                <div class="col"><h6>Data de Expedição<h6></div>
+                                            </div>
+                                            
+                                            <div class="row">
+                                               <div class="col"><p>${empregado.uf}</p></div> 
+                                               <div class="col"><p>${empregado.dataNasc}</p></div> 
+                                               <div class="col"><p>${empregado.sexo}</p></div> 
+                                               <div class="col"><p>${empregado.estadoCivil}</p></div> 
+                                               <div class="col"><p>${empregado.rg}</p></div> 
+                                               <div class="col"><p>${empregado.dataExpedicao}</p></div> 
+                                            </div>
+                                              
+                                            <div class="row">
+                                                <div class="col"><h6>Órgão Expedidor<h6></div>
+                                                <div class="col"><h6>CPF<h6></div>
+                                                <div class="col"><h6>Zona Eleitoral<h6></div>
+                                                <div class="col"><h6>Sessão<h6></div>
+                                                <div class="col"><h6>Titulo Eleitoral<h6></div>
+                                                <div class="col"><h6>Email<h6></div>
+                                            </div>
+                                            
+                                            <div class="row">
+                                               <div class="col"><p>${empregado.orgaoExpedidor}</p></div> 
+                                               <div class="col"><p>${empregado.cpf}</p></div> 
+                                               <div class="col"><p>${empregado.zonaEleitoral}</p></div> 
+                                               <div class="col"><p>${empregado.secao}</p></div> 
+                                               <div class="col"><p>${empregado.tituloEleitoral}</p></div>  
+                                               <div class="col"><p>${empregado.email}</p></div>    
+                                            </div>
+                                            
+                                            <div class="row">                 
+                                                <div class="col"><h6>Nome Cônjulgue<h6></div>
+                                                <div class="col"><h6>Nome do Pai<h6></div>
+                                                <div class="col"><h6>Nome do Mãe<h6></div>
+                                                <div class="col"><h6>PCD<h6></div>                                            
+                                            </div>
+                                            
+                                            <div class="row">                                   
+                                               <div class="col"><p>${empregado.nomeConjugue}</p></div> 
+                                               <div class="col"><p>${empregado.nomePai}</p></div> 
+                                               <div class="col"><p>${empregado.nomeMae}</p></div> 
+                                               <div class="col"><p>${empregado.especial}</p></div>  
+                                            </div>
+                                            </c:forEach>
+                                        
+                                            <c:choose>
+                                            <c:when test="${empregado.idEndereco == null}">
+                                            <div class="row bg-dark mb-3 my-0 pt-2"><h5> Endereço </h5></div>
                                             <div class="row">
                                                 <div class="col"><h6>CEP</h6></div>
                                                 <div class="col"><h6>Logradouro</h6></div>
@@ -38,13 +116,18 @@
                                                 <c:if test="${endereco.idCidade == cidade.idCidade}">
                                                 <div class="col"><p>${cidade.nome}</p></div>
                                                 </c:if></c:forEach></c:forEach>  
-                                            </div>
-                                        </div>
-                                   
-                                       
-                                        <div class="container">
-                                            <div class="row bg-dark  mb-3 my-0 pt-2"><h5> Experiencia </h5></div>
-                                           
+                                            </div>                                     
+                                            <div class="row bg-dark  mb-3 my-0 pt-2"><h5> Experiência </h5></div>
+                                            </c:when>
+                                            <c:otherwise>  
+                                                <div class="alert alert-primary" role="alert"> Experiência não cadastrada </div>                                          
+                                            </c:otherwise>
+                                            </c:choose>
+                                            
+                                                
+                                                
+                                            <c:choose>
+                                            <c:when test="${empregado.idExperiencia == null}">
                                             <div class="row">
                                                 <div class="col"><h6>Função</h6></div>
                                                 <div class="col"><h6>Carga Horária</h6></div>
@@ -66,12 +149,18 @@
                                                 <div class="col"><p>${experiencia.dtEntrada}</p></div>
                                                 <div class="col"><p>${experiencia.dtSaida}</p></div>
                                             </c:forEach>                                                     
-                                            </div>                                          
-                                        </div>
-                                       
-                                          <div class="container">
-                                            <div class="row bg-dark mb-3 my-0 pt-2    "><h5> Contato </h5></div>
+                                            </div> 
+                                            </c:when>
+                                            <c:otherwise>  
+                                                <div class="alert alert-primary" role="alert"> Formação não cadastrada </div>                                          
+                                            </c:otherwise>
+                                            </c:choose>
                                             
+                                                
+                                                
+                                            <c:choose>
+                                            <c:when test="${empregado.idTelefone == null}">     
+                                            <div class="row bg-dark mb-3 my-0 pt-2"><h5> Contato </h5></div>
                                             <div class="row">
                                                 <div class="col"><h6>Telefone Residencial</h6></div>
                                                 <div class="col"><h6>Telefone Celular</h6></div>
@@ -83,13 +172,18 @@
                                                 <div class="col"><p>${telefone.telefoneCelular}</p></div>
                                                 <div class="col"><p>${telefone.telefoneRecado}</p></div>
                                             </c:forEach>                                                     
-                                        </div>                                          
-                                        </div>
-                                                                                
-                                    
-                                        <div class="container">
-                                            <div class="row bg-dark mb-3 my-0 pt-2"><h5> Formação </h5></div>
+                                            </div>    
+                                            </c:when>
+                                            <c:otherwise>  
+                                              <div class="alert alert-primary" role="alert">Contatos não cadastrados</div>                                          
+                                            </c:otherwise>
+                                            </c:choose>
                                             
+                                              
+                                              
+                                            <c:choose>
+                                            <c:when test="${empregado.idFormacao == false}">     
+                                            <div class="row bg-dark mb-3 my-0 pt-2"><h5> Formação </h5></div>                                          
                                             <div class="row">
                                                 <div class="col"><h6>Escolaridade</h6></div>
                                                 <div class="col"><h6>Curso</h6></div>
@@ -97,7 +191,7 @@
                                                 <div class="col"><h6>Semestre<h6></div>
                                                 <div class="col"><h6>Data de Inicio<h6></div>
                                                 <div class="col"><h6>Data de Finzalização<h6></div>
-                                            </div>
+                                            </div>                                                        
                                             <c:forEach items="${listaFormacoes}" var="formacao">
                                             <div class="row">                                              
                                                <c:forEach items="${listaDeTipocursos}" var="tipocurso">
@@ -109,30 +203,18 @@
                                                 <div class="col"><p>${formacao.semestre}</p></div>
                                                 <div class="col"><p>${formacao.dtInicio}</p></div>
                                                 <div class="col"><p>${formacao.dtFim}</p></div>
-                                            </c:forEach>                                                                                                                                       
+                                            </c:forEach>                                             
+                                            </c:when>
+                                            <c:otherwise>  
+                                                <div class="alert alert-primary" role="alert"> Formação não cadastrada </div>                                          
+                                            </c:otherwise>
+                                            </c:choose>    
+                                                
                                         </div>
-                                        </div> 
-                                      
-                                        
-                                      
-                                      
-                                       
-                            
-                                    </div>
+                                      </div>
+                                     </div>
                                     <!-- /.card-body -->
 
 
     <jsp:include page="/Templates/footer.jsp"></jsp:include>
     <script>
-        $(function () {
-
-
-            $("#example1").DataTable({
-                "responsive": true,
-                "lengthChange": false,
-                "autoWidth": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        });
-
-    </script>

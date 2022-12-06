@@ -46,7 +46,7 @@
                                             <th>Nome</th>               
                                             <th>Perfil</th>
                                             <th>Status</th>
-                                            <c:if test="${user.idPerfil == 1}"> <th>Ações</th>  </c:if>      
+                                            <c:if test="${user.idPerfil == 1}"> <th>Ações</th></c:if>      
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -58,31 +58,8 @@
                                                     <td>${perf.nome}</td>
                                                 </c:if>
                                             </c:forEach>  
-
-
                                             <td>
-                                                <c:choose>
-                                                    <c:when test="${user.status == 1}">
-                                                        <button class="btn btn-danger btn-sm"
-                                                                onclick="confirmDesativar('${user.idMenu}', '${user.nome}')">
-                                                            Desativar&nbsp;
-                                                            <i class="fas fa-user fa-user-lock"></i>
-                                                        </button>
-
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        <button class="btn btn-success btn-sm"
-                                                                onclick="confirmAtivar('${user.idMenu}', '${user.nome}')">
-                                                            Ativar&nbsp;
-                                                            <i class="fa-solid fa-user-shield"></i>
-                                                        </button>
-
-                                                    </c:otherwise>
-                                                </c:choose>
-                                            </td>
-
-
-
+                                            <td>${user.status}</td>
 
                                     <c:if test="${user.idPerfil == 1}"> <div class="row" >
                                             <td class="d-print-none">
