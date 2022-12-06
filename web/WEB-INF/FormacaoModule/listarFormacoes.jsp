@@ -53,7 +53,7 @@
                                         <th>Semestre</th>
                                         <th>Data Inicio</th>
                                         <th>Data Fim</th>
-                                 
+                                        <th>Status</th>
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
@@ -71,6 +71,8 @@
                                             <td>${formacao.semestre}</td>
                                             <td>${formacao.dtInicio}</td>
                                             <td>${formacao.dtFim}</td>
+                                            <c:if test="${formacao.status <= 1}"> <th class="text-success">Ativado</th></c:if>
+                                            <c:if test="${formacao.status >= 2}"> <th class="text-danger">Desativado</th></c:if>
                                             <td>
                                     <div class="dropdown">
                                         <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -80,21 +82,22 @@
                                                 <div class="dropdown-item">
                                                 <form action="excluirformacao" method="post">
                                                     <input type="hidden" name="idFormacao" value="${formacao.idFormacao}" />
-                                                    <input type="submit" class="btn btn-danger" value="Excluir" />
+                                                    <input type="submit" class="btn btn-light" value="Excluir" />
                                                 </form>
                                                     </div>
                                                     <div class="dropdown-item">
                                                 <form action="alterarformacao" method="get">
                                                     <input type="hidden" name="idFormacao" value="${formacao.idFormacao}" />
-                                                    <input type="submit" class="btn btn-warning" value="Alterar" />
+                                                    <input type="submit" class="btn btn-light" value="Alterar" />
                                                 </form>
                                                     </div>
-                                                    <div class="dropdown-item">
-                                                <form action="ativar" method="get">
-                                                    <input type="hidden" name="idusuario" value="${formacao.idFormacao}" />
-                                                    <input type="submit" class="btn btn-warning" value="Ativar" />
-                                                </form>
-                                                    </div>
+                                                           <div class="dropdown-item">
+                                                           <form action="formacaostatus" method="get">
+                                                          <input type="hidden" name="idFormacao" value="${formacao.idFormacao}" />
+                                                          <c:if test="${formacao.status == 1}"><input type="submit" class="btn btn-danger" value="Desativar" /></c:if>
+                                                           <c:if test="${formacao.status == 2}"><input type="submit" class="btn btn-success" value="Ativar" /></c:if>
+                                                         </form>
+                                                     </div>
                                             </td>
                                         </div>
                                     </div>                

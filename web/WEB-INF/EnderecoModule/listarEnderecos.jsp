@@ -50,6 +50,7 @@
                                         <th>Complemento</th>
                                         <th>Cidade</th>
                                         <th>Status</th>
+                                        <th>Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -59,13 +60,14 @@
                                             <td>${endereco.cep}</td>
                                             <td>${endereco.logradouro}</td>
                                             <td>${endereco.complemento}</td>
-
+                                            
                                             <c:forEach items="${listaDeCidades}" var="cidade">
                                                 <c:if test="${endereco.idCidade == cidade.idCidade}">
                                                     <td>${cidade.nome}</td>
                                                 </c:if>
                                             </c:forEach>         
-
+                                            <c:if test="${endereco.status <= 1}"> <th class="text-success">Ativado</th></c:if>
+                                            <c:if test="${endereco.status >= 2}"> <th class="text-danger">Desativado</th></c:if>        
                                     <div class="row" >
                                         <td>
                                             <div class="dropdown">
@@ -93,10 +95,16 @@
                                                             <input type="submit" class="btn btn-warning" value="Ativar" />
                                                         </form>
                                                     </div>        
+                                                     <div class="dropdown-item">
+                                                        <form action="enderecostatus" method="get">
+                                                                    <input type="hidden" name="idEmpregado" value="${endereco.idEndereco}" />
+                                                                    <c:if test="${endereco.status == 1}"><input type="submit" class="btn btn-danger" value="Desativar" /></c:if>
+                                                                    <c:if test="${endereco.status == 2}"><input type="submit" class="btn btn-success" value="Ativar" /></c:if>
+                                                        </form>
+                                                     </div>        
 
-
-                                                    </td>
-                                                </div>
+                                       </td>
+                                     </div>
                                                 </tr>
                                             </c:forEach>
                                             </tbody>

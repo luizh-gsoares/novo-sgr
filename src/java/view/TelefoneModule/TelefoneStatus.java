@@ -27,10 +27,10 @@ public class TelefoneStatus extends HttpServlet {
 
         if (t.getStatus() == 2) {
             tDao.ativar(t);
-            response.sendRedirect("listarformacoes");
+            response.sendRedirect("listartelefones");
         } else if (t.getStatus() == 1) {
             tDao.desativar(t);
-            response.sendRedirect("listarformacoes");
+            response.sendRedirect("listartelefones");
         } else {
             //enviar um atributo msg de erro
             request.setAttribute("erro", "Erro ao alterar");
