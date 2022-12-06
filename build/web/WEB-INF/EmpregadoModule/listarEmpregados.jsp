@@ -107,17 +107,17 @@
                                                             <div class="dropdown-item">
                                                                 <form action="empregadostatus" method="get">
                                                                     <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
-                                                                    <c:if test="${empregado.status == 1}"><input type="submit" class="btn btn-success" value="Ativar" /></c:if>
+                                                                    <c:if test="${empregado.status == 1}"><input type="submit" class="btn btn-danger" value="Desativar" /></c:if>
                                                                     <c:if test="${empregado.status == 2}"><input type="submit" class="btn btn-success" value="Ativar" /></c:if>
                                                                 </form>
                                                             </div>
                                                                 
-                                                        <div class="dropdown-item">
+                                                      <!--  <div class="dropdown-item">
                                                             <form action="excluirempregado" method="post" class="me-4">
                                                                 <input type="hidden" name="idEmpregado" value="${empregado.idEmpregado}" />
                                                                 <input type="submit" class="btn btn-danger" value="Excluir" />
                                                             </form>
-                                                        </div>
+                                                        </div> -->
 
                                                     </div>
                                                 </div>

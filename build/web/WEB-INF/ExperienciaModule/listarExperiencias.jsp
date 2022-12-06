@@ -55,7 +55,7 @@
                                         <th>CRE</th>
                                         <th>Data de Entrada</th>
                                         <th>Data de Saida</th>
-                                       
+                                        <th>Status</th>
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
@@ -81,6 +81,8 @@
                                             <td>${experiencia.cre}</td>
                                             <td>${experiencia.dtEntrada}</td>
                                             <td>${experiencia.dtSaida}</td>
+                                            <c:if test="${experiencia.status <= 1}"> <th class="text-success">Ativado</th></c:if>
+                                            <c:if test="${experiencia.status >= 2}"> <th class="text-danger">Desativado</th></c:if>
                                             <td>
                                                 <div class="dropdown">
                                                     <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -89,21 +91,18 @@
                                                         <div class="dropdown-item">    
                                                             <form action="excluirexperiencia" method="post">
                                                                 <input type="hidden" name="idExperiencia" value="${experiencia.idExperiencia}" />
-                                                                <button type="submit" class="btn btn-danger" > Excluir <i class="fa-solid fa-trash"></i> </button>
+                                                                <button type="submit" class="btn btn-danger" > Excluir </button>
                                                             </form>
-                                                        </div>        
-                                                        <form action="alterarexperiencia" method="get">
-                                                            <div class="dropdown-item">
-                                                                <input type="hidden" name="idExperiencia" value="${experiencia.idExperiencia}" />
-                                                                <button type="submit" class="btn btn-warning" > Alterar <i class="fa-solid fa-pen-to-square"></i> </button>
-                                                        </form>
+                                                        </div>                                                          
+                                                        <div class="dropdown-item">
+                                                             <form action="experienciastatus" method="get">
+                                                                    <input type="hidden" name="idExperiencia" value="${experiencia.idExperiencia}" />
+                                                                    <c:if test="${experiencia.status == 1}"><input type="submit" class="btn btn-danger" value="Desativar" /></c:if>
+                                                                    <c:if test="${experiencia.status == 2}"><input type="submit" class="btn btn-success" value="Ativar" /></c:if>
+                                                             </form>
+                                                        </div>                                                                                                    
                                                     </div>
-                                                    <div class="dropdown-item">
-                                                        <form action="ativar" method="get">
-                                                            <input type="hidden" name="idusuario" value="${experiencia.idExperiencia}" />
-                                                            <input type="submit" class="btn btn-warning" value="Ativar" />
-                                                        </form>
-                                                    </div>
+                                                </div>
                                             </td>
                                         </tr>
                                     </c:forEach>

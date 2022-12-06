@@ -27,10 +27,10 @@ public class UsuarioStatus extends HttpServlet {
 
         if (u.getStatus() == 2) {
             uDao.ativar(u);
-            response.sendRedirect("listarenderecos");
+            response.sendRedirect("listarusuarios");
         } else if (u.getStatus() == 1) {
             uDao.desativar(u);
-            response.sendRedirect("listarenderecos");
+            response.sendRedirect("listarusuarios");
         } else {
             //enviar um atributo msg de erro
             request.setAttribute("erro", "Erro ao alterar");

@@ -69,35 +69,43 @@
                                             <td>${telefone.telefoneResidencial}</td>
                                             <td>${telefone.telefoneCelular}</td>
                                             <td>${telefone.telefoneRecado}</td>
+                                            <c:if test="${telefone.status <= 1}"> <th class="text-success">Ativado</th></c:if>
+                                            <c:if test="${telefone.status >= 2}"> <th class="text-danger">Desativado</th></c:if> 
                                     <div class="form-group row" >
+                                        
                                         <td>
+                                            <div class="dropdown">
+                                                <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Ações
+                                                </a> 
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">                                            
+                                            <div class="dropdown-item">    
                                             <form action="excluirtelefone" method="post">
                                                 <input type="hidden" name="idTelefone" value="${telefone.idTelefone}" />
                                                 <button type="submit" class="btn btn-danger" > Excluir <i class="fa-solid fa-trash"></i> </button>
                                             </form>
+                                            </div>    
+                                            <div class="dropdown-item">    
                                             <form action="alterartelefone" method="get">
                                                 <input type="hidden" name="idTelefone" value="${telefone.idTelefone}" />
                                                 <button type="submit" class="btn btn-warning" > Alterar <i class="fa-solid fa-pen-to-square"></i> </button>
                                             </form>
-                                                 <form action="ativar" method="get">
-                                                    <input type="hidden" name="idusuario" value="${telefone.idTelefone}" />
-                                                    <input type="submit" class="btn btn-warning" value="Ativar" />
-                                                </form>
+                                            </div>
+                                            <div class="dropdown-item">    
+                                                     <div class="dropdown-item">
+                                                        <form action="telefonestatus" method="get">
+                                                                    <input type="hidden" name="idTelefone" value="${telefone.idTelefone}" />
+                                                                    <c:if test="${telefone.status == 1}"><input type="submit" class="btn btn-danger" value="Desativar" /></c:if>
+                                                                    <c:if test="${telefone.status == 2}"><input type="submit" class="btn btn-success" value="Ativar" /></c:if>
+                                                        </form>
+                                                     </div>                                                
+                                            </div>    
+                                            </div>    
                                         </td>
                                     </div>
                                     </tr>
                                 </c:forEach>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Funcionário</th>
-                                        <th>Telefone Residencial</th>
-                                        <th>Telefone Celular</th>
-                                        <th>Telefone Recado</th>
-                                        <th>Ação</th>
-                                    </tr>
-                                </tfoot>
+                                
                             </table>
                         </div>
                         <!-- /.card-body -->

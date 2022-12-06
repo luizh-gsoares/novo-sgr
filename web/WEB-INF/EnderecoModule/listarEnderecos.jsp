@@ -89,15 +89,10 @@
                                                             <input type="submit" class="btn btn-warning" value="Alterar" />
                                                         </form>
                                                     </div>            
-                                                    <div class="dropdown-item">
-                                                        <form action="ativar" method="get">
-                                                            <input type="hidden" name="idusuario" value="${endereco.idEndereco}" />
-                                                            <input type="submit" class="btn btn-warning" value="Ativar" />
-                                                        </form>
-                                                    </div>        
+       
                                                      <div class="dropdown-item">
                                                         <form action="enderecostatus" method="get">
-                                                                    <input type="hidden" name="idEmpregado" value="${endereco.idEndereco}" />
+                                                                    <input type="hidden" name="idEndereco" value="${endereco.idEndereco}" />
                                                                     <c:if test="${endereco.status == 1}"><input type="submit" class="btn btn-danger" value="Desativar" /></c:if>
                                                                     <c:if test="${endereco.status == 2}"><input type="submit" class="btn btn-success" value="Ativar" /></c:if>
                                                         </form>

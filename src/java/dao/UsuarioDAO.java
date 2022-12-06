@@ -197,7 +197,7 @@ public class UsuarioDAO {
     }
 
     public boolean ativar(Usuario u) {
-        String sql = "UPDATE usuario SET status = 1 WHERE idUsuario = ?";
+        String sql = "UPDATE usuarios SET status = 1 WHERE idUsuario = ?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = DbConnect.getConexao().prepareStatement(sql);
@@ -211,7 +211,7 @@ public class UsuarioDAO {
     }
 
     public boolean desativar(Usuario u) {
-        String sql = "UPDATE usuario SET status = 2 WHERE idUsuario = ?";
+        String sql = "UPDATE usuarios SET status = 2 WHERE idUsuario = ?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = DbConnect.getConexao().prepareStatement(sql);
