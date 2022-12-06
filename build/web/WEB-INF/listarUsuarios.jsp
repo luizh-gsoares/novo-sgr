@@ -61,7 +61,7 @@
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 <div class="dropdown-item">    
                                                 <form action="excluirusuario" method="post">
-                                                    <input type="hidden" name="idusuario" value="${user.idUsuario}" />
+                                                    <input type="hidden" name="idUsuario" value="${user.idUsuario}" />
                                                     <input type="submit" class="btn btn-danger" value="Excluir" />
                                                 </form>
                                                 <div class="dropdown-item">  

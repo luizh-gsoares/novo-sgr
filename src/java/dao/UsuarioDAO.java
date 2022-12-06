@@ -48,12 +48,12 @@ public class UsuarioDAO {
         }
     }
 
-    public boolean excluiUsuario(String toDelete) {
-        String insertTableSQL = "DELETE FROM usuarios WHERE login = ? ; ";
+    public boolean excluiUsuario(Integer toDelete) {
+        String insertTableSQL = "DELETE FROM usuarios WHERE idUsuario = ? ; ";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = DbConnect.getConexao().prepareStatement(insertTableSQL);
-            preparedStatement.setString(1, toDelete);
+            preparedStatement.setInt(1, toDelete);
             preparedStatement.executeUpdate();
             return true;
         } catch (SQLException e) {

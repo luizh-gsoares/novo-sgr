@@ -178,17 +178,17 @@
             <div class="row d-flex justify-content-between">
                 <div class="col-md-4 mb-3">
                     <label class="form-label" for="form6Example1" required>Nome do Cônjugue</label>
-                    <input required type="text" placeholder="Nome do Cônjulgue" id="form6Example1" class="form-control"
-                           id="validationCustom01" name="nomeConjugue" required/>
+                    <input type="text" placeholder="Nome do Cônjulgue" id="form6Example1" class="form-control"
+                           id="validationCustom01" name="nomeConjugue"/>
                 </div>
                 <div class="col-md-4 mb-3">
                     <label class="form-label" for="form6Example1" required>Nome do Pai</label>
-                    <input required type="text" id="form6Example1" class="form-control" id="validationCustom01" name="nomePai"
+                    <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="nomePai"
                            placeholder="Nome do Pai" c />
                 </div>
                 <div class="col-md-4 mb-3">
                     <label class="form-label" for="form6Example1" required>Nome da Mãe</label>
-                    <input required type="text" id="form6Example1" class="form-control" id="validationCustom01" name="nomeMae"
+                    <input type="text" id="form6Example1" class="form-control" id="validationCustom01" name="nomeMae"
                            placeholder="Nome da Mãe" />
                 </div>
         </fieldset>
